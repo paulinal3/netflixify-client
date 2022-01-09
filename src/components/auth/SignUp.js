@@ -5,19 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { signUp, signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Form, FloatingLabel, Button } from 'react-bootstrap'
 
 const SignUp = (props) => {
-	// constructor(props) {
-	// 	super(props)
-
-	// 	this.state = {
-	// 		email: '',
-	// 		password: '',
-	// 		passwordConfirmation: '',
-	// 	}
-	// }    
+ 
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -60,43 +53,85 @@ const SignUp = (props) => {
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
-                    <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            required
-                            type='email'
-                            name='email'
-                            value={email}
-                            placeholder='Enter email'
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            required
-                            name='password'
-                            value={password}
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label>Password Confirmation</Form.Label>
-                        <Form.Control
-                            required
-                            name='passwordConfirmation'
-                            value={passwordConfirmation}
-                            type='password'
-                            placeholder='Confirm Password'
-                            onChange={e => setPasswordConfirmation(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
-                    </Button>
-                </Form>
+                        {/* <----- FIRST NAME -----> */}
+                        <FloatingLabel
+                            controlId='floatingInput'
+                            label='First name'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                type='firstName'
+                                name='firstName'
+                                value={firstName}
+                                placeholder='First name'
+                                onChange={e => setFirstName(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        {/* <----- LAST NAME -----> */}
+                        <FloatingLabel
+                            controlId='floatingInput'
+                            label='Last name'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                type='lastName'
+                                name='lastName'
+                                value={lastName}
+                                placeholder='Enter last name'
+                                onChange={e => setLastName(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        {/* <----- EMAIL -----> */}
+                        <FloatingLabel
+                            controlId='floatingInput'
+                            label='Email address'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                type='email'
+                                name='email'
+                                value={email}
+                                placeholder='Enter email'
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        {/* <----- PASSWORD -----> */}
+                        <FloatingLabel
+                            controlId='floatingPassword'
+                            label='Password'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                name='password'
+                                value={password}
+                                type='password'
+                                placeholder='Password'
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        {/* <----- PASSWORD CONFIRMATION -----> */}
+                        <FloatingLabel
+                            controlId='floatingPassword'
+                            label='Confirm password'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                name='passwordConfirmation'
+                                value={passwordConfirmation}
+                                type='password'
+                                placeholder='Confirm Password'
+                                onChange={e => setPasswordConfirmation(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        <Button id='signUpBtn' variant='primary' type='submit'>
+                            Sign Up
+                        </Button>
+                    </Form>
             </div>
         </div>
     )
