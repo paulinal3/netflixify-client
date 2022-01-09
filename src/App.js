@@ -12,6 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import Profile from './components/profile/Profile'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
@@ -44,6 +45,7 @@ const App = () => {
 		<Fragment>
 			<Header user={user} />
 			<Routes>
+				{/* <---------- USER ROUTES ----------> */}
 				<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route
 					path='/sign-up'
@@ -67,6 +69,14 @@ const App = () => {
 						<RequireAuth user={user}>
 							<ChangePassword msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+				/>
+				<Route
+					path='/profile'
+					element={
+						<RequireAuth user={user}>
+							<Profile user={user} />
+						</RequireAuth>
+					}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
