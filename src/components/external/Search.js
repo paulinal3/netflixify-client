@@ -31,6 +31,13 @@ export default function Search(props) {
         return (
             <li key={res.netflixid}>
                 <img src={res.image} />
+                <button>Watched</button>
+                <form>
+                    <label>Add to Playlist:</label>
+                    <select>
+                        
+                    </select>
+                </form>
             </li>
         )
     })
