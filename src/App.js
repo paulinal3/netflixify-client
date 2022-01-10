@@ -15,7 +15,8 @@ import ChangePassword from './components/auth/ChangePassword'
 import Profile from './components/profile/Profile'
 import Search from './components/external/Search'
 
-import { getNetflixVideos, getSearchTermRes } from './api/external'
+// import { getNetflixVideos, getSearchTermRes } from './api/external'
+// import { getPlaylists } from './api/playlist'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
@@ -43,6 +44,17 @@ const App = () => {
 			)
 		})
 	}
+
+	// <---------- EXTERNAL API STATES & HELPER METHODS ----------> //
+	// const [playlists, setPlaylist] = useState([])
+
+	// useEffect(() => {
+	// 	getPlaylists(user)
+	// 	.then(foundPlaylists => {
+	// 		console.log(`these are all the current user's playlists \n`, foundPlaylists)
+	// 	})
+	// 	.catch(err => console.error)
+	// }, [])
 
 	// <---------- EXTERNAL API STATES & HELPER METHODS ----------> //
 	const [netflixVids, setNetflixVids] = useState([])

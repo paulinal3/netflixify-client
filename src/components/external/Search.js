@@ -4,6 +4,7 @@ import { getSearchTermRes } from '../../api/external'
 
 export default function Search(props) {
     const [searchTerm, setSearchTerm] = useState('')
+    const [searchRes, setSearchRes] = useState([])
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
     //         <li>
@@ -20,12 +21,19 @@ export default function Search(props) {
         e.preventDefault()
         getSearchTermRes(searchTerm)
             .then(videos => {
-                console.log('thesea re the videos based on search term\n', videos)
+                console.log(`these are the videos based on search term: ${searchTerm}\n`, videos)
+                setSearchRes(videos.data.ITEMS)
             })
             .catch(err => console.error)
     }
 
-    // const searchRes = props.
+    const allSearchRes = searchRes.map(res => {
+        return (
+            <li key={res.netflixid}>
+                <img src={res.image} />
+            </li>
+        )
+    })
 
     return (
         <div>
@@ -42,6 +50,7 @@ export default function Search(props) {
                 />
                 <button>Search</button>
             </form>
+            <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
         </div>
     )
