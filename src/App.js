@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -13,6 +13,9 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import Profile from './components/profile/Profile'
+import Search from './components/external/Search'
+
+import { getNetflixVideos, getSearchTermRes } from './api/external'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
@@ -40,6 +43,26 @@ const App = () => {
 			)
 		})
 	}
+
+	// <---------- EXTERNAL API STATES & HELPER METHODS ----------> //
+	const [netflixVids, setNetflixVids] = useState([])
+
+	// useEffect(() => {
+	// 	getNetflixVideos()
+	// 		.then(videos => {
+	// 			console.log('these are all the videos on US Netflix\n', videos.data)
+	// 			setNetflixVids(videos.data.ITEMS)
+	// 		})
+	// 		.catch(err => console.error)
+	// }, [])
+
+	// const searchTermVids = () => {
+	// 	getSearchTermRes()
+	// 		.then(videos => {
+	// 			console.log('thesea re the videos based on search term\n', videos)
+	// 		})
+	// 		.catch(err => console.error)
+	// }
 
 	return (
 		<Fragment>
@@ -77,6 +100,10 @@ const App = () => {
 							<Profile user={user} />
 						</RequireAuth>
 					}
+				/>
+				<Route
+					path='/search'
+					element={ <Search netflixVids={netflixVids} /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
