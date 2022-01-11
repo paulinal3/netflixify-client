@@ -55,7 +55,7 @@ export const postVideo = (user, playlistId, vidData) => {
     })
 }
 
-export const updateVideo = (user, videoId) => {
+export const updateVideo = (user, videoId, watchedStatus) => {
     return axios({
         method: 'PATCH',
         url: `${apiUrl}/videos/${videoId}`,
@@ -64,7 +64,7 @@ export const updateVideo = (user, videoId) => {
         },
         data: {
             video: {
-                watched: true
+                watched: !watchedStatus
             }
         }
     })
