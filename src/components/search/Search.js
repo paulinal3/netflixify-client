@@ -15,12 +15,15 @@ export default function Search(props) {
     //     )
     // })
 
+    // helper method to
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value)
     }
 
+    // helper method to find netflix shows based on search term
     const searchTermVids = (e) => {
         e.preventDefault()
+        // axios call to external api
         getSearchTermRes(searchTerm)
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
@@ -29,8 +32,10 @@ export default function Search(props) {
             .catch(err => console.error)
     }
 
+    // map through all videos found in state
     const allSearchRes = searchRes.map(res => {
         return (
+            // and pass to IndexSearchRes as a prop
             <IndexSearchRes
                 res={res} 
                 netflixid={res.netflixid} 
