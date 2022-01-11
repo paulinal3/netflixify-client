@@ -23,7 +23,7 @@ export const getOnePlaylist = (user, playlistId) => {
 
 export const postPlaylist = (user, newPlaylist) => {
     return axios({
-        method: 'GET',
+        method: 'POST',
         url: `${apiUrl}/playlists`,
         headers: {
             Authorization: `Token token=${user.token}`
@@ -38,7 +38,7 @@ export const postPlaylist = (user, newPlaylist) => {
 
 export const updatePlaylist = (user, playlistId, changePlaylist) => {
     return axios({
-        method: 'POST',
+        method: 'PATCH',
         url: `${apiUrl}/playlists/${playlistId}`,
         headers: {
             Authorization: `Token token=${user.token}`

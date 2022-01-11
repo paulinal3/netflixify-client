@@ -12,7 +12,7 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import Profile from './components/profile/Profile'
+import Profile from './components/profile-playlist/profile/Profile'
 import Search from './components/external/Search'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
@@ -46,13 +46,13 @@ const App = () => {
 	}
 
 	// <---------- PLAYLIST STATES & HELPER METHODS ----------> //
-	const [playlists, setPlaylist] = useState([])
+	const [playlists, setPlaylists] = useState([])
 
-	const refreshPlaylists = () => {
+	const getAllPlaylists = () => {
 		getPlaylists(user)
 		.then(foundPlaylists => {
 			console.log(`these are all the current user's playlists \n`, foundPlaylists)
-			setPlaylist(foundPlaylists.data.foundPlaylists)
+			setPlaylists(foundPlaylists.data.foundPlaylists)
 		})
 		.catch(err => console.error)
 	}
@@ -110,13 +110,17 @@ const App = () => {
 					path='/profile'
 					element={
 						<RequireAuth user={user}>
-							<Profile user={user} />
+							<Profile user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} setPlaylists={setPlaylists} />
 						</RequireAuth>
 					}
 				/>
 				<Route
 					path='/search'
-					element={ <Search netflixVids={netflixVids} /> }
+					element={ <Search user={user} /> }
+				/>
+				<Route
+					path='/playlists'
+					element={ <Search /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
