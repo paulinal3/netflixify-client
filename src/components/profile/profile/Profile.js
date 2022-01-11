@@ -7,7 +7,7 @@ import NewPlaylist from "./playlist/NewPlaylist"
 
 export default function Profile(props) {
 
-    // const [playlists, setPlaylists] = useState([])
+    const [playlist, setPlaylist] = useState([])
     const [modalShow, setModalShow] = useState(false)
 
     useEffect(() => {
@@ -19,9 +19,14 @@ export default function Profile(props) {
             .catch(err => console.error)
     }, [])
 
+    const playlistClicked = (e) => {
+        console.log('this playlist id was selected:\n', e.target)
+        setPlaylist(e.target.value)
+    }
+
     const allPlaylists = props.playlists.map(p => {
         return (
-            <IndexPlaylist playlist={p} />
+            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
         )
     })
 

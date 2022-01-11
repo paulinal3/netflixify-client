@@ -14,10 +14,10 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import Profile from './components/profile/profile/Profile'
 import Search from './components/search/Search'
+import ShowPlaylist from './components/profile/profile/playlist/Show/ShowPlaylist'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
-import ShowPlaylist from './components/profile/profile/playlist/Show/ShowPlaylist'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
