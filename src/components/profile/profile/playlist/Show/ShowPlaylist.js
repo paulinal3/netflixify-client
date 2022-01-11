@@ -20,9 +20,18 @@ export default function ShowPlaylist(props) {
             .catch(err => console.error)
     }, [])
 
+    const getPlaylistVids = playlist.videos.map(v => {
+        return (
+            <li>
+                <img src={v.largeimage} />
+            </li>
+        )
+    })
+
     return (
         <div>
             <h1>{playlist.title}</h1>
+            <ol>{getPlaylistVids}</ol>
         </div>
     )
 }
