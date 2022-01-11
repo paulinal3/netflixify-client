@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
+import { Button, Form } from "react-bootstrap"
 
-import { getOnePlaylist } from "../../../../../api/playlist"
+import { getOnePlaylist, updatePlaylist } from "../../../../../api/playlist"
 import IndexVideos from "./IndexVideos"
 
 export default function ShowPlaylist(props) {
 
     const [playlist, setPlaylist] = useState({})
     const [playlistVids, setPlaylistVids] = useState([])
+    const [playlistTitle, setPlaylistTitle] = useState('')
 
     // grab the current url pattern
     const { pathname } = useLocation()
@@ -24,9 +26,22 @@ export default function ShowPlaylist(props) {
                 // set the found playlist to state
                 setPlaylist(foundPlaylist.data.playlist)
                 setPlaylistVids(foundPlaylist.data.playlist.videos)
+                setPlaylistTitle(foundPlaylist.data.playlist.title)
             })
             .catch(err => console.error)
     }, [])
+
+    const refreshPlaylist = () => {
+        // axios call to find the selected playlist in the db
+        getOnePlaylist(props.user, playlistId)
+            .then(foundPlaylist => {
+                console.log('this is the found playlist\n', foundPlaylist.data.playlist)
+                // set the found playlist to state
+                setPlaylist(foundPlaylist.data.playlist)
+                setPlaylistVids(foundPlaylist.data.playlist.videos)
+            })
+            .catch(err => console.error)
+    }
 
     // map over all the videos in the selected playlist state
     // const getPlaylistVids = playlist.videos.map(v => {
@@ -44,13 +59,31 @@ export default function ShowPlaylist(props) {
     const getPlaylistVids = playlistVids.map(v => {
         return (
             // and pass a prop to IndexVideos
-            <IndexVideos playlistVids={v} />
+            <IndexVideos playlistVids={v} currentUser={props.user} refreshPlaylist={refreshPlaylist} />
         )
     })
+
+    const handleTitleChange = (e) => {
+        setPlaylistTitle(e.target.value)
+    }
+
+    const editPlaylist = () => {
+        updatePlaylist(props.user, playlistId, playlistTitle)
+            .then(() => {
+                refreshPlaylist()
+                setPlaylistTitle(playlistTitle)
+            })
+    }
 
     return (
         <div>
             <h1>{playlist.title}</h1>
+            <Button>Edit Playlist</Button>
+            <Form>
+                <Form.Control value={playlistTitle} onChange={handleTitleChange} />
+                <Button onClick={editPlaylist}>Save</Button>
+                <Button>Delete Playlist</Button>
+            </Form>
             <ol>{getPlaylistVids}</ol>
         </div>
     )
