@@ -10,6 +10,7 @@ export default function ShowPlaylist(props) {
     const [playlist, setPlaylist] = useState({})
     const [playlistVids, setPlaylistVids] = useState([])
     const [playlistTitle, setPlaylistTitle] = useState('')
+    const [title, setTitle] = useState(true)
 
     // grab the current url pattern
     const { pathname } = useLocation()
@@ -60,23 +61,28 @@ export default function ShowPlaylist(props) {
         setPlaylistTitle(e.target.value)
     }
 
+    const displayEdit = (e) => {
+        setTitle(false)
+    }
+
     const editPlaylist = () => {
         updatePlaylist(props.user, playlistId, playlistTitle)
             .then(() => {
                 refreshPlaylist()
                 setPlaylistTitle(playlistTitle)
+                setTitle(true)
             })
     }
 
     const navigate = useNavigate()
-    
+
     const deletePlaylist = () => {
         destroyPlaylist(props.user, playlistId)
-        // .then(() => {
-        //     props.getAllPlaylists()
-        // })
-        .then(() => navigate('/profile'))
-        .catch(err => console.error)
+            // .then(() => {
+            //     props.getAllPlaylists()
+            // })
+            .then(() => navigate('/profile'))
+            .catch(err => console.error)
     }
 
     const getPlaylistVids = playlistVids.map(v => {
@@ -86,15 +92,24 @@ export default function ShowPlaylist(props) {
         )
     })
 
-    return (
+    const displayTitle = title === true ? (
         <div>
             <h1>{playlist.title}</h1>
-            <Button>Edit Playlist</Button>
-            <Form>
-                <Form.Control value={playlistTitle} onChange={handleTitleChange} />
-                <Button onClick={editPlaylist}>Save</Button>
-                <Button onClick={deletePlaylist}>Delete Playlist</Button>
-            </Form>
+            <Button onClick={displayEdit}>Edit Playlist</Button>
+        </div> 
+        ) : (
+        <Form>
+            <Form.Control value={playlistTitle} onChange={handleTitleChange} />
+            <Button onClick={editPlaylist}>Save</Button>
+            <Button onClick={deletePlaylist}>Delete Playlist</Button>
+        </Form>
+    )
+
+    return (
+        <div>
+            <h1>
+                {displayTitle}
+            </h1>
             <ol>{getPlaylistVids}</ol>
         </div>
     )

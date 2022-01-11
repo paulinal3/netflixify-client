@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { destroyVideo } from "../../../../../api/video"
+import { destroyVideo, updateVideo } from "../../../../../api/video"
 
 export default function IndexVideos(props) {
 
@@ -9,6 +9,12 @@ export default function IndexVideos(props) {
     const videoClicked = (e) => {
         console.log('this is the selected vid id:', e.target.value)
         setSelectedVid(e.target.value)
+    }
+
+    const editVideo = (e) => {
+        videoClicked(e)
+        updateVideo(props.currentUser, selectedVid)
+        .catch(err => console.error)
     }
 
     const deleteVideo = (e) => {
@@ -26,6 +32,7 @@ export default function IndexVideos(props) {
                 <img src={props.playlistVids.largeimage} />
                 <Form>
                     <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button>
+                    <Button value={props.playlistVids._id} onClick={editVideo}>Mark as Watched</Button>
                 </Form>
                 <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`}target='_blank' rel='noopener noreferrer'>Watch Now</a>
             </li>
