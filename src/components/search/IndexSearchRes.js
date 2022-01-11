@@ -1,4 +1,5 @@
 import React from 'react'
+import PostSearchRes from './PostSearchRes'
 
 export default function IndexSearchRes(props) {
     return (
@@ -6,12 +7,7 @@ export default function IndexSearchRes(props) {
             <li key={props.key}>
                 <img src={props.res.image} />
                 <button>Watched</button>
-                <form>
-                    <label>Add to Playlist:</label>
-                    <select>
-
-                    </select>
-                </form>
+                <PostSearchRes indexPlaylists={props.allPlaylists} />
             </li>
         </div>
     )

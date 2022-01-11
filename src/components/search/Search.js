@@ -20,7 +20,6 @@ export default function Search(props) {
     }
 
     const searchTermVids = (e) => {
-        // console.log(e)
         e.preventDefault()
         getSearchTermRes(searchTerm)
             .then(videos => {
@@ -32,7 +31,7 @@ export default function Search(props) {
 
     const allSearchRes = searchRes.map(res => {
         return (
-            <IndexSearchRes res={res} key={res.netflixid} />
+            <IndexSearchRes res={res} key={res.netflixid} allPlaylists={props.playlists} />
         )
     })
 

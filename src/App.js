@@ -116,7 +116,7 @@ const App = () => {
 				/>
 				<Route
 					path='/search'
-					element={ <Search user={user} /> }
+					element={ <Search user={user} playlists={playlists} /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
