@@ -1,7 +1,9 @@
-export default function IndexPlaylist() {
+import { Link } from "react-router-dom"
+
+export default function IndexPlaylist(props) {
     return (
-        <div>
-            
-        </div>
+        <li key={props.playlist.title}>
+            <Link to={`/playlists/${props.playlist._id}`}>{props.playlist.title}</Link>
+        </li>
     )
 }

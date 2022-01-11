@@ -17,6 +17,7 @@ import Search from './components/search/Search'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
+import ShowPlaylist from './components/profile/profile/playlist/Show/ShowPlaylist'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
@@ -117,6 +118,10 @@ const App = () => {
 				<Route
 					path='/search'
 					element={ <Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
+				/>
+				<Route
+					path='/playlists/:id'
+					element={ <ShowPlaylist user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
