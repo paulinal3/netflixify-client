@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Button, Form } from "react-bootstrap"
 
-import { getOnePlaylist, updatePlaylist } from "../../../../../api/playlist"
+import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../../../../api/playlist"
 import IndexVideos from "./IndexVideos"
 
 export default function ShowPlaylist(props) {
@@ -56,13 +56,6 @@ export default function ShowPlaylist(props) {
     //     )
     // })
 
-    const getPlaylistVids = playlistVids.map(v => {
-        return (
-            // and pass a prop to IndexVideos
-            <IndexVideos playlistVids={v} currentUser={props.user} refreshPlaylist={refreshPlaylist} />
-        )
-    })
-
     const handleTitleChange = (e) => {
         setPlaylistTitle(e.target.value)
     }
@@ -75,6 +68,24 @@ export default function ShowPlaylist(props) {
             })
     }
 
+    const navigate = useNavigate()
+    
+    const deletePlaylist = () => {
+        destroyPlaylist(props.user, playlistId)
+        // .then(() => {
+        //     props.getAllPlaylists()
+        // })
+        .then(() => navigate('/profile'))
+        .catch(err => console.error)
+    }
+
+    const getPlaylistVids = playlistVids.map(v => {
+        return (
+            // and pass a prop to IndexVideos
+            <IndexVideos playlistVids={v} currentUser={props.user} refreshPlaylist={refreshPlaylist} />
+        )
+    })
+
     return (
         <div>
             <h1>{playlist.title}</h1>
@@ -82,7 +93,7 @@ export default function ShowPlaylist(props) {
             <Form>
                 <Form.Control value={playlistTitle} onChange={handleTitleChange} />
                 <Button onClick={editPlaylist}>Save</Button>
-                <Button>Delete Playlist</Button>
+                <Button onClick={deletePlaylist}>Delete Playlist</Button>
             </Form>
             <ol>{getPlaylistVids}</ol>
         </div>

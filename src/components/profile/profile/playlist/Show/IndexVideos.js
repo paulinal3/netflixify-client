@@ -27,6 +27,7 @@ export default function IndexVideos(props) {
                 <Form>
                     <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button>
                 </Form>
+                <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`}target='_blank' rel='noopener noreferrer'>Watch Now</a>
             </li>
         </div>
     )

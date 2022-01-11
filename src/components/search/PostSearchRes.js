@@ -11,14 +11,6 @@ export default function PostSearchRes(props) {
         setPlaylist(e.target.value)
     }
 
-    const allPlaylists = props.indexPlaylists.map(p => {
-        return(
-            <option key={p.title} value={p._id}>
-                {p.title}
-            </option>
-        )
-    })
-
     const postVideoToPlaylist = (e) => {
         e.preventDefault()
         console.log('this is the playlist id:', props.indexPlaylists)
@@ -29,6 +21,14 @@ export default function PostSearchRes(props) {
             })
             .catch(err => console.error)
     }
+
+    const allPlaylists = props.indexPlaylists.map(p => {
+        return(
+            <option key={p.title} value={p._id}>
+                {p.title}
+            </option>
+        )
+    })
     
     return (
         <Form onSubmit={postVideoToPlaylist}>
