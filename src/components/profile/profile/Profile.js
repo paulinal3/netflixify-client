@@ -29,9 +29,10 @@ export default function Profile(props) {
         setPlaylist(e.target.value)
     }
 
-    // map through the playlists in state and pass them as a prop to IndexPlaylist
+    // map through the playlists in state
     const allPlaylists = props.playlists.map(p => {
         return (
+            // and pass them as a prop to IndexPlaylist
             <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
         )
     })
