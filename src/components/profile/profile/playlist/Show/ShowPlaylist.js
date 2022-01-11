@@ -61,12 +61,17 @@ export default function ShowPlaylist(props) {
         setPlaylistTitle(e.target.value)
     }
 
+    // helper method that listens for when edit button is clicked
     const displayEdit = (e) => {
+        // if clicked, it changes title state to false to display edit/delete
         setTitle(false)
     }
 
+    // helper method to edit the playlist title
     const editPlaylist = () => {
+        // axios call
         updatePlaylist(props.user, playlistId, playlistTitle)
+            // refresh playlist call and set title back to true to display new title
             .then(() => {
                 refreshPlaylist()
                 setPlaylistTitle(playlistTitle)
@@ -75,16 +80,16 @@ export default function ShowPlaylist(props) {
     }
 
     const navigate = useNavigate()
-
+    // helper method to delete the playlist
     const deletePlaylist = () => {
+        // axios call
         destroyPlaylist(props.user, playlistId)
-            // .then(() => {
-            //     props.getAllPlaylists()
-            // })
+            // redirect back to profile
             .then(() => navigate('/profile'))
             .catch(err => console.error)
     }
 
+    // map over all videos in specified playlist
     const getPlaylistVids = playlistVids.map(v => {
         return (
             // and pass a prop to IndexVideos
@@ -92,12 +97,15 @@ export default function ShowPlaylist(props) {
         )
     })
 
+    // conditional for what should be displayed
     const displayTitle = title === true ? (
+        // if true, display title and edit button
         <div>
             <h1>{playlist.title}</h1>
             <Button onClick={displayEdit}>Edit Playlist</Button>
         </div> 
         ) : (
+        // if false, display text to edit title and save/delete buttons
         <Form>
             <Form.Control value={playlistTitle} onChange={handleTitleChange} />
             <Button onClick={editPlaylist}>Save</Button>
