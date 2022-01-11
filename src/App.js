@@ -115,10 +115,12 @@ const App = () => {
 						</RequireAuth>
 					}
 				/>
+				{/* <---------- SEARCH ROUTES ----------> */}
 				<Route
 					path='/search'
 					element={ <Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
 				/>
+				{/* <---------- PLAYLIST ROUTES ----------> */}
 				<Route
 					path='/playlists/:id'
 					element={ <ShowPlaylist user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
