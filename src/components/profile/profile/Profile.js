@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 import { getPlaylists } from "../../../api/playlist"
 import NewPlaylist from "./playlist/NewPlaylist"
@@ -21,7 +22,7 @@ export default function Profile(props) {
     const allPlaylists = props.playlists.map(p => {
         return (
             <li key={p.title}>
-                {p.title}
+                <Link to ={`/playlists/${p._id}`}>{p.title}</Link>
             </li>
         )
     })

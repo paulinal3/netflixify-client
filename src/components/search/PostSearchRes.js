@@ -24,6 +24,7 @@ export default function PostSearchRes(props) {
         console.log('this is the playlist id:', props.indexPlaylists)
         postVideo(props.currUser, playlist, props.videoData)
             .then(() => {
+                props.refPlaylists()
                 setPlaylist('')
             })
             .catch(err => console.error)

@@ -36,6 +36,7 @@ export default function Search(props) {
                 netflixid={res.netflixid} 
                 allPlaylists={props.playlists} 
                 currentUser={props.user} 
+                refreshPlaylists={props.getAllPlaylists}
             />
         )
     })

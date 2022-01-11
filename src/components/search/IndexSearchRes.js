@@ -10,7 +10,8 @@ export default function IndexSearchRes(props) {
                 <PostSearchRes 
                     indexPlaylists={props.allPlaylists} 
                     currUser={props.currentUser} 
-                    videoData={props.res} 
+                    videoData={props.res}
+                    refPlaylists = {props.refreshPlaylists}
                 />
             </li>
         </div>
