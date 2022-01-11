@@ -31,7 +31,7 @@ export const getOneVideo = (user, videoId) => {
     })
 }
 
-export const postVideo = (user, playlistId) => {
+export const postVideo = (user, playlistId, vidData) => {
     return axios({
         method: 'POST',
         url: `${apiUrl}/${playlistId}/videos`,
@@ -40,16 +40,16 @@ export const postVideo = (user, playlistId) => {
         },
         data: {
             video: {
-                title: newTitle,
-                synopsis: newSynoptis,
-                netflixid: newNetflixid,
-                image: newImage,
-                largeimage: newLargeimage,
-                type: newType,
-                runtime: newRuntime,
-                released: newReleased,
-                rating: newRating,
-                imdbid: newImdbid
+                title: vidData.title,
+                synopsis: vidData.synopsis,
+                netflixid: vidData.netflixid,
+                image: vidData.image,
+                largeimage: vidData.largeimage,
+                type: vidData.type,
+                runtime: vidData.runtime,
+                released: vidData.released,
+                rating: vidData.rating,
+                imdbid: vidData.imdbid
             }
         }
     })

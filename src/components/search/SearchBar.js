@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 
 export default function SearchBar(props) {
     return (

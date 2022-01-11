@@ -7,7 +7,11 @@ export default function IndexSearchRes(props) {
             <li key={props.netflixid}>
                 <img src={props.res.image} />
                 <button>Watched</button>
-                <PostSearchRes indexPlaylists={props.allPlaylists} />
+                <PostSearchRes 
+                    indexPlaylists={props.allPlaylists} 
+                    currUser={props.currentUser} 
+                    videoData={props.res} 
+                />
             </li>
         </div>
     )

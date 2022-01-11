@@ -31,14 +31,23 @@ export default function Search(props) {
 
     const allSearchRes = searchRes.map(res => {
         return (
-            <IndexSearchRes res={res} netflixid={res.netflixid} allPlaylists={props.playlists} />
+            <IndexSearchRes
+                res={res} 
+                netflixid={res.netflixid} 
+                allPlaylists={props.playlists} 
+                currentUser={props.user} 
+            />
         )
     })
 
     return (
         <div>
             <h1>Search Page</h1>
-            <SearchBar searchTerm={searchTerm} handleSearchTermChange={handleSearchTermChange} searchTermVids={searchTermVids} />
+            <SearchBar 
+                searchTerm={searchTerm} 
+                handleSearchTermChange={handleSearchTermChange} 
+                searchTermVids={searchTermVids} 
+            />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
         </div>
