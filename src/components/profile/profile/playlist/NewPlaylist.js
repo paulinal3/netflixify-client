@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Modal, Button, Form, FloatingLabel } from "react-bootstrap"
-import { postPlaylist } from "../../../api/playlist"
+import { postPlaylist } from "../../../../api/playlist"
 
 export default function NewPlaylist(props) {
 

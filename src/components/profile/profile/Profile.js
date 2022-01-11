@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Button } from "react-bootstrap"
 
 import { getPlaylists } from "../../../api/playlist"
-import NewPlaylist from "../playlist/NewPlaylist"
+import NewPlaylist from "./playlist/NewPlaylist"
 
 export default function Profile(props) {
 

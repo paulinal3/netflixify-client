@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import { getSearchTermRes } from '../../api/external'
+import IndexSearchRes from './IndexSearchRes'
+import SearchBar from './SearchBar'
 
 export default function Search(props) {
     const [searchTerm, setSearchTerm] = useState('')
@@ -18,6 +20,7 @@ export default function Search(props) {
     }
 
     const searchTermVids = (e) => {
+        // console.log(e)
         e.preventDefault()
         getSearchTermRes(searchTerm)
             .then(videos => {
@@ -29,34 +32,14 @@ export default function Search(props) {
 
     const allSearchRes = searchRes.map(res => {
         return (
-            <li key={res.netflixid}>
-                <img src={res.image} />
-                <button>Watched</button>
-                <form>
-                    <label>Add to Playlist:</label>
-                    <select>
-                        
-                    </select>
-                </form>
-            </li>
+            <IndexSearchRes res={res} key={res.netflixid} />
         )
     })
 
     return (
         <div>
             <h1>Search Page</h1>
-            <form onSubmit={searchTermVids}>
-                <label id='searchTerm'>Search:</label>
-                <input
-                    htmlFor='searchTerm'
-                    type='text'
-                    name='searchTerm'
-                    placeholder='enter keyword'
-                    value={searchTerm}
-                    onChange={handleSearchTermChange}
-                />
-                <button>Search</button>
-            </form>
+            <SearchBar searchTerm={searchTerm} handleSearchTermChange={handleSearchTermChange} searchTermVids={searchTermVids} />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
         </div>

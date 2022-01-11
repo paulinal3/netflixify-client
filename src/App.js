@@ -12,8 +12,8 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import Profile from './components/profile-playlist/profile/Profile'
-import Search from './components/external/Search'
+import Profile from './components/profile/profile/Profile'
+import Search from './components/search/Search'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
@@ -117,10 +117,6 @@ const App = () => {
 				<Route
 					path='/search'
 					element={ <Search user={user} /> }
-				/>
-				<Route
-					path='/playlists'
-					element={ <Search /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (

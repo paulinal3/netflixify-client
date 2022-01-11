@@ -14,11 +14,6 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
-			<Link to='playlists' style={linkStyle}>
-				Playlists
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
