@@ -13,7 +13,8 @@ export default function Search(props) {
     const [advSearch, setAdvSearch] = useState(false)
     const [vidTypeBtn, setVidTypeBtn] = useState(false)
     const [vidType, setVidType] = useState('')
-
+    const [releasedBtn, setReleasedBtn] = useState(false)
+    const [released, setReleased] = useState('')
 
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
@@ -23,7 +24,6 @@ export default function Search(props) {
     //     )
     // })
 
-    // helper method to
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value)
     }
@@ -61,8 +61,13 @@ export default function Search(props) {
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
                 searchTermVids={searchTermVids} 
+
                 advSearch={advSearch}
                 setAdvSearch={setAdvSearch}
+                vidTypeBtn={vidTypeBtn}
+                setVidTypeBtn={setVidTypeBtn}
+                vidType={setVidType}
+                setVidType={setVidType}
             />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}

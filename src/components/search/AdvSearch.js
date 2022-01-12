@@ -1,10 +1,25 @@
-import { Form, Button } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 
 export default function AdvSearch(props) {
 
-    const advSearchClick = (e) => {
+    const advSearchClick = () => {
         props.setAdvancedSearch(!props.advancedSearch)
     }
+
+    const vidBtnClick = () => {
+        props.setVideoTypeBtn(!props.videoTypeBtn)
+    }
+
+    const videoTypeBtn = props.videoTypeBtn === true ? (
+        <Form.Select size="sm">
+            <option>Select Video Type</option>
+            <option>Movie</option>
+            <option>TV Show</option>
+        </Form.Select>
+    ) : (
+        <span></span>
+    )
+
     // conditional to display advanced search options
     const displayAdvSearch = props.advancedSearch === true ? (
         // if true, display checkbox options
@@ -15,7 +30,9 @@ export default function AdvSearch(props) {
                 name="group1"
                 type='checkbox'
                 id={`inline-$checkbox-1`}
+                onClick={vidBtnClick}
             />
+            {videoTypeBtn}
             <Form.Check
                 inline
                 label="Release Date"
@@ -29,15 +46,22 @@ export default function AdvSearch(props) {
                 type='checkbox'
                 id={`inline-$checkbox-3`}
             />
-            <Button onClick={advSearchClick}>Close</Button>
         </div>
         // if false, display button
     ) : (
-        <Button onClick={advSearchClick}>Advanced Search</Button>
+        <span></span>
     )
-    
+
     return (
         <div>
+            <Form>
+                <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label="Advanced Search"
+                    onClick={advSearchClick}
+                />
+            </Form>
             {displayAdvSearch}
         </div>
     )
