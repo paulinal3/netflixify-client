@@ -39,12 +39,30 @@ export default function AdvSearch(props) {
         props.setVideoType('Any')
     )
 
+    // conditional for genre options
     const displayGenres = props.genresBtn === true ? (
-        // if true, display video type options
+        // if true, display genre options
         <Form.Select size="sm" onChange={genreClicked}>
             <option value='Any'>Select Genre</option>
-            <option value='movie'>Movie</option>
-            <option value='series'>Series</option>
+            <option value='1365'>Action & Adventure</option>
+            <option value='7424'>Anime</option>
+            <option value='783'>Children & Family Movies</option>
+            <option value='31574'>Classic Movies</option>
+            <option value='6548'>Comedies</option>
+            <option value='7627'>Cult Movies</option>
+            <option value='6839'>Documentaries</option>
+            <option value='5763'>Dramas</option>
+            <option value='26835'>Faith & Spirituality</option>
+            <option value='7462'>Foreign Movies</option>
+            <option value='5977'>Gay & Lesbian Movies</option>
+            <option value='8711'>Horror Movies</option>
+            <option value='7077'>Independent Movies</option>
+            <option value='1701'>Music</option>
+            <option value='8883'>Romantic Movies</option>
+            <option value='1492'>Sci-Fi & Fantasy</option>
+            <option value='4370'>Sports Movies</option>
+            <option value='8933'>Thrillers</option>
+            <option value='83'>TV Shows</option>
         </Form.Select>
         // if false reset state
     ) : (
