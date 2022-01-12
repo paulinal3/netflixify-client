@@ -15,10 +15,10 @@ export const getNetflixVideos = () => {
 }
 
 // index videos based on search term
-export const getSearchTermRes = (searchTerm) => {
+export const getSearchTermRes = (searchTerm, vidType) => {
     return axios({
         method: 'GET',
-        url: `${rootAPI}?q=${searchTerm}-!1900,2022-!0,5-!0,10-!0-!Any-!Any-!Any-!gt0&t=ns&cl=78&st=adv&ob=relevance&p=1&sa=or`,
+        url: `${rootAPI}?q=${searchTerm}-!1900,2022-!0,5-!0,10-!0-!${vidType}-!Any-!Any-!gt0&t=ns&cl=78&st=adv&ob=relevance&p=1&sa=or`,
         headers: {
             'X-RapidAPI-Host': `${apiHost}`,
             'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY

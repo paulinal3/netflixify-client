@@ -2,22 +2,29 @@ import { Form } from "react-bootstrap"
 
 export default function AdvSearch(props) {
 
-    const advSearchClick = () => {
+    const advSearchClicked = () => {
         props.setAdvancedSearch(!props.advancedSearch)
     }
 
-    const vidBtnClick = () => {
+    const vidBtnClicked = () => {
         props.setVideoTypeBtn(!props.videoTypeBtn)
     }
 
-    const videoTypeBtn = props.videoTypeBtn === true ? (
-        <Form.Select size="sm">
-            <option>Select Video Type</option>
-            <option>Movie</option>
-            <option>TV Show</option>
+    const vidTypeClicked = (e) => {
+        props.setVideoType(e.target.value)
+    }
+
+    // conditional for type options
+    const displayVidTypes = props.videoTypeBtn === true ? (
+        // if true, display video type options
+        <Form.Select size="sm" onChange={vidTypeClicked}>
+            <option value='any'>Select Video Type</option>
+            <option value='movie'>Movie</option>
+            <option value='series'>Series</option>
         </Form.Select>
+        // if false reset state
     ) : (
-        <span></span>
+        props.setVideoType('any')
     )
 
     // conditional to display advanced search options
@@ -30,9 +37,9 @@ export default function AdvSearch(props) {
                 name="group1"
                 type='checkbox'
                 id={`inline-$checkbox-1`}
-                onClick={vidBtnClick}
+                onClick={vidBtnClicked}
             />
-            {videoTypeBtn}
+            {displayVidTypes}
             <Form.Check
                 inline
                 label="Release Date"
@@ -47,10 +54,44 @@ export default function AdvSearch(props) {
                 id={`inline-$checkbox-3`}
             />
         </div>
-        // if false, display button
+        // if false, reset all states
     ) : (
-        <span></span>
+        // props.setVideoTypeBtn(false)
+        props.setVideoType('any')
     )
+
+    // const displayAdvSearch = props.advancedSearch
+    // if (displayAdvSearch === true) {
+    //     return (
+    //         <div key={`inline-$checkbox`} className="mb-3">
+    //             <Form.Check
+    //                 inline
+    //                 label="Type"
+    //                 name="group1"
+    //                 type='checkbox'
+    //                 id={`inline-$checkbox-1`}
+    //                 onClick={vidBtnClicked}
+    //             />
+    //             {displayVidTypes}
+    //             <Form.Check
+    //                 inline
+    //                 label="Release Date"
+    //                 name="group1"
+    //                 type='checkbox'
+    //                 id={`inline-$checkbox-2`}
+    //             />
+    //             <Form.Check
+    //                 inline
+    //                 label="Subtitles"
+    //                 type='checkbox'
+    //                 id={`inline-$checkbox-3`}
+    //             />
+    //         </div>
+    //     )
+    // } else {
+    //     props.setVideoTypeBtn(false)
+    //     props.setVideoType('any')
+    // }
 
     return (
         <div>
@@ -59,7 +100,7 @@ export default function AdvSearch(props) {
                     type="switch"
                     id="custom-switch"
                     label="Advanced Search"
-                    onClick={advSearchClick}
+                    onClick={advSearchClicked}
                 />
             </Form>
             {displayAdvSearch}

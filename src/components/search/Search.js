@@ -32,7 +32,7 @@ export default function Search(props) {
     const searchTermVids = (e) => {
         e.preventDefault()
         // axios call to external api
-        getSearchTermRes(searchTerm)
+        getSearchTermRes(searchTerm, vidType)
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
                 setSearchRes(videos.data.ITEMS)
@@ -66,7 +66,7 @@ export default function Search(props) {
                 setAdvSearch={setAdvSearch}
                 vidTypeBtn={vidTypeBtn}
                 setVidTypeBtn={setVidTypeBtn}
-                vidType={setVidType}
+                vidType={vidType}
                 setVidType={setVidType}
             />
             <ol>{allSearchRes}</ol>
