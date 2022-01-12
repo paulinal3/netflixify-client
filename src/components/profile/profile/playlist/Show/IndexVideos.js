@@ -47,7 +47,7 @@ export default function IndexVideos(props) {
     return (
         <div>
             <li key={props.playlistVids._id}>
-                <img src={props.playlistVids.largeimage} />
+                <img src={props.playlistVids.image} />
                 <Form>
                     <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button>
                     <Button value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>

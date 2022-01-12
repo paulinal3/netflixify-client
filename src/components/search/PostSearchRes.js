@@ -4,7 +4,7 @@ import { postVideo } from "../../api/video"
 
 export default function PostSearchRes(props) {
 
-    const [playlist, setPlaylist] = useState('')
+    const [playlist, setPlaylist] = useState(null)
 
     // helper method to set state based on what playist is clicked
     const playlistClicked = (e) => {
@@ -20,7 +20,7 @@ export default function PostSearchRes(props) {
         postVideo(props.currUser, playlist, props.videoData)
             .then(() => {
                 props.refPlaylists()
-                setPlaylist('')
+                setPlaylist(null)
             })
             .catch(err => console.error)
     }
@@ -38,7 +38,7 @@ export default function PostSearchRes(props) {
     return (
         <Form onSubmit={postVideoToPlaylist}>
             <Form.Select aria-label="add video to playlist selector" onChange={playlistClicked}>
-                <option>Add to a Playlist</option>
+                <option value={null} selected={playlist == null ? true : false}>Add to a Playlist</option>
                 {allPlaylists}
             </Form.Select>
             <Form.Control type='submit' value='Add to Playlist' />
