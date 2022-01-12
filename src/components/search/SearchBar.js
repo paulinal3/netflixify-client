@@ -17,10 +17,21 @@ export default function SearchBar(props) {
             <AdvSearch 
                 advancedSearch={props.advSearch}
                 setAdvancedSearch={props.setAdvSearch}
+
                 videoTypeBtn={props.vidTypeBtn}
                 setVideoTypeBtn={props.setVidTypeBtn}
                 videoType={props.vidType}
                 setVideoType={props.setVidType}
+
+                genresBtn={props.genreBtn}
+                setGenresBtn={props.setGenreBtn}
+                genres={props.genre}
+                setGenres={props.setGenre}
+
+                yearReleasedBtn={props.releasedBtn}
+                setYearReleasedBtn={props.setReleasedBtn}
+                yearReleased={props.released}
+                setYearReleased={props.setReleased}
             />
                 <Form.Control type='submit' value='Search' />
         </Form>

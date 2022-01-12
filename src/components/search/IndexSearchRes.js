@@ -35,7 +35,6 @@ export default function IndexSearchRes(props) {
                         the card's content.
                     </Card.Text> */}
                     {userSignedIn}
-                    <a href={`https://www.netflix.com/title/${props.res.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant="primary">Watch Now</Button></a>
                     <Button onClick={() => setModalShow(true)}>See Details</Button>
                     <ShowSearchRes
                         show={modalShow}

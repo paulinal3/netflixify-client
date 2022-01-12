@@ -16,6 +16,7 @@ export const getNetflixVideos = () => {
 
 // index videos based on search term
 export const getSearchTermRes = (searchTerm, vidType) => {
+    console.log(`${rootAPI}?q=${searchTerm}-!1900,2022-!0,5-!0,10-!0-!${vidType}-!Any-!Any-!gt0&t=ns&cl=78&st=adv&ob=relevance&p=1&sa=or`)
     return axios({
         method: 'GET',
         url: `${rootAPI}?q=${searchTerm}-!1900,2022-!0,5-!0,10-!0-!${vidType}-!Any-!Any-!gt0&t=ns&cl=78&st=adv&ob=relevance&p=1&sa=or`,

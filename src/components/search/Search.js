@@ -12,9 +12,11 @@ export default function Search(props) {
     // passed to AdvSearch as a prop
     const [advSearch, setAdvSearch] = useState(false)
     const [vidTypeBtn, setVidTypeBtn] = useState(false)
-    const [vidType, setVidType] = useState('')
+    const [vidType, setVidType] = useState('Any')
+    const [genreBtn, setGenreBtn] = useState(false)
+    const [genre, setGenre] = useState('Any')
     const [releasedBtn, setReleasedBtn] = useState(false)
-    const [released, setReleased] = useState('')
+    const [released, setReleased] = useState(1900)
 
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
@@ -36,6 +38,7 @@ export default function Search(props) {
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
                 setSearchRes(videos.data.ITEMS)
+                // setVidType('any')
             })
             .catch(err => console.error)
     }
@@ -64,10 +67,21 @@ export default function Search(props) {
 
                 advSearch={advSearch}
                 setAdvSearch={setAdvSearch}
+
                 vidTypeBtn={vidTypeBtn}
                 setVidTypeBtn={setVidTypeBtn}
                 vidType={vidType}
                 setVidType={setVidType}
+
+                genreBtn={genreBtn}
+                setGenreBtn={setGenreBtn}
+                genre={genre}
+                setGenre={setGenre}
+
+                releasedBtn={releasedBtn}
+                setReleasedBtn={setReleasedBtn}
+                released={released}
+                setReleased={setReleased}
             />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
