@@ -1,34 +1,22 @@
-import { useState, useEffect } from "react"
-import { Form, Button } from "react-bootstrap"
+import { useState } from "react"
+import { Form, Button, Card, Tooltip, OverlayTrigger } from "react-bootstrap"
 import { destroyVideo, getOneVideo, getPlaylistVideos, updateVideo } from "../../../../../api/video"
 
 export default function IndexVideos(props) {
 
-    const [selectedVid, setSelectedVid] = useState({})
     const [watchedStatus, setWatchedStatus] = useState(props.playlistVids.watched)
-
-    // useEffect((e) => {
-    //     if (e) {
-    //         watchedClicked(e)
-    //     }
-    // }, [watchedStatus])
-
-
-    const watchedClicked = (e) => {
-        console.log('watch status', watchedStatus)
-        editVideo(e)
-        setWatchedStatus(!watchedStatus)
-        // .then(() => {
-        //     props.refreshPlaylist()
-        // })
-        // .catch(err => console.error)
-    }
 
     // helper method to update a video's watched status
     const editVideo = (e) => {
         // axios call
         updateVideo(props.currentUser, e.target.value, watchedStatus)
         // .catch(err => console.error)
+    }
+
+    // helper method to change watched status when click
+    const watchedClicked = (e) => {
+        editVideo(e)
+        setWatchedStatus(!watchedStatus)
     }
 
     // helper method to delete a video
@@ -44,16 +32,42 @@ export default function IndexVideos(props) {
     // conditional to display watched status
     const markWatched = watchedStatus === true ? 'Watched' : 'Mark as Watched'
 
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Remove from playlist
+        </Tooltip>
+    );
+
     return (
-        <div>
-            <li key={props.playlistVids._id}>
-                <img src={props.playlistVids.image} />
+        // <div>
+        //     <li key={props.playlistVids._id}>
+        //         <img src={props.playlistVids.image} />
+        //         <Form>
+        //             <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button>
+        //             <Button value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
+        //         </Form>
+        //         <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>Watch Now</a>
+        //     </li>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={props.playlistVids.image} />
+            <Card.Body>
+                <Card.Title>{props.playlistVids.title}</Card.Title>
+                <Card.Text>{props.playlistVids.synopsis}</Card.Text>
+                <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant="primary">Watch Now</Button></a>
                 <Form>
-                    <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button>
+                    {/* <Button value={props.playlistVids._id} onClick={deleteVideo}>Remove From Playlist</Button> */}
+
+                    <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={renderTooltip}
+                    >
+                        <Button variant="success" value={props.playlistVids._id} onClick={deleteVideo}>X</Button>
+                    </OverlayTrigger>,
+
                     <Button value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
                 </Form>
-                <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>Watch Now</a>
-            </li>
-        </div>
+            </Card.Body>
+        </Card>
     )
 }
