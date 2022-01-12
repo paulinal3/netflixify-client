@@ -5,8 +5,16 @@ import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
 export default function Search(props) {
+
+    // passed to SearchBar as a prop
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
+    // passed to AdvSearch as a prop
+    const [advSearch, setAdvSearch] = useState(false)
+    const [vidTypeBtn, setVidTypeBtn] = useState(false)
+    const [vidType, setVidType] = useState('')
+
+
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
     //         <li>
@@ -53,6 +61,8 @@ export default function Search(props) {
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
                 searchTermVids={searchTermVids} 
+                advSearch={advSearch}
+                setAdvSearch={setAdvSearch}
             />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}

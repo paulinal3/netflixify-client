@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap"
+import AdvSearch from "./AdvSearch"
 
 export default function SearchBar(props) {
     return (
@@ -13,7 +14,11 @@ export default function SearchBar(props) {
                     onChange={props.handleSearchTermChange}
                 />
             </Form.Group>
-            <Form.Control type='submit' value='Search' />
+            <AdvSearch 
+                advancedSearch={props.advSearch}
+                setAdvancedSearch={props.setAdvSearch}
+            />
+                <Form.Control type='submit' value='Search' />
         </Form>
     )
 }
