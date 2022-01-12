@@ -14,7 +14,7 @@ export default function Search(props) {
     const [vidTypeBtn, setVidTypeBtn] = useState(false)
     const [vidType, setVidType] = useState('Any')
     const [genreBtn, setGenreBtn] = useState(false)
-    const [genre, setGenre] = useState('Any')
+    const [genre, setGenre] = useState('0')
     const [releasedBtn, setReleasedBtn] = useState(false)
     const [released, setReleased] = useState(1900)
 
@@ -34,7 +34,7 @@ export default function Search(props) {
     const searchTermVids = (e) => {
         e.preventDefault()
         // axios call to external api
-        getSearchTermRes(searchTerm, vidType)
+        getSearchTermRes(searchTerm, vidType, genre)
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
                 setSearchRes(videos.data.ITEMS)

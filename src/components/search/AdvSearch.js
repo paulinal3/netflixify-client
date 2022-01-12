@@ -43,7 +43,7 @@ export default function AdvSearch(props) {
     const displayGenres = props.genresBtn === true ? (
         // if true, display genre options
         <Form.Select size="sm" onChange={genreClicked}>
-            <option value='Any'>Select Genre</option>
+            <option value='0'>Select Genre</option>
             <option value='1365'>Action & Adventure</option>
             <option value='7424'>Anime</option>
             <option value='783'>Children & Family Movies</option>
@@ -66,7 +66,7 @@ export default function AdvSearch(props) {
         </Form.Select>
         // if false reset state
     ) : (
-        props.setGenres('Any')
+        props.setGenres('0')
     )
 
     const displayReleasedInput = props.yearReleasedBtn === true ? (
