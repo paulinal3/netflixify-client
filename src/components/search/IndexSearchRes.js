@@ -1,7 +1,11 @@
 import { Button, Card } from 'react-bootstrap'
+import { useState } from 'react'
 import PostSearchRes from './PostSearchRes'
+import ShowSearchRes from './ShowSearchRes'
 
 export default function IndexSearchRes(props) {
+
+    const [modalShow, setModalShow] = useState(false)
 
     // conditional to check if a user is signed in
     const userSignedIn = props.currentUser !== null ? (
@@ -32,7 +36,12 @@ export default function IndexSearchRes(props) {
                     </Card.Text> */}
                     {userSignedIn}
                     <a href={`https://www.netflix.com/title/${props.res.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant="primary">Watch Now</Button></a>
-                    <Button>See Details</Button>
+                    <Button onClick={() => setModalShow(true)}>See Details</Button>
+                    <ShowSearchRes
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        result={props.res}
+                    />
                 </Card.Body>
             </Card>
         </div>
