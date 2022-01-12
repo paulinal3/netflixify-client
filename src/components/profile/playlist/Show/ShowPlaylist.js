@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Button, Form } from "react-bootstrap"
 
-import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../../../../api/playlist"
+import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../../../api/playlist"
 import IndexVideos from "./IndexVideos"
 
 export default function ShowPlaylist(props) {

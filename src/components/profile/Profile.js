@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "react-bootstrap"
 
-import { getPlaylists } from "../../../api/playlist"
+import { getPlaylists } from "../../api/playlist"
 import IndexPlaylist from "./playlist/Index/IndexPlaylist"
 import NewPlaylist from "./playlist/NewPlaylist"
 
@@ -39,7 +39,7 @@ export default function Profile(props) {
 
     return (
         <div>
-            <h1>{props.user.firstName}' Profile</h1>
+            <h1>Your Playlists:</h1>
             <ol>{allPlaylists}</ol>
             <>
                 <Button variant="primary" onClick={() => setModalShow(true)}>
