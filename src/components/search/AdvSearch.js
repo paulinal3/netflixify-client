@@ -26,6 +26,14 @@ export default function AdvSearch(props) {
         props.setYearReleasedBtn(!props.yearReleasedBtn)
     }
 
+    const countryBtnClicked = () => {
+        props.setCountryBtn(!props.countryBtn)
+    }
+
+    const countryClicked = (e) => {
+        props.setPickedCountry(e.target.value)
+    }
+
     // conditional for type options
     const displayVidTypes = props.videoTypeBtn === true ? (
         // if true, display video type options
@@ -79,6 +87,21 @@ export default function AdvSearch(props) {
         props.setYearReleased(1900)
     )
 
+    const displayCountryOptions = props.allCountries.map(c => {
+        return (
+            <option value={c.id}>{c.country}</option>
+        )
+    })
+
+    const displayCountries = props.countryBtn === true ? (
+        <Form.Select size='sm' onChange={countryClicked}>
+            <option>Select Country</option>
+            {displayCountryOptions}
+        </Form.Select>
+    ) : (
+        props.setPickedCountry('78')
+    )
+
     // conditional to display advanced search options
     const displayAdvSearch = props.advancedSearch === true ? (
         // if true, display checkbox options
@@ -116,6 +139,14 @@ export default function AdvSearch(props) {
                 type='checkbox'
                 id={`inline-$checkbox-3`}
             />
+            <Form.Check
+                inline
+                label="Country"
+                type='checkbox'
+                id={`inline-$checkbox-3`}
+                onClick={countryBtnClicked}
+            />
+            {displayCountries}
         </div>
         // if false, reset all states
     ) : (

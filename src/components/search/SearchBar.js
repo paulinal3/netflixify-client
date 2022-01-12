@@ -32,6 +32,12 @@ export default function SearchBar(props) {
                 setYearReleasedBtn={props.setReleasedBtn}
                 yearReleased={props.released}
                 setYearReleased={props.setReleased}
+
+                countryBtn={props.countriesBtn}
+                setCountryBtn={props.setCountriesBtn}
+                pickedCountry={props.selectedCountry}
+                setPickedCountry={props.setSelectedCountry}
+                allCountries={props.countries}
             />
                 <Form.Control type='submit' value='Search' />
         </Form>

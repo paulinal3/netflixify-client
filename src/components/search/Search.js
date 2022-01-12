@@ -1,6 +1,7 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 
-import { getSearchTermRes } from '../../api/external'
+import { getCountries, getSearchTermRes } from '../../api/external'
 import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
@@ -17,6 +18,9 @@ export default function Search(props) {
     const [genre, setGenre] = useState('0')
     const [releasedBtn, setReleasedBtn] = useState(false)
     const [released, setReleased] = useState(1900)
+    const [countriesBtn, setCountriesBtn] = useState(false)
+    const [countries, setCountries] = useState([])
+    const [selectedCountry, setSelectedCountry] = useState('78')
 
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
@@ -43,6 +47,14 @@ export default function Search(props) {
             .catch(err => console.error)
     }
 
+    useEffect(() =>{
+        getCountries()
+            .then(foundCountries => {
+                console.log('these are the countries\n', foundCountries.data.results)
+                setCountries(foundCountries.data.results)
+            })
+    }, [])
+
     // map through all videos found in state
     const allSearchRes = searchRes.map(res => {
         return (
@@ -63,7 +75,7 @@ export default function Search(props) {
             <SearchBar 
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
-                searchTermVids={searchTermVids} 
+                searchTermVids={searchTermVids}
 
                 advSearch={advSearch}
                 setAdvSearch={setAdvSearch}
@@ -82,6 +94,12 @@ export default function Search(props) {
                 setReleasedBtn={setReleasedBtn}
                 released={released}
                 setReleased={setReleased}
+
+                countriesBtn={countriesBtn}
+                setCountriesBtn={setCountriesBtn}
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
+                countries={countries}
             />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
