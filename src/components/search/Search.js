@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getCountries, getSearchTermRes } from '../../api/external'
 import IndexSearchRes from './IndexSearchRes'

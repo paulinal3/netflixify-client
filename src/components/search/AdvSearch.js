@@ -135,91 +135,79 @@ export default function AdvSearch(props) {
     )
 
     // conditional to display advanced search options
-    const displayAdvSearch = props.advancedSearch === true ? (
-        // if true, display checkbox options
-        <div key={`inline-$checkbox`} className="mb-3">
-            <Form.Check
-                inline
-                label="Type"
-                name="group1"
-                type='checkbox'
-                id={`inline-$checkbox-1`}
-                onClick={vidBtnClicked}
-            />
-            {displayVidTypes}
-            <Form.Check
-                inline
-                label="Genre"
-                name="group1"
-                type='checkbox'
-                id={`inline-$checkbox-1`}
-                onClick={genreBtnClicked}
-            />
-            {displayGenres}
-            <Form.Check
-                inline
-                label="Release Date"
-                name="group1"
-                type='checkbox'
-                id={`inline-$checkbox-2`}
-                onClick={releasedBtnClicked}
-            />
-            {displayReleasedInput}
-            <Form.Check
-                inline
-                label="Subtitles"
-                type='checkbox'
-                id={`inline-$checkbox-3`}
-                onClick={subtitleBtnClicked}
-            />
-            {displaySubtitles}
-            <Form.Check
-                inline
-                label="Country"
-                type='checkbox'
-                id={`inline-$checkbox-3`}
-                onClick={countryBtnClicked}
-            />
-            {displayCountries}
-        </div>
-        // if false, reset all states
-    ) : (
-        // props.setVideoTypeBtn(false)
+    const displayAdvSearch = props.advancedSearch
+     // if true, display checkbox options
+    if (displayAdvSearch === true) {
+        return (
+            <div>
+                <Form>
+                    <Form.Check
+                        type="switch"
+                        id="custom-switch"
+                        label="Advanced Search"
+                        onClick={advSearchClicked}
+                    />
+                </Form>
+                <div key={`inline-$checkbox`} className="mb-3">
+                    <Form.Check
+                        inline
+                        label="Type"
+                        name="group1"
+                        type='checkbox'
+                        id={`inline-$checkbox-1`}
+                        onClick={vidBtnClicked}
+                    />
+                    {displayVidTypes}
+                    <Form.Check
+                        inline
+                        label="Genre"
+                        name="group1"
+                        type='checkbox'
+                        id={`inline-$checkbox-1`}
+                        onClick={genreBtnClicked}
+                    />
+                    {displayGenres}
+                    <Form.Check
+                        inline
+                        label="Release Date"
+                        name="group1"
+                        type='checkbox'
+                        id={`inline-$checkbox-2`}
+                        onClick={releasedBtnClicked}
+                    />
+                    {displayReleasedInput}
+                    <Form.Check
+                        inline
+                        label="Subtitles"
+                        type='checkbox'
+                        id={`inline-$checkbox-3`}
+                        onClick={subtitleBtnClicked}
+                    />
+                    {displaySubtitles}
+                    <Form.Check
+                        inline
+                        label="Country"
+                        type='checkbox'
+                        id={`inline-$checkbox-3`}
+                        onClick={countryBtnClicked}
+                    />
+                    {displayCountries}
+                </div>
+            </div>
+        )
+    // if false, reset all states
+    } else {
+        props.setVideoTypeBtn(false)
         props.setVideoType('Any')
-    )
-
-    // const displayAdvSearch = props.advancedSearch
-    // if (displayAdvSearch === true) {
-    //     return (
-    //         <div key={`inline-$checkbox`} className="mb-3">
-    //             <Form.Check
-    //                 inline
-    //                 label="Type"
-    //                 name="group1"
-    //                 type='checkbox'
-    //                 id={`inline-$checkbox-1`}
-    //                 onClick={vidBtnClicked}
-    //             />
-    //             {displayVidTypes}
-    //             <Form.Check
-    //                 inline
-    //                 label="Release Date"
-    //                 name="group1"
-    //                 type='checkbox'
-    //                 id={`inline-$checkbox-2`}
-    //             />
-    //             <Form.Check
-    //                 inline
-    //                 label="Subtitles"
-    //                 type='checkbox'
-    //                 id={`inline-$checkbox-3`}
-    //             />
-    //         </div>
-    //     )
-    // } else {
-    //     props.setVideoTypeBtn(false)
-    //     props.setVideoType('any')
-    // }
+        props.setGenresBtn(false)
+        props.setGenres('0')
+        // props.setYearReleaseBtn(false)
+        // props.setYearReleased('1900')
+        props.setCountryBtn(false)
+        props.setPickedCountry('78')
+        props.setSubtitlesBtn(false)
+        props.setSubtitles('Any')
+    }
 
     return (
         <div>
