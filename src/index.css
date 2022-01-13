@@ -3,6 +3,11 @@
 * {
   font-family: 'Roboto Condensed', sans-serif
 }
+
+/* #root {
+  background-color: mediumaquamarine;
+} */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -26,4 +31,76 @@ code {
 .glyphicon-move {
   cursor: move;
   cursor: -webkit-grabbing;
+}
+
+#profileHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#sortBy {
+  max-width: 13%;
+  font-size: 15px;
+}
+
+#removeVidBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#search {
+  max-width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+#searchBtn {
+  max-width: 15%;
+}
+
+#searchBtn:hover {
+  background-color: #E50914;
+  color: black;
+}
+
+#advSearchToggle {
+  display: flex;
+  /* justify-content: flex-end;
+  align-items: flex-end; */
+}
+
+#advSearchOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#img__wrap {
+  position: relative;
+  /* height: 200px;*/
+  width: 45%;
+  margin: auto;
+}
+
+#img__description {
+/* position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0; */
+background: rgba(166, 196, 187, 0.72);
+visibility: hidden;
+opacity: 0;
+font-size: 17px;
+font-weight: bold;
+
+/* transition effect. not necessary */
+transition: opacity .2s, visibility .2s;
+}
+
+#img__wrap:hover #img__description {
+visibility: visible;
+opacity: 1;
 }

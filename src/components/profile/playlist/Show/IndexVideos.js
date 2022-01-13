@@ -47,32 +47,66 @@ export default function IndexVideos(props) {
     )
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.playlistVids.image} alt={props.playlistVids.title} />
-            <Card.Body>
-                <Card.Title>{props.playlistVids.title}</Card.Title>
-                {/* <Card.Text>{props.playlistVids.synopsis}</Card.Text> */}
-                <OverlayTrigger
+        // <Card style={{ width: '18rem' }}>
+        //     <Card.Img id='img_wrap' variant="top" src={props.playlistVids.image} alt={props.playlistVids.title} />
+        //     <Card.Body id='img__description'>
+        //         <Card.Title>{props.playlistVids.title}</Card.Title>
+        //         {/* <Card.Text>{props.playlistVids.synopsis}</Card.Text> */}
+        //         <OverlayTrigger
+        //             placement="top"
+        //             delay={{ show: 250, hide: 400 }}
+        //             overlay={playHover}
+        //         >
+        //             <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>
+        //                 <Button variant='secondary'>
+        //                     <FaPlay />
+        //                 </Button>
+        //             </a>
+        //         </OverlayTrigger>
+        //         <OverlayTrigger
+        //             placement="top"
+        //             delay={{ show: 250, hide: 400 }}
+        //             overlay={removeHover}
+        //         >
+        //             <Button variant='secondary' value={props.playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
+        //         </OverlayTrigger>,
+
+        //         <Button value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
+        //     </Card.Body>
+        // </Card>
+        <Card className="bg-dark text-white" style={{ width: '18rem' }}>
+            <Card.Img src={props.playlistVids.image} alt={props.playlistVids.title} />
+            <Card.ImgOverlay>
+                {/* <Card.Title>Card title</Card.Title>
+                <Card.Text>
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                </Card.Text> */}
+                <div id='removeVidBtn'>
+                    <OverlayTrigger
+                        placement="top"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={removeHover}
+                    >
+                        <Button variant='danger' value={props.playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
+                    </OverlayTrigger>,
+                </div>
+                <div>
+                    <OverlayTrigger
                     placement="top"
                     delay={{ show: 250, hide: 400 }}
                     overlay={playHover}
-                >
+                    >
                     <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>
                         <Button variant='secondary'>
                             <FaPlay />
                         </Button>
                     </a>
                 </OverlayTrigger>
-                <OverlayTrigger
-                    placement="top"
-                    delay={{ show: 250, hide: 400 }}
-                    overlay={removeHover}
-                >
-                    <Button variant='secondary' value={props.playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
-                </OverlayTrigger>,
-
                 <Button value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
-            </Card.Body>
+                </div>
+                {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
+            </Card.ImgOverlay>
         </Card>
     )
 }

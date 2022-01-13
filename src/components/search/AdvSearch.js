@@ -139,7 +139,7 @@ export default function AdvSearch(props) {
      // if true, display checkbox options
     if (displayAdvSearch === true) {
         return (
-            <div>
+            <div id='advSearchOptions'>
                 <Form>
                     <Form.Check
                         type="switch"
