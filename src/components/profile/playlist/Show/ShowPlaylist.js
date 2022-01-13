@@ -115,6 +115,7 @@ export default function ShowPlaylist(props) {
 
     return (
         <div>
+            <small>PLAYLIST</small>
             <h1>
                 {displayTitle}
             </h1>

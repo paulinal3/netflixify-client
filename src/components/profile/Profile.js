@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap"
 import { getPlaylists } from "../../api/playlist"
 import IndexPlaylist from "./playlist/Index/IndexPlaylist"
 import NewPlaylist from "./playlist/NewPlaylist"
+import { GrAdd } from "react-icons/gr"
 
 export default function Profile(props) {
 
@@ -39,12 +40,14 @@ export default function Profile(props) {
 
     return (
         <div>
-            <h1>Your Playlists:</h1>
+            <h1>{props.user.firstName}'s Playlists:</h1>
+            <Button><GrAdd onClick={() => setModalShow(true)}/></Button>
             <ol>{allPlaylists}</ol>
             <>
-                <Button variant="primary" onClick={() => setModalShow(true)}>
-                    Create a New Playlist
-                </Button>
+                {/* <Button variant="primary" onClick={() => setModalShow(true)}>
+                    <GrAdd />
+                </Button> */}
+
 
                 <NewPlaylist
                     show={modalShow}
