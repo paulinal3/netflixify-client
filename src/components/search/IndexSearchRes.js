@@ -26,7 +26,7 @@ export default function IndexSearchRes(props) {
 
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '13rem' }}>
                 <Card.Img variant="top" src={props.res.image} alt={props.res.title} />
                 <Card.Body>
                     {/* <Card.Title>Card Title</Card.Title>

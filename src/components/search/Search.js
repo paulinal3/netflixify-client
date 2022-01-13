@@ -107,6 +107,7 @@ export default function Search(props) {
                 setSubtitle={setSubtitle}
                 subtitle={subtitle}
             />
+            <hr />
             <ol id='searchResult'>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}
         </div>

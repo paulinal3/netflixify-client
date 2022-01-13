@@ -49,6 +49,11 @@ code {
   justify-content: flex-end;
 }
 
+#showOptions {
+  position: relative;
+  top: 70%;
+}
+
 #search {
   max-width: 50%;
   display: flex;
