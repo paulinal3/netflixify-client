@@ -31,6 +31,16 @@ export const getOneVideo = (user, videoId) => {
     })
 }
 
+export const getWatchedVideos = (user) => {
+    return axios({
+        method: 'GET',
+        url: `${apiUrl}/videos/watched`,
+        headers: {
+            Authorization: `Token token=${user.token}`
+        }
+    })
+}
+
 export const postVideo = (user, playlistId, vidData) => {
     return axios({
         method: 'POST',

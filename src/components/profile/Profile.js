@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { Button } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 import { getPlaylists } from "../../api/playlist"
 import IndexPlaylist from "./playlist/Index/IndexPlaylist"
@@ -56,6 +57,13 @@ export default function Profile(props) {
                     allPlaylists={props.getAllPlaylists}
                 />
             </>
+            <Card style={{ width: '18rem' }}>
+            {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
+            <Card.Body>
+                <Card.Title>Watched Videos</Card.Title>
+                <Link to={`/playlists/watched`}><Button variant="secondary">See Playlist</Button></Link>
+            </Card.Body>
+        </Card>
         </div>
     )
 }

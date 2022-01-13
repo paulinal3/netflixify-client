@@ -15,6 +15,8 @@ import ChangePassword from './components/auth/ChangePassword'
 import Profile from './components/profile/Profile'
 import Search from './components/search/Search'
 import ShowPlaylist from './components/profile/playlist/Show/ShowPlaylist'
+import ShowWatched from './components/profile/playlist/Show/ShowWatched'
+
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
@@ -51,11 +53,11 @@ const App = () => {
 
 	const getAllPlaylists = () => {
 		getPlaylists(user)
-		.then(foundPlaylists => {
-			console.log(`these are all the current user's playlists \n`, foundPlaylists)
-			setPlaylists(foundPlaylists.data.foundPlaylists)
-		})
-		.catch(err => console.error)
+			.then(foundPlaylists => {
+				console.log(`these are all the current user's playlists \n`, foundPlaylists)
+				setPlaylists(foundPlaylists.data.foundPlaylists)
+			})
+			.catch(err => console.error)
 	}
 
 	// <---------- EXTERNAL API STATES & HELPER METHODS ----------> //
@@ -118,12 +120,16 @@ const App = () => {
 				{/* <---------- SEARCH ROUTES ----------> */}
 				<Route
 					path='/search'
-					element={ <Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
+					element={<Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} />}
 				/>
 				{/* <---------- PLAYLIST ROUTES ----------> */}
 				<Route
 					path='/playlists/:id'
-					element={ <ShowPlaylist user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} /> }
+					element={<ShowPlaylist user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} />}
+				/>
+				<Route
+					path='/playlists/watched'
+					element={<ShowWatched user={user} />}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
