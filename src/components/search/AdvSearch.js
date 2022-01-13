@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap"
+import Subtitles from "../../data/Subtitles"
 
 export default function AdvSearch(props) {
 
@@ -32,6 +33,14 @@ export default function AdvSearch(props) {
 
     const countryClicked = (e) => {
         props.setPickedCountry(e.target.value)
+    }
+
+    const subtitleBtnClicked = () => {
+        props.setSubtitlesBtn(!props.subtitlesBtn)
+    }
+
+    const subtitleClicked = (e) => {
+        props.setSubtitles(e.target.value)
     }
 
     // conditional for type options
@@ -87,19 +96,42 @@ export default function AdvSearch(props) {
         props.setYearReleased(1900)
     )
 
+    // map through countries state
     const displayCountryOptions = props.allCountries.map(c => {
         return (
             <option value={c.id}>{c.country}</option>
         )
     })
 
+    // conditional for different counties
     const displayCountries = props.countryBtn === true ? (
+        // if true, display dropdown of country options
         <Form.Select size='sm' onChange={countryClicked}>
             <option>Select Country</option>
             {displayCountryOptions}
         </Form.Select>
     ) : (
+        // if false, reset state
         props.setPickedCountry('78')
+    )
+
+    // map through all subtitles
+    const displaySubtitleOptions = Subtitles.languages.map(s => {
+        return (
+            <option value={s}>{s}</option>
+        )
+    })
+
+    // conditional for subtitles
+    const displaySubtitles = props.subtitlesBtn === true ? (
+        // if true, display dropdown of subtitle options
+        <Form.Select size='sm' onChange={subtitleClicked}>
+            <option>Select Language</option>
+            {displaySubtitleOptions}
+        </Form.Select>
+    ) : (
+        // if false, reset state
+        props.setSubtitles('Any')
     )
 
     // conditional to display advanced search options
@@ -138,7 +170,9 @@ export default function AdvSearch(props) {
                 label="Subtitles"
                 type='checkbox'
                 id={`inline-$checkbox-3`}
+                onClick={subtitleBtnClicked}
             />
+            {displaySubtitles}
             <Form.Check
                 inline
                 label="Country"

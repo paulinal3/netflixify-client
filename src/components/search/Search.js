@@ -21,6 +21,8 @@ export default function Search(props) {
     const [countriesBtn, setCountriesBtn] = useState(false)
     const [countries, setCountries] = useState([])
     const [selectedCountry, setSelectedCountry] = useState('78')
+    const [subtitleBtn, setSubtitleBtn] = useState(false)
+    const [subtitle, setSubtitle] = useState('Any')
 
     // const allNetflixVids = props.netflixVids.map((vid, i) => {
     //     return (
@@ -38,7 +40,7 @@ export default function Search(props) {
     const searchTermVids = (e) => {
         e.preventDefault()
         // axios call to external api
-        getSearchTermRes(searchTerm, vidType, genre)
+        getSearchTermRes(searchTerm, vidType, genre, selectedCountry, subtitle)
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
                 setSearchRes(videos.data.ITEMS)
@@ -100,6 +102,11 @@ export default function Search(props) {
                 selectedCountry={selectedCountry}
                 setSelectedCountry={setSelectedCountry}
                 countries={countries}
+
+                subtitleBtn={subtitleBtn}
+                setSubtitleBtn={setSubtitleBtn}
+                setSubtitle={setSubtitle}
+                subtitle={subtitle}
             />
             <ol>{allSearchRes}</ol>
             {/* <ol>{allNetflixVids}</ol> */}

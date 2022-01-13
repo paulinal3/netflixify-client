@@ -38,6 +38,11 @@ export default function SearchBar(props) {
                 pickedCountry={props.selectedCountry}
                 setPickedCountry={props.setSelectedCountry}
                 allCountries={props.countries}
+
+                subtitlesBtn={props.subtitleBtn}
+                setSubtitlesBtn={props.setSubtitleBtn}
+                setSubtitles={props.setSubtitle}
+                subtitles={props.subtitle}
             />
                 <Form.Control type='submit' value='Search' />
         </Form>
