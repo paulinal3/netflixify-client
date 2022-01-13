@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Form, Button, Card, Tooltip, OverlayTrigger } from "react-bootstrap"
 import { destroyVideo, getOneVideo, getPlaylistVideos, updateVideo } from "../../../../api/video"
+import ShowVideo from "./ShowVideo"
 import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
 import { MdUnfoldMore } from 'react-icons/md'
@@ -8,6 +9,7 @@ import { MdUnfoldMore } from 'react-icons/md'
 export default function IndexVideos(props) {
 
     const [watchedStatus, setWatchedStatus] = useState(props.playlistVids.watched)
+    const [modalShow, setModalShow] = useState(false)
 
     // helper method to update a video's watched status
     const editVideo = (e) => {
@@ -106,8 +108,13 @@ export default function IndexVideos(props) {
                         delay={{ show: 250, hide: 400 }}
                         overlay={moreHover}
                     >
-                        <Button><MdUnfoldMore /></Button>
+                        <Button onClick={() => setModalShow(true)}><MdUnfoldMore /></Button>
                     </OverlayTrigger>
+                    <ShowVideo
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        playlistVid={props.playlistVids}
+                    />
                 </div>
             </Card.ImgOverlay>
         </Card >
