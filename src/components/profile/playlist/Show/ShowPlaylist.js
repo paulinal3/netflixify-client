@@ -91,8 +91,8 @@ export default function ShowPlaylist(props) {
         <div>
             <h1>{playlist.title}</h1>
             <Button onClick={displayEdit}>Edit Playlist</Button>
-        </div> 
-        ) : (
+        </div>
+    ) : (
         // if false, display text to edit title and save/delete buttons
         <Form>
             <Form.Control value={playlistTitle} onChange={handleTitleChange} />
@@ -101,11 +101,14 @@ export default function ShowPlaylist(props) {
         </Form>
     )
 
-    const playlistsDropdown = props.playlists.map(p => {
-        return (
-            <option value={p._id}>{p.title}</option>
-        )
-    })
+    // list the playlists alphabetically
+    const playlistsDropdown = props.playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
+        // then map through them
+        .map(p => {
+            return (
+                <option value={p._id}>{p.title}</option>
+            )
+        })
 
     const playlistClicked = (e) => {
         navigate(`/playlists/${e.target.value}`)

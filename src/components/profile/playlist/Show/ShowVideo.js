@@ -2,9 +2,11 @@ import { Card, Button, Form, Modal } from "react-bootstrap"
 
 import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 
-
 export default function ShowVideo(props) {
-    console.log('this is the video info\n', props.playlistVid)
+
+    const markWatched = props.watchedStatus === true ? '  Watched' : '  Mark as Watched'
+    const markWatchedIcon = props.watchedStatus === true ? <FaCheck /> : <FaCheckSquare />
+
     return (
         <Modal
             {...props}
@@ -26,12 +28,12 @@ export default function ShowVideo(props) {
                 <small>{props.playlistVid.released} {props.playlistVid.type}</small>
             </Modal.Body>
             <Modal.Footer>
+                <Button variant='secondary' value={props.playlistVid._id} onClick={props.watchedClicked}>{markWatchedIcon}{markWatched}</Button>
                 <a href={`https://www.netflix.com/title/${props.playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
                     <Button variant='secondary'>
-                        <FaPlay /> Watch
+                        <FaPlay /> Play
                     </Button>
                 </a>
-                {/* <Button onClick={props.onHide}>Close</Button> */}
             </Modal.Footer>
         </Modal>
     )

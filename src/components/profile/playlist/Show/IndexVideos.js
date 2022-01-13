@@ -114,6 +114,8 @@ export default function IndexVideos(props) {
                         show={modalShow}
                         onHide={() => setModalShow(false)}
                         playlistVid={props.playlistVids}
+                        watchedClicked = {watchedClicked}
+                        watchedStatus = {watchedStatus}
                     />
                 </div>
             </Card.ImgOverlay>
