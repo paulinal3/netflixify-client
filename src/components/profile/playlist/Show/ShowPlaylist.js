@@ -7,16 +7,17 @@ import IndexVideos from "./IndexVideos"
 
 export default function ShowPlaylist(props) {
 
-    const [playlist, setPlaylist] = useState({})
-    const [playlistVids, setPlaylistVids] = useState([])
-    const [playlistTitle, setPlaylistTitle] = useState('')
-    const [title, setTitle] = useState(true)
-
     // grab the current url pattern
     const { pathname } = useLocation()
     // store the playlist id in the url pattern into a variable
     const playlistId = pathname.split('/')[2]
     // console.log('this is the playlist id:', playlistId)
+
+    const [playlist, setPlaylist] = useState({})
+    const [playlistVids, setPlaylistVids] = useState([])
+    const [playlistTitle, setPlaylistTitle] = useState('')
+    const [title, setTitle] = useState(true)
+    const [playlistPicked, setPlaylistPicked] = useState(playlistId)
 
     // render the specified playlist as soon as selected by user
     useEffect(() => {
@@ -30,7 +31,7 @@ export default function ShowPlaylist(props) {
                 setPlaylistTitle(foundPlaylist.data.playlist.title)
             })
             .catch(err => console.error)
-    }, [])
+    }, [playlistId])
 
     const refreshPlaylist = () => {
         // axios call to find the selected playlist in the db
@@ -43,19 +44,6 @@ export default function ShowPlaylist(props) {
             })
             .catch(err => console.error)
     }
-
-    // map over all the videos in the selected playlist state
-    // const getPlaylistVids = playlist.videos.map(v => {
-    //     console.log('playlist vid\n', playlist.videos)
-    //     console.log('this is a video\n', v)
-    //     return (
-    //         <li key={v._id}>
-    //             <img src={v.largeimage} />
-    //         </li>
-    //         // and pass a prop to IndexVideos
-    //         // <IndexVideos playlistVids={v} />
-    //     )
-    // })
 
     const handleTitleChange = (e) => {
         setPlaylistTitle(e.target.value)
@@ -113,12 +101,26 @@ export default function ShowPlaylist(props) {
         </Form>
     )
 
+    const playlistsDropdown = props.playlists.map(p => {
+        return (
+            <option value={p._id}>{p.title}</option>
+        )
+    })
+
+    const playlistClicked = (e) => {
+        navigate(`/playlists/${e.target.value}`)
+    }
+
     return (
         <div>
             <small>PLAYLIST</small>
             <h1>
                 {displayTitle}
             </h1>
+            <Form.Select onChange={playlistClicked}>
+                <option value={playlistId}>Go to: </option>
+                {playlistsDropdown}
+            </Form.Select>
             <ol id='playlistVid'>{getPlaylistVids}</ol>
         </div>
     )

@@ -33,16 +33,8 @@ export default function Profile(props) {
         props.setPlaylists(e.target.value)
     }
 
-    // map through the playlists in state
-    // const allPlaylists = props.playlists.map(p => {
-    //     return (
-    //         // and pass them as a prop to IndexPlaylist
-    //         <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
-    //     )
-    // })
-
-    // sort the playlist alphabeticaly
-    const allPlaylists = props.playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
+    // sort the playlists alphabeticaly
+    let allPlaylists = props.playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
         // then map through them
     .map(p => {
         return (
@@ -51,51 +43,47 @@ export default function Profile(props) {
         )
     })
 
-    const sortClicked = (e) => {
-        setPlaylistsOrder(e.target.value)
+    // sort the playlists newest first
+    const newestPlaylists = props.playlists.sort((a, b) => {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    }).reverse().map(p => {
+        return (
+            // and pass them as a prop to IndexPlaylist
+            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+        )
+    })
+
+    // sort the playlists oldest first
+    const oldestPlaylists = props.playlists.sort((a, b) => {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    }).map(p => {
+        return (
+            // and pass them as a prop to IndexPlaylist
+            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+        )
+    })
+
+    // sort the playlists by most recently updated first
+    const updatedPlaylists = props.playlists.sort((a, b) => {
+        return new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+    }).reverse().map(p => {
+        return (
+            // and pass them as a prop to IndexPlaylist
+            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+        )
+    })
+
+    // conditional for playlist sort
+    if (playlistsOrder === 'new') {
+        allPlaylists = newestPlaylists
+    } else if (playlistsOrder === 'old') {
+        allPlaylists = oldestPlaylists
+    } else if (playlistsOrder === 'updated') {
+        allPlaylists = updatedPlaylists
     }
 
-    if (playlistsOrder === 'new') {
-        allPlaylists.sort((a, b) => {
-            return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        }).reverse()
-    } else if (playlistsOrder === 'old') {
-        allPlaylists.sort((a, b) => {
-            return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        })
-    } else if (playlistsOrder === 'updated') {
-        allPlaylists.sort((a, b) => {
-            return new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-        }).reverse()
-    } else if (playlistsOrder === 'alph') {
-        return (
-            <div>
-                <header id='profileHeader'>
-                    <h1>{props.user.firstName}'s Playlists:</h1>
-                    <Button variant='secondary'><GrAdd onClick={() => setModalShow(true)} /></Button>
-                </header>
-                <Form.Select id='sortBy' onChange={sortClicked}>
-                    <option value='alph'>A to Z</option>
-                    <option value='new'>Newest Created</option>
-                    <option value="old">Oldest Created</option>
-                    <option value='updated'>Most Updated</option>
-                </Form.Select>
-                <ol id='allPlaylists'>{allPlaylists}</ol>
-                <NewPlaylist
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                    currentUser={props.user}
-                    allPlaylists={props.getAllPlaylists}
-                />
-                <Card style={{ width: '18rem' }}>
-                    {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
-                    <Card.Body>
-                        <Card.Title>Watched Videos</Card.Title>
-                        <Link to={`/playlists/watched`}><Button variant="secondary">See Playlist</Button></Link>
-                    </Card.Body>
-                </Card>
-            </div>
-        )
+    const sortClicked = (e) => {
+        setPlaylistsOrder(e.target.value)
     }
 
     return (
