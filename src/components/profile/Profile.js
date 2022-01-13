@@ -41,8 +41,8 @@ export default function Profile(props) {
     return (
         <div>
             <h1>{props.user.firstName}'s Playlists:</h1>
-            <Button><GrAdd onClick={() => setModalShow(true)}/></Button>
-            <ol>{allPlaylists}</ol>
+            <Button variant='secondary'><GrAdd onClick={() => setModalShow(true)}/></Button>
+            <ol id='allPlaylists'>{allPlaylists}</ol>
             <>
                 {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                     <GrAdd />

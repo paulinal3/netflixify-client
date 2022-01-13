@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap"
 export default function IndexPlaylist(props) {
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.playlist.videos[0].image} />
+            {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
             <Card.Body>
                 <Card.Title>{props.playlist.title}</Card.Title>
                 <Link to={`/playlists/${props.playlist._id}`}><Button variant="primary">See Playlist</Button></Link>

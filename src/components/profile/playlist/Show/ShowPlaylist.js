@@ -119,7 +119,7 @@ export default function ShowPlaylist(props) {
             <h1>
                 {displayTitle}
             </h1>
-            <ol>{getPlaylistVids}</ol>
+            <ol id='playlistVid'>{getPlaylistVids}</ol>
         </div>
     )
 }

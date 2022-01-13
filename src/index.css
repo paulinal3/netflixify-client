@@ -16,3 +16,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#searchResult, #allPlaylists, #playlistVid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
