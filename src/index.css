@@ -7,12 +7,12 @@
 }
 
 #container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #homePage, #signUp, #searchPage {
-  background-color: rgba(0, 0, 0, 0.87);
+  background-color: #212529;
   height: 100vh;
 }
 
-#searchResult {
-  background-color: rgba(0, 0, 0, 0.87);
+#searchResult, #allPlaylists {
+  background-color: #212529;
 }
 
 #signOut, #watchedPage {
@@ -159,7 +159,7 @@ footer {
 
 #resultCardBody, #playlistBody {
   margin-top: 5%;
-  background-color: rgba(0, 0, 0, 0.75);
+  /* background-color: rgba(0, 0, 0, 0.75); */
 }
 
 #postPlaylist {
