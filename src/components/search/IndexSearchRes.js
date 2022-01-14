@@ -28,7 +28,7 @@ export default function IndexSearchRes(props) {
         <div>
             <Card style={{ width: '13rem' }}>
                 <Card.Img variant="top" src={props.res.image} alt={props.res.title} />
-                <Card.Body>
+                <Card.Body id='resultCardBody'>
                     {/* <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the bulk of

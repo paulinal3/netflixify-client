@@ -20,6 +20,7 @@ import ShowWatched from './components/profile/playlist/Show/ShowWatched'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
+import Footer from './components/shared/Footer'
 
 const App = () => {
 	// <---------- USER STATES & HELPER METHODS ----------> //
@@ -132,6 +133,7 @@ const App = () => {
 					element={<ShowWatched user={user} />}
 				/>
 			</Routes>
+			<Footer />
 			{msgAlerts.map((msgAlert) => (
 				<AutoDismissAlert
 					key={msgAlert.id}

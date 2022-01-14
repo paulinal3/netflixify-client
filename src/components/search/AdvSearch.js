@@ -27,6 +27,18 @@ export default function AdvSearch(props) {
         props.setYearReleasedBtn(!props.yearReleasedBtn)
     }
 
+    const endDateBtnClicked = () => {
+        props.setEndYearBtn(!props.endYearBtn)
+    }
+    
+    const handleDateInput = (e) => {
+        props.setYearReleased(e.target.value)
+    }
+
+    const handleEndDateInput = (e) => {
+        props.setEndReleasedDate(e.target.value)
+    }
+
     const countryBtnClicked = () => {
         props.setCountryBtn(!props.countryBtn)
     }
@@ -86,14 +98,26 @@ export default function AdvSearch(props) {
         props.setGenres('0')
     )
 
+    // conditional for start date input
     const displayReleasedInput = props.yearReleasedBtn === true ? (
         // if true, display video type options
         <Form size="sm">
-            <input type='text' placeholder='enter year' />
+            <input type='text' placeholder='Year > 1900' onChange={handleDateInput} />
         </Form>
         // if false reset state
     ) : (
-        props.setYearReleased(1900)
+        props.setYearReleased('1900')
+    )
+
+    // conditional for end date input
+    const displayEndInput = props.endYearBtn === true ? (
+        // if true, display video type options
+        <Form size="sm">
+            <input type='text' placeholder='Year < 2022' onChange={handleEndDateInput} />
+        </Form>
+        // if false reset state
+    ) : (
+        props.setYearReleased('2022')
     )
 
     // map through countries state
@@ -136,7 +160,7 @@ export default function AdvSearch(props) {
 
     // conditional to display advanced search options
     const displayAdvSearch = props.advancedSearch
-     // if true, display checkbox options
+    // if true, display checkbox options
     if (displayAdvSearch === true) {
         return (
             <div id='advSearchOptions'>
@@ -148,61 +172,84 @@ export default function AdvSearch(props) {
                         onClick={advSearchClicked}
                     />
                 </Form>
-                <div key={`inline-$checkbox`} className="mb-3">
-                    <Form.Check
-                        inline
-                        label="Type"
-                        name="group1"
-                        type='checkbox'
-                        id={`inline-$checkbox-1`}
-                        onClick={vidBtnClicked}
-                    />
-                    {displayVidTypes}
-                    <Form.Check
-                        inline
-                        label="Genre"
-                        name="group1"
-                        type='checkbox'
-                        id={`inline-$checkbox-1`}
-                        onClick={genreBtnClicked}
-                    />
-                    {displayGenres}
-                    <Form.Check
-                        inline
-                        label="Release Date"
-                        name="group1"
-                        type='checkbox'
-                        id={`inline-$checkbox-2`}
-                        onClick={releasedBtnClicked}
-                    />
-                    {displayReleasedInput}
-                    <Form.Check
-                        inline
-                        label="Subtitles"
-                        type='checkbox'
-                        id={`inline-$checkbox-3`}
-                        onClick={subtitleBtnClicked}
-                    />
-                    {displaySubtitles}
-                    <Form.Check
-                        inline
-                        label="Country"
-                        type='checkbox'
-                        id={`inline-$checkbox-3`}
-                        onClick={countryBtnClicked}
-                    />
-                    {displayCountries}
+                <div key={`inline-$checkbox`} id='options' className="mb-3">
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Type"
+                            name="group1"
+                            type='checkbox'
+                            id={`inline-$checkbox-1`}
+                            onClick={vidBtnClicked}
+                        />
+                        {displayVidTypes}
+                    </div>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Genre"
+                            name="group1"
+                            type='checkbox'
+                            id={`inline-$checkbox-1`}
+                            onClick={genreBtnClicked}
+                        />
+                        {displayGenres}
+                    </div>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Start Year"
+                            name="group1"
+                            type='checkbox'
+                            id={`inline-$checkbox-2`}
+                            onClick={releasedBtnClicked}
+                        />
+                        {displayReleasedInput}
+                    </div>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="End Year"
+                            name="group1"
+                            type='checkbox'
+                            id={`inline-$checkbox-2`}
+                            onClick={endDateBtnClicked}
+                        />
+                        {displayEndInput}
+                    </div>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Subtitles"
+                            type='checkbox'
+                            id={`inline-$checkbox-3`}
+                            onClick={subtitleBtnClicked}
+                        />
+                        {displaySubtitles}
+                    </div>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="Country"
+                            type='checkbox'
+                            id={`inline-$checkbox-3`}
+                            onClick={countryBtnClicked}
+                        />
+                        {displayCountries}
+                    </div>
                 </div>
             </div>
         )
-    // if false, reset all states
+        // if false, reset all states
     } else {
         props.setVideoTypeBtn(false)
         props.setVideoType('Any')
         props.setGenresBtn(false)
         props.setGenres('0')
-        // props.setYearReleaseBtn(false)
-        // props.setYearReleased('1900')
+        props.setYearReleasedBtn(false)
+        props.setYearReleased('1900')
+        props.setEndYearBtn(false)
+        props.setEndReleasedDate('2022')
         props.setCountryBtn(false)
         props.setPickedCountry('78')
         props.setSubtitlesBtn(false)
@@ -210,7 +257,7 @@ export default function AdvSearch(props) {
     }
 
     return (
-        <div>
+        <div id='advSearch'>
             <Form>
                 <Form.Check
                     type="switch"

@@ -16,7 +16,9 @@ export default function Search(props) {
     const [genreBtn, setGenreBtn] = useState(false)
     const [genre, setGenre] = useState('0')
     const [releasedBtn, setReleasedBtn] = useState(false)
-    const [released, setReleased] = useState(1900)
+    const [released, setReleased] = useState('1900')
+    const [endDateBtn, setEndDateBtn] = useState(false)
+    const [endDate, setEndDate] = useState('2022')
     const [countriesBtn, setCountriesBtn] = useState(false)
     const [countries, setCountries] = useState([])
     const [selectedCountry, setSelectedCountry] = useState('78')
@@ -39,7 +41,7 @@ export default function Search(props) {
     const searchTermVids = (e) => {
         e.preventDefault()
         // axios call to external api
-        getSearchTermRes(searchTerm, vidType, genre, selectedCountry, subtitle)
+        getSearchTermRes(searchTerm, vidType, genre, selectedCountry, subtitle, released, endDate)
             .then(videos => {
                 console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
                 setSearchRes(videos.data.ITEMS)
@@ -71,8 +73,8 @@ export default function Search(props) {
     })
 
     return (
-        <div>
-            <h1>Search Page</h1>
+        <div id='searchPage'>
+            {/* <h1>Find Your Next Video</h1> */}
             <SearchBar 
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
@@ -95,6 +97,11 @@ export default function Search(props) {
                 setReleasedBtn={setReleasedBtn}
                 released={released}
                 setReleased={setReleased}
+
+                endDateBtn={endDateBtn}
+                setEndDateBtn={setEndDateBtn}
+                endDate={endDate}
+                setEndDate={setEndDate}
 
                 countriesBtn={countriesBtn}
                 setCountriesBtn={setCountriesBtn}

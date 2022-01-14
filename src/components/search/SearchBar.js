@@ -5,17 +5,22 @@ export default function SearchBar(props) {
     return (
         <Form onSubmit={props.searchTermVids}>
             <Form.Group id='search' controlId='searchTerm'>
-                <Form.Label>Search: </Form.Label>
+                {/* <Form.Label>Keyword: </Form.Label> */}
                 <Form.Control
                     type='text'
                     name='searchTerm'
-                    placeholder='enter keyword'
+                    placeholder='Type keyword'
                     value={props.searchTerm}
                     onChange={props.handleSearchTermChange}
                 />
+                <Form.Control 
+                    id='searchBtn' 
+                    type='submit' 
+                    value='Search' 
+                />
             </Form.Group>
             <div id='advSearchToggle'>
-                <AdvSearch 
+                <AdvSearch
                     advancedSearch={props.advSearch}
                     setAdvancedSearch={props.setAdvSearch}
 
@@ -34,6 +39,11 @@ export default function SearchBar(props) {
                     yearReleased={props.released}
                     setYearReleased={props.setReleased}
 
+                    endYearBtn={props.endDateBtn}
+                    setEndYearBtn={props.setEndDateBtn}
+                    endReleasedDate={props.endDate}
+                    setEndReleasedDate={props.setEndDate}
+
                     countryBtn={props.countriesBtn}
                     setCountryBtn={props.setCountriesBtn}
                     pickedCountry={props.selectedCountry}
@@ -46,7 +56,6 @@ export default function SearchBar(props) {
                     subtitles={props.subtitle}
                 />
             </div>
-                <Form.Control id='searchBtn' type='submit' value='Search' />
         </Form>
     )
 }

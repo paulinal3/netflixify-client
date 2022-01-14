@@ -17,7 +17,6 @@ export default function ShowPlaylist(props) {
     const [playlistVids, setPlaylistVids] = useState([])
     const [playlistTitle, setPlaylistTitle] = useState('')
     const [title, setTitle] = useState(true)
-    const [playlistPicked, setPlaylistPicked] = useState(playlistId)
 
     // render the specified playlist as soon as selected by user
     useEffect(() => {
