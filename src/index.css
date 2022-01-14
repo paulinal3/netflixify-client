@@ -164,10 +164,10 @@ footer {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* #postPlaylist {
+#postPlaylist {
   display: flex;
   flex-direction: row;
-} */
+}
 
 #playlistHeader {
   color: white;

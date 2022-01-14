@@ -50,12 +50,14 @@ export default function IndexSearchRes(props) {
                             <Button variant='success' onClick={() => setModalShow(true)}><GrExpand /></Button>
                         </OverlayTrigger>
                     </div>
-                    {userSignedIn}
                 </Card.ImgOverlay>
                 {/* <Card.Body id='resultCardBody'>
                     <Button onClick={testClicked}>test</Button>
                 </Card.Body> */}
             </Card>
+            <div id='resultCardBody'>
+                {userSignedIn}
+            </div>
             <ShowSearchRes
                 show={modalShow}
                 onHide={() => setModalShow(false)}
