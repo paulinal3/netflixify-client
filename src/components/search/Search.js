@@ -116,7 +116,6 @@ export default function Search(props) {
             />
             <hr />
             <ol id='searchResult'>{allSearchRes}</ol>
-            {/* <ol>{allNetflixVids}</ol> */}
         </div>
     )
 }

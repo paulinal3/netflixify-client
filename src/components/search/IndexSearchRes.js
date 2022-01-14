@@ -34,7 +34,7 @@ export default function IndexSearchRes(props) {
 
     return (
         <div id='indexSearchRes'>
-            <Card style={{ width: '13rem' }}>
+            <Card id='img__wrap' style={{ width: '13rem' }}>
                 <Card.Img variant="top" src={props.res.image} alt={props.res.title} />
                 <Card.ImgOverlay>
                     <div id='seeMoreBtn'>
@@ -43,7 +43,7 @@ export default function IndexSearchRes(props) {
                             delay={{ show: 250, hide: 400 }}
                             overlay={moreHover}
                         >
-                            <Button variant='success' onClick={() => setModalShow(true)}><GrExpand /></Button>
+                            <Button variant='success' id='img__description' onClick={() => setModalShow(true)}><GrExpand /></Button>
                         </OverlayTrigger>
                     </div>
                 </Card.ImgOverlay>

@@ -34,7 +34,7 @@ export default function PostSearchRes(props) {
     )
 
     // map through state
-    const allPlaylists = props.indexPlaylists.map(p => {
+    const allPlaylists = props.indexPlaylists.sort((a, b) => (a.title < b.title) ? -1 : 1).map(p => {
         return (
             // and display each playlist title as a dropdown option
             <option key={p.title} value={p._id}>
