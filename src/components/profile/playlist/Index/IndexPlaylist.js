@@ -19,14 +19,10 @@ export default function IndexPlaylist(props) {
     return (
         <Card style={{ width: '13rem' }}>
             {playlistVideos}
-            {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
             <Card.Body>
                 <Card.Title>{props.playlist.title}</Card.Title>
                 <Link to={`/playlists/${props.playlist._id}`}><Button variant='success'>See Playlist</Button></Link>
             </Card.Body>
         </Card>
-        // <li key={props.playlist.title} onClick={props.selectedPlaylist}>
-        //     <Link to={`/playlists/${props.playlist._id}`}>{props.playlist.title}</Link>
-        // </li>
     )
 }

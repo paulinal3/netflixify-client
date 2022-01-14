@@ -10,7 +10,7 @@
   height: 100vh;
 }
 
-#signOut {
+#signOut, #watchedPage {
   color: white;
 }
 
@@ -118,12 +118,6 @@ code {
   column-gap: 2%;
 }
 
-/* #advSearch {
-  display: flex;
-  flex-direction: row;
-  column-gap: 5%;
-} */
-
 #img__wrap {
   position: relative;
   /* height: 200px;*/
@@ -203,4 +197,16 @@ footer {
   max-width: 15%;
   margin-right: 5%;
   margin-bottom: 2%;
+}
+
+#watchedVids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#watchedHeader {
+  margin-left: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }

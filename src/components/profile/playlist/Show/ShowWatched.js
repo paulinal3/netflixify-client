@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { getWatchedVideos } from "../../../../api/video"
-
+import { Card } from "react-bootstrap"
 
 export default function ShowWatched(props) {
 
-    const [watchedVids, setWatchedVids] = useState([]) 
+    const [watchedVids, setWatchedVids] = useState([])
 
     useEffect(() => {
         getWatchedVideos(props.user)
@@ -16,15 +16,19 @@ export default function ShowWatched(props) {
 
     const watchedVideos = watchedVids.map(v => {
         return (
-            <li>{v.title}</li>
+            <Card className="bg-dark text-white" style={{ width: '10rem' }}>
+                <Card.Img src={v.image} alt={v.title} />
+            </Card >
         )
     })
 
     return (
         <div id='watchedPage'>
-            <small>PLAYLIST</small>
-            <h1>Watched</h1>
-            <ol>{watchedVideos}</ol>
+            <div id='watchedHeader'>
+                <small>ALL</small>
+                <h1>Watched</h1>
+            </div>
+            <ol id='watchedVids'>{watchedVideos}</ol>
         </div>
     )
 }
