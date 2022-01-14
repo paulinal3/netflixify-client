@@ -11,7 +11,9 @@ export default function NewPlaylist(props) {
         setNewPlaylist(e.target.value)
     }
 
+    // helper method to create a playlist
     const createNewPlaylist = () => {
+        // axios call
         postPlaylist(props.currentUser, newPlaylist)
             .then(() => {
                 props.allPlaylists()

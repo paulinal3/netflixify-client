@@ -20,8 +20,8 @@ export default function IndexSearchRes(props) {
                 refPlaylists={props.refreshPlaylists}
             />
         </div>
-        // if not only display watch now function
     ) : (
+        // if not only display watch now function
         <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success'>Watch Now</Button></a>
     )
 

@@ -4,6 +4,7 @@ import { Card, Button } from "react-bootstrap"
 export default function IndexPlaylist(props) {
     
     let playlistVideos = props.playlist.videos
+    // only return image if there is at least one video in playlist
     if (playlistVideos.length > 0) {
         return (
             <Card style={{ width: '13rem' }}>

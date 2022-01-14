@@ -49,7 +49,6 @@ export default function PostSearchRes(props) {
                 <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
                 {allPlaylists}
             </Form.Select>
-            {/* <Form.Control type='submit' value='Add to Playlist' /> */}
             <OverlayTrigger
                 placement="left"
                 delay={{ show: 250, hide: 400 }}

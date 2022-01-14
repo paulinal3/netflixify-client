@@ -25,14 +25,6 @@ export default function Search(props) {
     const [subtitleBtn, setSubtitleBtn] = useState(false)
     const [subtitle, setSubtitle] = useState('Any')
 
-    // const allNetflixVids = props.netflixVids.map((vid, i) => {
-    //     return (
-    //         <li>
-    //             <img src={vid.image} />
-    //         </li>
-    //     )
-    // })
-
     const handleSearchTermChange = (e) => {
         setSearchTerm(e.target.value)
     }
@@ -74,7 +66,6 @@ export default function Search(props) {
 
     return (
         <div id='searchPage'>
-            {/* <h1>Find Your Next Video</h1> */}
             <SearchBar 
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 

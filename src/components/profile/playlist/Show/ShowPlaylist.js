@@ -109,6 +109,7 @@ export default function ShowPlaylist(props) {
             )
         })
 
+    // redirect to playlist selected
     const playlistClicked = (e) => {
         navigate(`/playlists/${e.target.value}`)
     }

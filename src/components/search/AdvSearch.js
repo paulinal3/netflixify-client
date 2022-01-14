@@ -104,8 +104,8 @@ export default function AdvSearch(props) {
         <Form size="sm">
             <input type='text' placeholder='Year > 1900' onChange={handleDateInput} />
         </Form>
-        // if false reset state
     ) : (
+        // if false reset state
         props.setYearReleased('1900')
     )
 
@@ -115,8 +115,8 @@ export default function AdvSearch(props) {
         <Form size="sm">
             <input type='text' placeholder='Year < 2022' onChange={handleEndDateInput} />
         </Form>
-        // if false reset state
     ) : (
+        // if false reset state
         props.setYearReleased('2022')
     )
 
