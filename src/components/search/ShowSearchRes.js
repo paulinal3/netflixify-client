@@ -1,4 +1,5 @@
 import { Modal, Button } from "react-bootstrap"
+import { FaPlay } from "react-icons/fa"
 
 export default function ShowSearchRes(props) {
     return (
@@ -15,13 +16,16 @@ export default function ShowSearchRes(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>
-                        {props.result.synopsis}
-                    </p>
+                    <p>{props.result.synopsis}</p>
+                    <p>Rating: {props.result.rating}</p>
+                    <small>{props.result.released} {props.result.type}</small>
                 </Modal.Body>
                 <Modal.Footer>
-                    <a href={`https://www.netflix.com/title/${props.result.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant="primary">Watch Now</Button></a>
-                    <Button onClick={props.onHide}>Close</Button>
+                    <a href={`https://www.netflix.com/title/${props.result.netflixid}`} target='_blank' rel='noopener noreferrer'>                    
+                        <Button variant='success'>
+                            <FaPlay /> Play
+                        </Button>
+                    </a>
                 </Modal.Footer>
             </Modal>
         </div>

@@ -43,7 +43,7 @@ export default function NewPlaylist(props) {
                             placeholder='Playlist Title'
                         />
                     </FloatingLabel>
-                    <Button onClick={() => createNewPlaylist()}>Create Playlist</Button>
+                    <Button variant='success' onClick={() => createNewPlaylist()}>Create Playlist</Button>
                 </Modal.Body>
             </Form>
         </Modal>

@@ -87,31 +87,35 @@ export default function Profile(props) {
     }
 
     return (
-        <div>
-            <header id='profileHeader'>
-                <h1>{props.user.firstName}'s Playlists:</h1>
-                <Button variant='secondary'><GrAdd onClick={() => setModalShow(true)} /></Button>
-            </header>
+        <div id='container'>
+            <div id='profileSetting'>
                 <Form.Select id='sortBy' onChange={sortClicked}>
                     <option value='alph'>A to Z</option>
                     <option value='new'>Newest Created</option>
                     <option value="old">Oldest Created</option>
                     <option value='updated'>Most Updated</option>
                 </Form.Select>
-            <ol id='allPlaylists'>{allPlaylists}</ol>
+                <Button size='sm' variant='success'><GrAdd onClick={() => setModalShow(true)} /></Button>
+            </div>
+            <header id='profileHeader'>
+                <h1>{props.user.firstName}'s Playlists:</h1>
+            </header>
+            <ol id='allPlaylists'>
+                {allPlaylists}
+                <Card style={{ width: '13rem' }}>
+                    {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
+                    <Card.Body>
+                        <Card.Title>Watched Videos</Card.Title>
+                        <Link to={`/playlists/watched`}><Button variant="secondary">See Playlist</Button></Link>
+                    </Card.Body>
+                </Card>
+            </ol>
             <NewPlaylist
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 currentUser={props.user}
                 allPlaylists={props.getAllPlaylists}
             />
-            <Card style={{ width: '18rem' }}>
-                {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
-                <Card.Body>
-                    <Card.Title>Watched Videos</Card.Title>
-                    <Link to={`/playlists/watched`}><Button variant="secondary">See Playlist</Button></Link>
-                </Card.Body>
-            </Card>
         </div>
     )
 }

@@ -10,7 +10,7 @@ export default function IndexPlaylist(props) {
             <Card.Img variant="top" src={props.playlist.videos[0].image} />
             <Card.Body>
                 <Card.Title>{props.playlist.title}</Card.Title>
-                <Link to={`/playlists/${props.playlist._id}`}><Button variant="primary">See Playlist</Button></Link>
+                <Link to={`/playlists/${props.playlist._id}`}><Button variant='success'>See Playlist</Button></Link>
             </Card.Body>
         </Card>
         )
@@ -22,7 +22,7 @@ export default function IndexPlaylist(props) {
             {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
             <Card.Body>
                 <Card.Title>{props.playlist.title}</Card.Title>
-                <Link to={`/playlists/${props.playlist._id}`}><Button variant="primary">See Playlist</Button></Link>
+                <Link to={`/playlists/${props.playlist._id}`}><Button variant='success'>See Playlist</Button></Link>
             </Card.Body>
         </Card>
         // <li key={props.playlist.title} onClick={props.selectedPlaylist}>

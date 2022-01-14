@@ -1,7 +1,9 @@
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { useState } from 'react'
 import PostSearchRes from './PostSearchRes'
 import ShowSearchRes from './ShowSearchRes'
+
+import { GrExpand } from 'react-icons/gr'
 
 export default function IndexSearchRes(props) {
 
@@ -11,7 +13,6 @@ export default function IndexSearchRes(props) {
     const userSignedIn = props.currentUser !== null ? (
         // if a user is, display add to playlist and watched functions
         <div>
-            {/* <Button>Mark as Watched</Button> */}
             <PostSearchRes
                 indexPlaylists={props.allPlaylists}
                 currUser={props.currentUser}
@@ -24,25 +25,42 @@ export default function IndexSearchRes(props) {
         <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button>Watch Now</Button></a>
     )
 
+    // hover for more details button
+    const moreHover = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            More info
+        </Tooltip>
+    )
+
+    const testClicked = (e) => {
+        console.log('this playlist id was selected:\n', e.target.value)
+    }
+
     return (
-        <div>
+        <div id='indexSearchRes'>
             <Card style={{ width: '13rem' }}>
                 <Card.Img variant="top" src={props.res.image} alt={props.res.title} />
-                <Card.Body id='resultCardBody'>
-                    {/* <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text> */}
+                <Card.ImgOverlay>
+                    <div id='seeMoreBtn'>
+                        <OverlayTrigger
+                            placement="left"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={moreHover}
+                        >
+                            <Button variant='success' onClick={() => setModalShow(true)}><GrExpand /></Button>
+                        </OverlayTrigger>
+                    </div>
                     {userSignedIn}
-                    <Button onClick={() => setModalShow(true)}>See Details</Button>
-                    <ShowSearchRes
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
-                        result={props.res}
-                    />
-                </Card.Body>
+                </Card.ImgOverlay>
+                {/* <Card.Body id='resultCardBody'>
+                    <Button onClick={testClicked}>test</Button>
+                </Card.Body> */}
             </Card>
+            <ShowSearchRes
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                result={props.res}
+            />
         </div>
     )
 }

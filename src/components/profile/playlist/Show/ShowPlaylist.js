@@ -87,16 +87,16 @@ export default function ShowPlaylist(props) {
     // conditional for what should be displayed
     const displayTitle = title === true ? (
         // if true, display title and edit button
-        <div>
+        <div id='editHeader'>
+            <Button id='editBtn' variant='success' className="float-end" size='sm' onClick={displayEdit}>Edit Playlist</Button>
             <h1>{playlist.title}</h1>
-            <Button onClick={displayEdit}>Edit Playlist</Button>
         </div>
     ) : (
         // if false, display text to edit title and save/delete buttons
-        <Form>
-            <Form.Control value={playlistTitle} onChange={handleTitleChange} />
-            <Button onClick={editPlaylist}>Save</Button>
-            <Button onClick={deletePlaylist}>Delete Playlist</Button>
+        <Form id='editPlaylist'>
+            <Form.Control id='titleInput' value={playlistTitle} onChange={handleTitleChange} />
+            <Button size='sm' variant='success' onClick={editPlaylist}>Save</Button>
+            <Button size='sm' variant='danger' onClick={deletePlaylist}>Delete Playlist</Button>
         </Form>
     )
 
@@ -114,15 +114,19 @@ export default function ShowPlaylist(props) {
     }
 
     return (
-        <div>
-            <small>PLAYLIST</small>
-            <h1>
-                {displayTitle}
-            </h1>
-            <Form.Select onChange={playlistClicked}>
-                <option value={playlistId}>Go to: </option>
-                {playlistsDropdown}
-            </Form.Select>
+        <div id='showPlaylistPage'>
+            <header id='playlistHeader'>
+                <small>PLAYLIST</small>
+                <h1>
+                    {displayTitle}
+                </h1>
+            </header>
+            <div id='showPlaylistSettings'>
+                <Form.Select id='playlistDropdown' onChange={playlistClicked}>
+                    <option value={playlistId}>Go to: </option>
+                    {playlistsDropdown}
+                </Form.Select>
+            </div>
             <ol id='playlistVid'>{getPlaylistVids}</ol>
         </div>
     )

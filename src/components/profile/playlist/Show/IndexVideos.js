@@ -4,7 +4,7 @@ import { destroyVideo, getOneVideo, getPlaylistVideos, updateVideo } from "../..
 import ShowVideo from "./ShowVideo"
 import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
-import { MdUnfoldMore } from 'react-icons/md'
+import { GrExpand } from 'react-icons/gr'
 
 export default function IndexVideos(props) {
 
@@ -88,10 +88,17 @@ export default function IndexVideos(props) {
                     <OverlayTrigger
                         placement="top"
                         delay={{ show: 250, hide: 400 }}
+                        overlay={watchedHover}
+                    >
+                        <Button variant='success' value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                        placement="top"
+                        delay={{ show: 250, hide: 400 }}
                         overlay={playHover}
                     >
                         <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                            <Button variant='secondary'>
+                            <Button variant='success'>
                                 <FaPlay />
                             </Button>
                         </a>
@@ -99,16 +106,9 @@ export default function IndexVideos(props) {
                     <OverlayTrigger
                         placement="top"
                         delay={{ show: 250, hide: 400 }}
-                        overlay={watchedHover}
-                    >
-                        <Button variant='secondary' value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
-                    </OverlayTrigger>
-                    <OverlayTrigger
-                        placement="top"
-                        delay={{ show: 250, hide: 400 }}
                         overlay={moreHover}
                     >
-                        <Button onClick={() => setModalShow(true)}><MdUnfoldMore /></Button>
+                        <Button variant='success' onClick={() => setModalShow(true)}><GrExpand /></Button>
                     </OverlayTrigger>
                     <ShowVideo
                         show={modalShow}

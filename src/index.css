@@ -5,9 +5,10 @@
   font-family: 'Spline Sans', sans-serif;
 }
 
-/* #root {
-  background-color: mediumaquamarine;
-} */
+#container, #showPlaylistPage, #watchedPage {
+  background-color: rgba(0, 0, 0, 0.87);
+  height: 100vh;
+}
 
 body {
   margin: 0;
@@ -38,6 +39,17 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: white;
+  margin-left: 5%;
+}
+
+#profileSetting {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1%;
+  justify-content: flex-end;
+  margin-right: 5%;
+  padding-top: 3%;
 }
 
 #sortBy {
@@ -45,7 +57,7 @@ code {
   font-size: 15px;
 }
 
-#removeVidBtn {
+#removeVidBtn, #seeMoreBtn {
   display: flex;
   justify-content: flex-end;
 }
@@ -53,6 +65,9 @@ code {
 #showOptions {
   position: relative;
   top: 70%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5%;
 }
 
 #search {
@@ -141,10 +156,46 @@ opacity: 1;
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #212529;
   color: white
 }
 
 #resultCardBody {
   background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* #postPlaylist {
+  display: flex;
+  flex-direction: row;
+} */
+
+#playlistHeader {
+  color: white;
+  margin-left: 5%;
+  padding-top: 2%;
+}
+
+#editPlaylist {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+#titleInput { 
+  max-width: 25%;
+}
+
+#editBtn {
+  margin-right: 5%;
+}
+
+#showPlaylistSettings {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#playlistDropdown {
+  max-width: 15%;
+  margin-right: 5%;
+  margin-bottom: 2%;
 }

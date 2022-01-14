@@ -21,16 +21,14 @@ export default function ShowVideo(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
-                    {props.playlistVid.synopsis}
-                </p>
+                <p>{props.playlistVid.synopsis}</p>
                 <p>Rating: {props.playlistVid.rating}</p>
                 <small>{props.playlistVid.released} {props.playlistVid.type}</small>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant='secondary' value={props.playlistVid._id} onClick={props.watchedClicked}>{markWatchedIcon}{markWatched}</Button>
+                <Button variant='success' value={props.playlistVid._id} onClick={props.watchedClicked}>{markWatchedIcon}{markWatched}</Button>
                 <a href={`https://www.netflix.com/title/${props.playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                    <Button variant='secondary'>
+                    <Button variant='success'>
                         <FaPlay /> Play
                     </Button>
                 </a>

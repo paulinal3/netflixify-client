@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { Form } from "react-bootstrap"
+import { Form, Tooltip, OverlayTrigger, Button } from "react-bootstrap"
 import { postVideo } from "../../api/video"
+import { GrAdd } from "react-icons/gr"
 
 export default function PostSearchRes(props) {
 
@@ -25,23 +26,37 @@ export default function PostSearchRes(props) {
             .catch(err => console.error)
     }
 
+    // hover for add button
+    const addHover = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Add to Playlist
+        </Tooltip>
+    )
+
     // map through state
     const allPlaylists = props.indexPlaylists.map(p => {
-        return(
+        return (
             // and display each playlist title as a dropdown option
             <option key={p.title} value={p._id}>
                 {p.title}
             </option>
         )
     })
-    
+
     return (
-        <Form onSubmit={postVideoToPlaylist}>
+        <Form id='postPlaylist' onSubmit={postVideoToPlaylist}>
             <Form.Select aria-label="add video to playlist selector" onChange={playlistClicked}>
-                <option value={null} selected={playlist == null ? true : false}>Add to a Playlist</option>
+                <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
                 {allPlaylists}
             </Form.Select>
-            <Form.Control type='submit' value='Add to Playlist' />
+            {/* <Form.Control type='submit' value='Add to Playlist' /> */}
+            <OverlayTrigger
+                placement="left"
+                delay={{ show: 250, hide: 400 }}
+                overlay={addHover}
+            >
+                <Button variant='success' type='submit'><GrAdd /></Button>
+            </OverlayTrigger>
         </Form>
     )
 }

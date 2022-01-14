@@ -21,7 +21,7 @@ export default function ShowWatched(props) {
     })
 
     return (
-        <div>
+        <div id='watchedPage'>
             <small>PLAYLIST</small>
             <h1>Watched</h1>
             <ol>{watchedVideos}</ol>
