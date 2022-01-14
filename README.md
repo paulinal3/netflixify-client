@@ -15,7 +15,10 @@ With Netflixify, a user can search all the the current movies and shows on their
 ## Deployed App
 
 ## Install
-
+1. Go to https://rapidapi.com/unogs/api/unogsng and https://rapidapi.com/unogs/api/uNoGS to sign up for a free account to subscribe for a free API key
+2. Download code to your terminal and run `npm i`
+3. Open code 
+4. Copy API key from and paste in `.env` file
 ## Tech Stack
 * Mongo
 * Express
