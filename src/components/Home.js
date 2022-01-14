@@ -13,7 +13,7 @@ const Home = (props) => {
 
 
 	return (
-		<>
+		<div id='homePage'>
 			{/* <div id="listWithHandle" class="list-group">
 				<div class="list-group-item">
 					<span class="badge">14</span>
@@ -31,7 +31,7 @@ const Home = (props) => {
 					Best of both worlds!
 				</div>
 			</div> */}
-		</>
+		</div>
 	)
 }
 

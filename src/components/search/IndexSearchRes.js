@@ -22,7 +22,7 @@ export default function IndexSearchRes(props) {
         </div>
         // if not only display watch now function
     ) : (
-        <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button>Watch Now</Button></a>
+        <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success'>Watch Now</Button></a>
     )
 
     // hover for more details button
