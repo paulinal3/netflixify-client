@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
 * {
   font-family: 'Spline Sans', sans-serif;
@@ -12,6 +13,14 @@
 
 #signOut, #watchedPage {
   color: white;
+}
+
+#homePage, #appName {
+  font-family: 'Oswald', sans-serif;
+  color: red;
+  font-size: 150px;
+  text-align: center;
+  padding-top: 15%;
 }
 
 body {
@@ -75,7 +84,7 @@ code {
 }
 
 #search {
-  max-width: 50%;
+  max-width: 45%;
   display: flex;
   flex-direction: row;
   column-gap: 10px;
@@ -85,11 +94,6 @@ code {
 
 #searchBtn {
   max-width: 15%;
-}
-
-#searchBtn:hover {
-  background-color: #E50914;
-  color: black;
 }
 
 #advSearchToggle {
@@ -118,27 +122,16 @@ code {
   column-gap: 2%;
 }
 
-#img__wrap {
-  position: relative;
-  /* height: 200px;*/
+/* #img__wrap {
   width: 45%;
   margin: auto;
-}
+} */
 
 #img__description {
-/* position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0; */
-background: rgba(166, 196, 187, 0.72);
 visibility: hidden;
 opacity: 0;
 font-size: 17px;
 font-weight: bold;
-
-/* transition effect. not necessary */
-transition: opacity .2s, visibility .2s;
 }
 
 #img__wrap:hover #img__description {

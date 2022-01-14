@@ -14,23 +14,7 @@ const Home = (props) => {
 
 	return (
 		<div id='homePage'>
-			{/* <div id="listWithHandle" class="list-group">
-				<div class="list-group-item">
-					<span class="badge">14</span>
-					<span class="glyphicon glyphicon-move" aria-hidden="true"></span>
-					Drag me by the handle
-				</div>
-				<div class="list-group-item">
-					<span class="badge">2</span>
-					<span class="glyphicon glyphicon-move" aria-hidden="true"></span>
-					You can also select text
-				</div>
-				<div class="list-group-item">
-					<span class="badge">1</span>
-					<span class="glyphicon glyphicon-move" aria-hidden="true"></span>
-					Best of both worlds!
-				</div>
-			</div> */}
+			<h1 id='appName'>NETFLIXIFY</h1>
 		</div>
 	)
 }

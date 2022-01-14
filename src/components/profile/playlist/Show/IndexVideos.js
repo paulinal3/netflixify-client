@@ -72,7 +72,7 @@ export default function IndexVideos(props) {
     )
 
     return (
-        <Card className="bg-dark text-white" style={{ width: '13rem' }}>
+        <Card id="img__wrap" className="bg-dark text-white" style={{ width: '13rem' }}>
             <Card.Img src={props.playlistVids.image} alt={props.playlistVids.title} />
             <Card.ImgOverlay>
                 <div id='removeVidBtn'>
@@ -81,7 +81,7 @@ export default function IndexVideos(props) {
                         delay={{ show: 250, hide: 400 }}
                         overlay={removeHover}
                     >
-                        <Button variant='danger' value={props.playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
+                        <Button id='img__description' variant='danger' value={props.playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
                     </OverlayTrigger>,
                 </div>
                 <div id='showOptions'>
@@ -90,7 +90,7 @@ export default function IndexVideos(props) {
                         delay={{ show: 250, hide: 400 }}
                         overlay={watchedHover}
                     >
-                        <Button variant='success' value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
+                        <Button variant='success' id='img__description' value={props.playlistVids._id} onClick={watchedClicked}>{markWatched}</Button>
                     </OverlayTrigger>
                     <OverlayTrigger
                         placement="top"
@@ -98,7 +98,7 @@ export default function IndexVideos(props) {
                         overlay={playHover}
                     >
                         <a href={`https://www.netflix.com/title/${props.playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                            <Button variant='success'>
+                            <Button id='img__description' variant='success'>
                                 <FaPlay />
                             </Button>
                         </a>
@@ -108,7 +108,7 @@ export default function IndexVideos(props) {
                         delay={{ show: 250, hide: 400 }}
                         overlay={moreHover}
                     >
-                        <Button variant='success' onClick={() => setModalShow(true)}><GrExpand /></Button>
+                        <Button variant='success' id='img__description' onClick={() => setModalShow(true)}><GrExpand /></Button>
                     </OverlayTrigger>
                     <ShowVideo
                         show={modalShow}

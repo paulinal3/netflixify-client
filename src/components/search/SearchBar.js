@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import AdvSearch from "./AdvSearch"
 
 export default function SearchBar(props) {
@@ -13,11 +13,7 @@ export default function SearchBar(props) {
                     value={props.searchTerm}
                     onChange={props.handleSearchTermChange}
                 />
-                <Form.Control 
-                    id='searchBtn' 
-                    type='submit' 
-                    value='Search' 
-                />
+                <Button id='searchBtn' type='submit' variant='success'>Search</Button>
             </Form.Group>
             <div id='advSearchToggle'>
                 <AdvSearch
