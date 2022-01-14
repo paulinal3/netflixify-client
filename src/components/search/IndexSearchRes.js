@@ -32,10 +32,6 @@ export default function IndexSearchRes(props) {
         </Tooltip>
     )
 
-    const testClicked = (e) => {
-        console.log('this playlist id was selected:\n', e.target.value)
-    }
-
     return (
         <div id='indexSearchRes'>
             <Card style={{ width: '13rem' }}>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Button, Card, Form } from "react-bootstrap"
+import { Button, Card, Form, OverlayTrigger, Tooltip } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 import { getPlaylists } from "../../api/playlist"
@@ -36,12 +36,12 @@ export default function Profile(props) {
     // sort the playlists alphabeticaly
     let allPlaylists = props.playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
         // then map through them
-    .map(p => {
-        return (
-            // and pass them as a prop to IndexPlaylist
-            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
-        )
-    })
+        .map(p => {
+            return (
+                // and pass them as a prop to IndexPlaylist
+                <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+            )
+        })
 
     // sort the playlists newest first
     const newestPlaylists = props.playlists.sort((a, b) => {
@@ -86,6 +86,12 @@ export default function Profile(props) {
         setPlaylistsOrder(e.target.value)
     }
 
+    const createHover = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Create Playlist
+        </Tooltip>
+    )
+
     return (
         <div id='container'>
             <div id='profileSetting'>
@@ -95,7 +101,13 @@ export default function Profile(props) {
                     <option value="old">Oldest Created</option>
                     <option value='updated'>Most Updated</option>
                 </Form.Select>
-                <Button size='sm' variant='success'><GrAdd onClick={() => setModalShow(true)} /></Button>
+                <OverlayTrigger
+                    placement="top"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={createHover}
+                >
+                    <Button size='sm' variant='success'><GrAdd onClick={() => setModalShow(true)} /></Button>
+                </OverlayTrigger>
             </div>
             <header id='profileHeader'>
                 <h1>{props.user.firstName}'s Playlists:</h1>
@@ -103,7 +115,6 @@ export default function Profile(props) {
             <ol id='allPlaylists'>
                 {allPlaylists}
                 <Card style={{ width: '13rem' }}>
-                    {/* <Card.Img variant="top" src={props.playlist.videos[0].image} /> */}
                     <Card.Body>
                         <Card.Title>Watched Videos</Card.Title>
                         <Link to={`/playlists/watched`}><Button variant="secondary">See Playlist</Button></Link>
