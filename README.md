@@ -2,6 +2,9 @@
 
 With Netflixify, a user can search all the the current movies and shows on their country's Netflix. User's will have the ability to create their own playlists and add as many shows/movies to it. Organize your watchlists with ease!
 
+## Deployed App
+
+
 ## User Story
 * AAU, I want to view all shows/movies based on country
 * AAU, I want to view a single show/movie
@@ -12,21 +15,23 @@ With Netflixify, a user can search all the the current movies and shows on their
 * AAU, I want to edit a playlist's title and shows/movies
 * AAU, I want to delete a playlist
 
-## Deployed App
+## Userflow
+![userflow](img/p4-userflow.png)
 
 ## Install
 1. Go to https://rapidapi.com/unogs/api/unogsng and https://rapidapi.com/unogs/api/uNoGS to sign up for a free account to subscribe for a free API key
 2. Download code to your terminal and run `npm i`
 3. Open code 
 4. Copy API key from and paste in `.env` file
+```js
+REACT_APP_RAPID_API_KEY='<API key>'
+```
+
 ## Tech Stack
 * Mongo
 * Express
 * React
 * CSS/Bootstrap
-
-## Wireframes
-
 
 ## ERD
 ![ERD](img/p4-erd.png)
@@ -64,7 +69,7 @@ INDEX movies and shows in US--> `?q=&cl=78&p=1&t=ns&st=adv`
 
 SHOW a movie or show --> `?t=loadvideo&q=<netflixid>`
 
-REDIRECT to Netflix -->    `https://www.netflix.com/title/<netflixid>`
+REDIRECT to Netflix --> `https://www.netflix.com/title/<netflixid>`
 
 ## MVP
 * Welcome/home page that renders sign up/in

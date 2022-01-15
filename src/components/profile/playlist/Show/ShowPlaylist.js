@@ -118,7 +118,7 @@ export default function ShowPlaylist(props) {
         <div id='showPlaylistPage'>
             <header id='playlistHeader'>
                 <small>PLAYLIST</small>
-                <h1>
+                <h1 id='showPlaylistTitle'>
                     {displayTitle}
                 </h1>
             </header>

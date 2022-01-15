@@ -27,6 +27,10 @@
   padding-top: 9%;
 }
 
+#showPlaylistTitle {
+  font-family: 'Oswald', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
