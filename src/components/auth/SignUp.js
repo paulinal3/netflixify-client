@@ -22,7 +22,7 @@ const SignUp = (props) => {
 
         const { msgAlert, setUser } = props
 
-        const credentials = { email, password, passwordConfirmation }
+        const credentials = { firstName, lastName, email, password, passwordConfirmation }
 
         signUp(credentials)
             .then(() => signIn(credentials))
@@ -57,7 +57,7 @@ const SignUp = (props) => {
                 <Form onSubmit={onSignUp}>
                     {/* <----- FIRST NAME -----> */}
                     <FloatingLabel
-                        controlId='floatingInput'
+                        controlId='firstName'
                         label='First name'
                         className='mb-3'
                     >
@@ -72,7 +72,7 @@ const SignUp = (props) => {
                     </FloatingLabel>
                     {/* <----- LAST NAME -----> */}
                     <FloatingLabel
-                        controlId='floatingInput'
+                        controlId='lastName'
                         label='Last name'
                         className='mb-3'
                     >
@@ -87,7 +87,7 @@ const SignUp = (props) => {
                     </FloatingLabel>
                     {/* <----- EMAIL -----> */}
                     <FloatingLabel
-                        controlId='floatingInput'
+                        controlId='email'
                         label='Email address'
                         className='mb-3'
                     >
@@ -102,7 +102,7 @@ const SignUp = (props) => {
                     </FloatingLabel>
                     {/* <----- PASSWORD -----> */}
                     <FloatingLabel
-                        controlId='floatingPassword'
+                        controlId='password'
                         label='Password'
                         className='mb-3'
                     >
@@ -117,7 +117,7 @@ const SignUp = (props) => {
                     </FloatingLabel>
                     {/* <----- PASSWORD CONFIRMATION -----> */}
                     <FloatingLabel
-                        controlId='floatingPassword'
+                        controlId='passwordConfirmation'
                         label='Confirm password'
                         className='mb-3'
                     >
