@@ -1,4 +1,3 @@
-// import React, { Component } from 'react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -54,37 +53,39 @@ const SignUp = (props) => {
         <div id='signUp' className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
-                <Form onSubmit={onSignUp}>
+                <Form id='signUpForm' onSubmit={onSignUp}>
                     {/* <----- FIRST NAME -----> */}
-                    <FloatingLabel
-                        controlId='firstName'
-                        label='First name'
-                        className='mb-3'
-                    >
-                        <Form.Control
-                            required
-                            type='firstName'
-                            name='firstName'
-                            value={firstName}
-                            placeholder='First name'
-                            onChange={e => setFirstName(e.target.value)}
-                        />
-                    </FloatingLabel>
-                    {/* <----- LAST NAME -----> */}
-                    <FloatingLabel
-                        controlId='lastName'
-                        label='Last name'
-                        className='mb-3'
-                    >
-                        <Form.Control
-                            required
-                            type='lastName'
-                            name='lastName'
-                            value={lastName}
-                            placeholder='Enter last name'
-                            onChange={e => setLastName(e.target.value)}
-                        />
-                    </FloatingLabel>
+                    <div id='nameContainer'>
+                        <FloatingLabel
+                            controlId='firstName'
+                            label='First name'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                type='firstName'
+                                name='firstName'
+                                value={firstName}
+                                placeholder='First name'
+                                onChange={e => setFirstName(e.target.value)}
+                            />
+                        </FloatingLabel>
+                        {/* <----- LAST NAME -----> */}
+                        <FloatingLabel
+                            controlId='lastName'
+                            label='Last name'
+                            className='mb-3'
+                        >
+                            <Form.Control
+                                required
+                                type='lastName'
+                                name='lastName'
+                                value={lastName}
+                                placeholder='Enter last name'
+                                onChange={e => setLastName(e.target.value)}
+                            />
+                        </FloatingLabel>
+                    </div>
                     {/* <----- EMAIL -----> */}
                     <FloatingLabel
                         controlId='email'

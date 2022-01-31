@@ -213,3 +213,20 @@ footer {
   padding-top: 3%;
   padding-bottom: 3%;
 }
+
+
+/* ------------------------------ SIGNUP.JS ------------------------------ */
+#nameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#signUpForm {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#signUpBtn {
+  width: 100%;
+}
