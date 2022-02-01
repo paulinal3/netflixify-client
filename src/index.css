@@ -214,6 +214,15 @@ footer {
   padding-bottom: 3%;
 }
 
+/* ------------------------------- HOME.JS ------------------------------- */
+#homePage {
+  /* background-image: url('https://www.flatpanelshd.com/pictures/netflix2021_2_small.jpg'); */
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  column-gap: 5px;
+}
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
 #signUpForm {
