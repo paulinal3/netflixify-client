@@ -22,9 +22,9 @@
 #homePage, #appName {
   font-family: 'Oswald', sans-serif;
   color: red;
-  font-size: 150px;
+  font-size: 200%;
   text-align: center;
-  padding-top: 9%;
+  padding-top: 3%;
 }
 
 #showPlaylistTitle {
@@ -215,13 +215,19 @@ footer {
 }
 
 /* ------------------------------- HOME.JS ------------------------------- */
-#homePage {
+#homeContainer {
   /* background-image: url('https://www.flatpanelshd.com/pictures/netflix2021_2_small.jpg'); */
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  justify-content: center;
-  column-gap: 5px;
+  justify-content: space-around;
+  column-gap: 1%;
+  color: whitesmoke;
+  padding-top: 5%;
+}
+
+.landingPage {
+  width: 25%;
 }
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
