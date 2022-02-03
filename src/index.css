@@ -232,14 +232,21 @@ footer {
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
 #signUpForm {
-  max-width: 50%;
+  max-width: 35%;
   margin: 0 auto;
 }
 
 #nameContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: center; */
+  width: 100%;
+  column-gap: 5%;
+}
+
+#lastName #firstName {
+  width: 50%;
+  max-width: 100%;;
 }
 
 #signUpBtn {
