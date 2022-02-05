@@ -45,11 +45,11 @@ const SignIn = (props) => {
         <div className='row' id='signIn'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign In</h3>
-                <Form onSubmit={onSignIn}>
+                <Form id='signInForm' onSubmit={onSignIn}>
                     <>
                         {/* <----- EMAIL -----> */}
                         <FloatingLabel
-                            controlId='floatingInput'
+                            controlId='signInEmail'
                             label='Email address'
                             className='mb-3'
                         >
@@ -64,7 +64,7 @@ const SignIn = (props) => {
                         </FloatingLabel>
                         {/* <----- PASSWORD -----> */}
                         <FloatingLabel
-                            controlId='floatingPassword'
+                            controlId='signInPassword'
                             label='Password'
                             className='mb-3'
                         >

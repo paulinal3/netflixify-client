@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 * {
-  font-family: 'Spline Sans', sans-serif;
+  /* font-family: 'Darker Grotesque', sans-serif; */
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #homePage, #signUp, #searchPage {
-  background-color: #212529;
+  background-color: #122333;
   height: 100vh;
 }
 
 #searchResult, #allPlaylists {
-  background-color: #212529;
+  background-color: #122333;
 }
 
 #signOut, #watchedPage {
@@ -157,7 +160,7 @@ opacity: 1;
 }
 
 footer {
-  background-color: #212529;
+  background-color: #122333;
   color: white
 }
 
@@ -234,6 +237,7 @@ footer {
 #signUpForm {
   max-width: 35%;
   margin: 0 auto;
+  color: #bbc8d3;
 }
 
 #nameContainer {
@@ -244,11 +248,39 @@ footer {
   column-gap: 5%;
 }
 
-#lastName #firstName {
-  width: 50%;
-  max-width: 100%;;
+#firstName, #lastName, #email, #password, #passwordConfirmation {
+  background-color: #213749;
+  color: #bbc8d3;
 }
 
 #signUpBtn {
   width: 100%;
+  background-color: #2eac68;
+  border: 2px solid #213749;
+}
+
+#signUpBtn:hover {
+  border: 2px solid #bbc8d3;
+}
+/* ------------------------------ SIGNIN.JS ------------------------------ */
+
+#signInForm {
+  max-width: 35%;
+  margin: 0 auto;
+  color: #bbc8d3;
+}
+
+#signInBtn {
+  width: 100%;
+  background-color: #2eac68;
+  border: 2px solid #213749;
+}
+
+#signInBtn:hover {
+  border: 2px solid #bbc8d3;
+}
+
+#signInEmail, #signInPassword {
+  background-color: #213749;
+  color: #bbc8d3;
 }

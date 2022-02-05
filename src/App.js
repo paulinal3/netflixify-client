@@ -133,7 +133,7 @@ const App = () => {
 					element={<ShowWatched user={user} />}
 				/>
 			</Routes>
-			{/* <Footer /> */}
+			<Footer />
 			{msgAlerts.map((msgAlert) => (
 				<AutoDismissAlert
 					key={msgAlert.id}
