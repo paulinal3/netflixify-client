@@ -43,8 +43,8 @@ const SignIn = (props) => {
 
     return (
         <div className='row' id='signIn'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign In</h3>
+            <div className='col-sm-10 col-md-8 mx-auto mt-5' id='signInContainer'>
+                {/* <h3>Sign In</h3> */}
                 <Form id='signInForm' onSubmit={onSignIn}>
                     <>
                         {/* <----- EMAIL -----> */}

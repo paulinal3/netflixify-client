@@ -7,6 +7,11 @@
 * {
   /* font-family: 'Darker Grotesque', sans-serif; */
   font-family: 'Josefin Sans', sans-serif;
+  color: #bbc8d3;
+}
+
+#navBarContainer, #footer {
+  background-color: #213749;
 }
 
 #container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #homePage, #signUp, #searchPage {
@@ -20,14 +25,6 @@
 
 #signOut, #watchedPage {
   color: white;
-}
-
-#homePage, #appName {
-  font-family: 'Oswald', sans-serif;
-  color: red;
-  font-size: 200%;
-  text-align: center;
-  padding-top: 3%;
 }
 
 #showPlaylistTitle {
@@ -94,19 +91,6 @@ code {
   column-gap: 5%;
 }
 
-#search {
-  max-width: 45%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 10px;
-  margin-left: 10px;
-  margin: auto;
-}
-
-#searchBtn {
-  max-width: 15%;
-}
-
 #advSearchToggle {
   /* display: flex; */
   padding: 2% 0 0 2%;
@@ -153,7 +137,7 @@ opacity: 1;
 }
 
 #searchPage {
-  background-color: rgba(0, 0, 0, 0.87);
+  background-color: #122333;
   color: white;
   /* height: 100vh; */
   padding-top: 5%;
@@ -219,14 +203,21 @@ footer {
 
 /* ------------------------------- HOME.JS ------------------------------- */
 #homeContainer {
-  /* background-image: url('https://www.flatpanelshd.com/pictures/netflix2021_2_small.jpg'); */
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   justify-content: space-around;
   column-gap: 1%;
-  color: whitesmoke;
+  color: #bbc8d3;
   padding-top: 5%;
+}
+
+#homePage, #appName {
+  font-family: 'Oswald', sans-serif;
+  color: #2eac68;
+  font-size: 200%;
+  text-align: center;
+  padding-top: 3%;
 }
 
 .landingPage {
@@ -234,6 +225,10 @@ footer {
 }
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
+#signUpContainer {
+  padding-top: 15%;
+}
+
 #signUpForm {
   max-width: 35%;
   margin: 0 auto;
@@ -263,6 +258,9 @@ footer {
   border: 2px solid #bbc8d3;
 }
 /* ------------------------------ SIGNIN.JS ------------------------------ */
+#signInContainer {
+  padding-top: 15%;
+}
 
 #signInForm {
   max-width: 35%;
@@ -283,4 +281,30 @@ footer {
 #signInEmail, #signInPassword {
   background-color: #213749;
   color: #bbc8d3;
+}
+
+/* ------------------------------ SEARCH.JS ------------------------------ */
+#search {
+  max-width: 45%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin-left: 10px;
+  margin: auto;
+}
+
+#searchTerm {
+  background-color: #213749;
+  color: #bbc8d3;
+}
+
+#searchBtn {
+  /* max-width: 15%;
+  border: 2px solid #bbc8d3; */
+  background-color: #2eac68;
+  color: whitesmoke;
+}
+
+#searchBtn:hover {
+  border: 2px solid #bbc8d3;
 }

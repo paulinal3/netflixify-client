@@ -51,8 +51,8 @@ const SignUp = (props) => {
 
     return (
         <div id='signUp' className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign Up</h3>
+            <div className='col-sm-10 col-md-8 mx-auto mt-5' id='signUpContainer'>
+                {/* <h3>Sign Up</h3> */}
                 <Form id='signUpForm' onSubmit={onSignUp}>
                     {/* <----- FIRST NAME -----> */}
                     <div id='nameContainer'>
