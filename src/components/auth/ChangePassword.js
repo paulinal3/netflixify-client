@@ -44,12 +44,12 @@ const ChangePassword = (props) => {
 
     return (
         <div id='changePassword' className='row'>
-            <div id='changePwForm' className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Change Password</h3>
+            <div id='changePwContainer' className='col-sm-10 col-md-8 mx-auto mt-5'>
+                {/* <h3>Change Password</h3> */}
                 <Form id='changePwForm' onSubmit={onChangePassword}>
                     <Form.Group controlId='oldPassword'>
                         <FloatingLabel
-                            controlId='floatingInput'
+                            controlId='oldPassword'
                             label='Old Password'
                             className='mb-3'
                         >
@@ -65,7 +65,7 @@ const ChangePassword = (props) => {
                     </Form.Group>
                     <Form.Group controlId='newPassword'>
                         <FloatingLabel
-                            controlId='floatingInput'
+                            controlId='newPassword'
                             label='New Password'
                             className='mb-3'
                         >
@@ -79,7 +79,7 @@ const ChangePassword = (props) => {
                             />
                         </FloatingLabel>
                     </Form.Group>
-                    <Button variant='success' id='changePwBtn' type='submit'>
+                    <Button id='changePwBtn' type='submit'>
                         Change Password
                     </Button>
                 </Form>

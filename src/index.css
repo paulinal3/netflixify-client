@@ -357,3 +357,31 @@ footer {
 #playlistCard:hover, #watchedCard:hover {
   border: 2px solid #bbc8d3;
 }
+
+/* -------------------------- CHANGEPASSWORD.JS -------------------------- */
+#changePwContainer {
+  padding-top: 10%;
+}
+
+#changePwForm {
+  max-width: 35%;
+  margin: 0 auto;
+  color: #bbc8d3;
+}
+
+#changePwBtn {
+  width: 100%;
+  background-color: #2eac68;
+  border: #2eac68;
+  /* border: 2px solid #213749; */
+}
+
+#changePwBtn:hover {
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
+}
+
+#oldPassword, #newPassword {
+  background-color: #213749;
+  color: #bbc8d3;
+}
