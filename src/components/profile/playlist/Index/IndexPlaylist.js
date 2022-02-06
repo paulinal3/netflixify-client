@@ -9,7 +9,7 @@ export default function IndexPlaylist(props) {
         return (
             <Card style={{ width: '13rem' }}>
             <Card.Img variant="top" src={props.playlist.videos[0].image} />
-            <Card.Body>
+            <Card.Body className="vidResModal">
                 <Card.Title>{props.playlist.title}</Card.Title>
                 <Link to={`/playlists/${props.playlist._id}`}><Button variant='success'>See Playlist</Button></Link>
             </Card.Body>
@@ -20,7 +20,7 @@ export default function IndexPlaylist(props) {
     return (
         <Card style={{ width: '13rem' }}>
             {playlistVideos}
-            <Card.Body>
+            <Card.Body className="vidResModal">
                 <Card.Title>{props.playlist.title}</Card.Title>
                 <Link to={`/playlists/${props.playlist._id}`}><Button variant='success'>See Playlist</Button></Link>
             </Card.Body>

@@ -14,18 +14,18 @@ export default function ShowVideo(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header closeButton className="vidResModal">
                 {/* <Card.Img variant="top" src={props.playlistVid.image} /> */}
                 <Modal.Title id="contained-modal-title-vcenter">
                     {props.playlistVid.title}
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="vidResModal">
                 <p>{props.playlistVid.synopsis}</p>
                 <p>Rating: {props.playlistVid.rating}</p>
                 <small>{props.playlistVid.released} {props.playlistVid.type}</small>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className="vidResModal">
                 <Button variant='success' value={props.playlistVid._id} onClick={props.watchedClicked}>{markWatchedIcon}{markWatched}</Button>
                 <a href={`https://www.netflix.com/title/${props.playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
                     <Button variant='success'>
