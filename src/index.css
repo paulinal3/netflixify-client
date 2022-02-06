@@ -158,6 +158,7 @@ footer {
 #postPlaylist {
   display: flex;
   flex-direction: row;
+  column-gap: 7px;
 }
 
 #playlistHeader {
@@ -321,6 +322,10 @@ footer {
   position: relative;
   top: 70%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   column-gap: 5%;
+}
+
+.vidResModal {
+  background-color: #213749;
 }

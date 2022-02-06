@@ -1,32 +1,35 @@
-import React from 'react'
+import { BsLinkedin, BsGithub } from 'react-icons/bs'
+import { HiOutlineMail } from 'react-icons/hi'
+import { FaLaptopCode } from 'react-icons/fa'
 
 export default function Footer() {
     return (
-        <div>
-            {/* <footer class="fixed-bottom"> */}
-            <footer id='footer'>
-                <div class="container p-4">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Tech Stack</h5>
-                            <p>
-                                React
-                            </p>
-                        </div>
+        <footer class="text-center" id='footer'>
+            <div class="container p-4 pb-0">
+                {/* <!-- Section: Social media --> */}
+                <section class="mb-4">
+                    {/* <!-- Email --> */}
+                    <a class="btn btn-outline-light btn-floating m-1" href="paulinal3@outlook.com" target='_blank' rel='noopener noreferrer' role="button"
+                    ><HiOutlineMail /></a>
 
-                        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Contact</h5>
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    {/* <!-- Portfolio --> */}
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://paulinale.herokuapp.com/" target='_blank' rel='noopener noreferrer' role="button"
+                    ><FaLaptopCode /></a>
 
-                <div class="text-center p-3" styles="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2022 Copyright: Paulina Le
-                </div>
-            </footer>
-        </div>
+                    {/* <!-- Linkedin --> */}
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/paulinal3/" target='_blank' rel='noopener noreferrer' role="button"
+                    ><BsLinkedin /></a>
+
+                    {/* <!-- Github --> */}
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/paulinal3" target='_blank' rel='noopener noreferrer' role="button"
+                    ><BsGithub /></a>
+                </section>
+                {/* <!-- Section: Social media --> */}
+            </div>
+
+            <div class="text-center p-3">
+                2022 Copyright: Paulina Le
+            </div>
+        </footer>
     )
 }

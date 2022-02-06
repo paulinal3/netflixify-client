@@ -4,10 +4,17 @@ import PostSearchRes from './PostSearchRes'
 import ShowSearchRes from './ShowSearchRes'
 
 import { GrExpand } from 'react-icons/gr'
+import { FaPlay } from "react-icons/fa"
 
 export default function IndexSearchRes(props) {
 
     const [modalShow, setModalShow] = useState(false)
+
+    const playHover = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Watch Now
+        </Tooltip>
+    )
 
     // conditional to check if a user is signed in
     const userSignedIn = props.currentUser !== null ? (
@@ -22,7 +29,14 @@ export default function IndexSearchRes(props) {
         </div>
     ) : (
         // if not only display watch now function
-        <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success' id='img__description'>Watch Now</Button></a>
+        <OverlayTrigger
+            placement="left"
+            delay={{ show: 250, hide: 400 }}
+            overlay={playHover}
+        >
+            <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success' id='img__description'><FaPlay /></Button></a>
+        </OverlayTrigger>
+
     )
 
     // hover for more details button

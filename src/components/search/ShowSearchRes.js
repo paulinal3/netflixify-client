@@ -10,17 +10,17 @@ export default function ShowSearchRes(props) {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className='vidResModal'>
                     <Modal.Title id="contained-modal-title-vcenter">
                         {props.result.title}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='vidResModal'>
                     <p>{props.result.synopsis}</p>
                     <p>Rating: {props.result.rating}</p>
                     <small>{props.result.released} {props.result.type}</small>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className='vidResModal'>
                     <a href={`https://www.netflix.com/title/${props.result.netflixid}`} target='_blank' rel='noopener noreferrer'>                    
                         <Button variant='success'>
                             <FaPlay /> Play
