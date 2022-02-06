@@ -14,6 +14,16 @@
   background-color: #213749;
 }
 
+#btn {
+  background-color: #2eac68;
+  border: #2eac68;
+}
+
+#btn:hover {
+  background-color: #28975c;
+  /* border: 1px solid #bbc8d3; */
+}
+
 #container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #homePage, #signUp, #searchPage {
   background-color: #122333;
   height: 100vh;
@@ -304,14 +314,13 @@ footer {
 }
 
 #searchBtn {
-  /* max-width: 15%;
-  border: 2px solid #bbc8d3; */
   background-color: #2eac68;
   color: whitesmoke;
 }
 
 #searchBtn:hover {
-  border: 2px solid #bbc8d3;
+  border: 1px solid #bbc8d3;
+  background-color: #28975c;
 }
 
 #searchResContainer {
@@ -322,7 +331,7 @@ footer {
 
 #searchOptions {
   position: relative;
-  top: 70%;
+  top: 65%;
   display: flex;
   justify-content: end;
   column-gap: 5%;
@@ -330,6 +339,14 @@ footer {
 
 .vidResModal {
   background-color: #213749;
+}
+
+#resCard {
+  border: 5px solid #213749;
+}
+
+#resCard:hover {
+  border: 5px solid black;
 }
 
 /* ------------------------------ PROFILE.JS ------------------------------ */

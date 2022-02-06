@@ -48,8 +48,8 @@ export default function IndexSearchRes(props) {
 
     return (
         <div id='indexSearchRes'>
-            <Card id='img__wrap' style={{ width: '13rem' }}>
-                <Card.Img variant="top" src={props.res.image} alt={props.res.title} />
+            <Card id='img__wrap' style={{ width: '13rem' }, { border: '1px solid #213749' }}>
+                <Card.Img src={props.res.image} alt={props.res.title} />
                 <Card.ImgOverlay>
                     <div id='seeMoreBtn'>
                         <OverlayTrigger
@@ -65,9 +65,6 @@ export default function IndexSearchRes(props) {
                     </div>
                 </Card.ImgOverlay>
             </Card>
-            {/* <div id='resultCardBody'>
-                {userSignedIn}
-            </div> */}
             <ShowSearchRes
                 show={modalShow}
                 onHide={() => setModalShow(false)}

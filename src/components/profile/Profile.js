@@ -117,7 +117,7 @@ export default function Profile(props) {
                 <Card id='watchedCard' style={{ width: '13rem' }}>
                     <Card.Body className="vidResModal">
                         <Card.Title>Watched Videos</Card.Title>
-                        <Link to={`/playlists/watched`}><Button variant="success">See Playlist</Button></Link>
+                        <Link to={`/playlists/watched`}><Button variant="success">See List</Button></Link>
                     </Card.Body>
                 </Card>
             </ol>
