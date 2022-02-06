@@ -6,6 +6,7 @@ import { getPlaylists } from "../../api/playlist"
 import IndexPlaylist from "./playlist/Index/IndexPlaylist"
 import NewPlaylist from "./playlist/NewPlaylist"
 import { GrAdd } from "react-icons/gr"
+import { RiLockPasswordFill } from "react-icons/ri"
 
 export default function Profile(props) {
 
@@ -92,22 +93,38 @@ export default function Profile(props) {
         </Tooltip>
     )
 
+    const pwHover = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Change Password
+        </Tooltip>
+    )
+
     return (
         <div id='container'>
             <div id='profileSetting'>
+                {/* <-- playlist sort dropdown --> */}
                 <Form.Select id='sortBy' onChange={sortClicked}>
                     <option value='alph'>A to Z</option>
                     <option value='new'>Newest Created</option>
                     <option value="old">Oldest Created</option>
                     <option value='updated'>Most Updated</option>
                 </Form.Select>
+                {/* <-- create new playlist button --> */}
                 <OverlayTrigger
                     placement="top"
                     delay={{ show: 250, hide: 400 }}
                     overlay={createHover}
                 >
-                    <Button size='sm' variant='success'><GrAdd onClick={() => setModalShow(true)} /></Button>
+                    <Button size='sm' id='createBtn'><GrAdd onClick={() => setModalShow(true)} /></Button>
                 </OverlayTrigger>
+                <OverlayTrigger
+                    placement="top"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={pwHover}
+                >
+                    <Link to='../change-password'><Button size='sm' id='createBtn'><RiLockPasswordFill /></Button></Link>
+                </OverlayTrigger>
+                
             </div>
             <header id='profileHeader'>
                 <h1>{props.user.firstName}'s Playlists:</h1>

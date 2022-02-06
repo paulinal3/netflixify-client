@@ -27,7 +27,7 @@ export default function Footer() {
                 {/* <!-- Section: Social media --> */}
             </div>
 
-            <div class="text-center p-3">
+            <div id='copyright' class="text-center p-3">
                 2022 Copyright: Paulina Le
             </div>
         </footer>

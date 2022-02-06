@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 * {
-  /* font-family: 'Darker Grotesque', sans-serif; */
   font-family: 'Josefin Sans', sans-serif;
   color: #bbc8d3;
 }
@@ -14,6 +12,10 @@
   /* background-color: #213749; */
   background-color: #122333;
 }
+
+/* #copyright {
+  background-color: #213749;
+} */
 
 #btn {
   background-color: #2eac68;
@@ -357,6 +359,21 @@ footer {
 
 #playlistCard:hover, #watchedCard:hover {
   border: 2px solid #bbc8d3;
+}
+
+#sortBy {
+  background-color: #213749;
+  color: #bbc8d3;
+}
+
+#createBtn {
+  background-color: #2eac68;
+  border: 1px solid #2eac68;
+}
+
+#createBtn:hover {
+  background-color: #28975c;
+  border: 1px solid #bbc8d3;
 }
 
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
