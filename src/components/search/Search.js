@@ -106,7 +106,9 @@ export default function Search(props) {
                 subtitle={subtitle}
             />
             <hr />
-            <ol id='searchResult'>{allSearchRes}</ol>
+            <div id='searchResContainer'>
+                <ol id='searchResult'>{allSearchRes}</ol>
+            </div>
         </div>
     )
 }

@@ -47,6 +47,8 @@ code {
 
 #searchResult, #allPlaylists, #playlistVid {
   display: flex;
+  /* align-content: center; */
+  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -307,4 +309,18 @@ footer {
 
 #searchBtn:hover {
   border: 2px solid #bbc8d3;
+}
+
+#searchResContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#searchOptions {
+  position: relative;
+  top: 70%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5%;
 }

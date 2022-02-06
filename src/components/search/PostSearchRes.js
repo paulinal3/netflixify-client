@@ -45,7 +45,7 @@ export default function PostSearchRes(props) {
 
     return (
         <Form id='postPlaylist' onSubmit={postVideoToPlaylist}>
-            <Form.Select aria-label="add video to playlist selector" onChange={playlistClicked}>
+            <Form.Select aria-label="add video to playlist selector" id='img__description' onChange={playlistClicked}>
                 <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
                 {allPlaylists}
             </Form.Select>
@@ -54,7 +54,7 @@ export default function PostSearchRes(props) {
                 delay={{ show: 250, hide: 400 }}
                 overlay={addHover}
             >
-                <Button variant='success' type='submit'><GrAdd /></Button>
+                <Button variant='success' type='submit' id='img__description'><GrAdd /></Button>
             </OverlayTrigger>
         </Form>
     )

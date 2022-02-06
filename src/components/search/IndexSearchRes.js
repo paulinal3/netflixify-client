@@ -22,7 +22,7 @@ export default function IndexSearchRes(props) {
         </div>
     ) : (
         // if not only display watch now function
-        <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success'>Watch Now</Button></a>
+        <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success' id='img__description'>Watch Now</Button></a>
     )
 
     // hover for more details button
@@ -43,17 +43,17 @@ export default function IndexSearchRes(props) {
                             delay={{ show: 250, hide: 400 }}
                             overlay={moreHover}
                         >
-                            <Button variant='success' id='img__description' onClick={() => setModalShow(true)}><GrExpand /></Button>
+                            <Button variant='success' id='img__description' onClick={() => setModalShow(true)}><GrExpand alt='Click for more details' /></Button>
                         </OverlayTrigger>
                     </div>
+                    <div id='searchOptions'>
+                        {userSignedIn}
+                    </div>
                 </Card.ImgOverlay>
-                {/* <Card.Body id='resultCardBody'>
-                    <Button onClick={testClicked}>test</Button>
-                </Card.Body> */}
             </Card>
-            <div id='resultCardBody'>
+            {/* <div id='resultCardBody'>
                 {userSignedIn}
-            </div>
+            </div> */}
             <ShowSearchRes
                 show={modalShow}
                 onHide={() => setModalShow(false)}
