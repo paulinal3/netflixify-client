@@ -7,7 +7,7 @@ export default function IndexPlaylist(props) {
     // only return image if there is at least one video in playlist
     if (playlistVideos.length > 0) {
         return (
-            <Card style={{ width: '13rem' }}>
+            <Card id='playlistCard' style={{ width: '13rem' }}>
             <Card.Img variant="top" src={props.playlist.videos[0].image} />
             <Card.Body className="vidResModal">
                 <Card.Title>{props.playlist.title}</Card.Title>
@@ -18,7 +18,7 @@ export default function IndexPlaylist(props) {
     }
 
     return (
-        <Card style={{ width: '13rem' }}>
+        <Card id='playlistCard' style={{ width: '13rem' }}>
             {playlistVideos}
             <Card.Body className="vidResModal">
                 <Card.Title>{props.playlist.title}</Card.Title>

@@ -254,11 +254,12 @@ footer {
 #signUpBtn {
   width: 100%;
   background-color: #2eac68;
-  border: 2px solid #213749;
+  /* border: 2px solid #213749; */
 }
 
 #signUpBtn:hover {
-  border: 2px solid #bbc8d3;
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
 }
 /* ------------------------------ SIGNIN.JS ------------------------------ */
 #signInContainer {
@@ -274,11 +275,12 @@ footer {
 #signInBtn {
   width: 100%;
   background-color: #2eac68;
-  border: 2px solid #213749;
+  /* border: 2px solid #213749; */
 }
 
 #signInBtn:hover {
-  border: 2px solid #bbc8d3;
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
 }
 
 #signInEmail, #signInPassword {
@@ -328,4 +330,13 @@ footer {
 
 .vidResModal {
   background-color: #213749;
+}
+
+/* ------------------------------ PROFILE.JS ------------------------------ */
+#playlistCard, #watchedCard {
+  border: 5px solid #213749;
+}
+
+#playlistCard:hover, #watchedCard:hover {
+  border: 2px solid #bbc8d3;
 }
