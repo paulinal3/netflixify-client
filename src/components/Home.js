@@ -1,11 +1,14 @@
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
 
+import logo from "../img/logo.png"
+
 const Home = (props) => {
 	console.log('props in home', props)
 
 	return (
 		<div id='homePage'>
+			{/* <img src={logo} /> */}
 			<h1 id='appName'>NETFLIXIFY</h1>
 			<div id='homeContainer'>
 				<div class='landingPage'>
