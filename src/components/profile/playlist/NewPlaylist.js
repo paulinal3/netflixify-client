@@ -31,9 +31,9 @@ export default function NewPlaylist(props) {
             centered
         >
             <Form>
-                <Modal.Body>
+                <Modal.Body id='newPlaylistModal'>
                     <FloatingLabel
-                        controlId='floatingInput'
+                        controlId='playlistTitle'
                         label='Playlist Title'
                         className='mb-3'
                     >
@@ -45,7 +45,7 @@ export default function NewPlaylist(props) {
                             placeholder='Playlist Title'
                         />
                     </FloatingLabel>
-                    <Button variant='success' onClick={() => createNewPlaylist()}>Create Playlist</Button>
+                    <Button id='createPlaylistBtn' onClick={() => createNewPlaylist()}>Create Playlist</Button>
                 </Modal.Body>
             </Form>
         </Modal>

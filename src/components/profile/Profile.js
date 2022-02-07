@@ -117,12 +117,13 @@ export default function Profile(props) {
                 >
                     <Button size='sm' id='createBtn'><GrAdd onClick={() => setModalShow(true)} /></Button>
                 </OverlayTrigger>
+                {/* <-- change password button --> */}
                 <OverlayTrigger
                     placement="top"
                     delay={{ show: 250, hide: 400 }}
                     overlay={pwHover}
                 >
-                    <Link to='../change-password'><Button size='sm' id='createBtn'><RiLockPasswordFill /></Button></Link>
+                    <Link to='../change-password'><Button size='sm' id='changePwBtn'><RiLockPasswordFill /></Button></Link>
                 </OverlayTrigger>
                 
             </div>

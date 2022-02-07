@@ -366,14 +366,22 @@ footer {
   color: #bbc8d3;
 }
 
-#createBtn {
+#createBtn, #changePwBtn, #createPlaylistBtn {
   background-color: #2eac68;
   border: 1px solid #2eac68;
 }
 
-#createBtn:hover {
+#createBtn:hover, #changePwBtn:hover, #createPlaylistBtn:hover {
   background-color: #28975c;
   border: 1px solid #bbc8d3;
+}
+
+#newPlaylistModal{
+  background-color: #122333;
+}
+
+#playlistTitle {
+  background-color: #213749;
 }
 
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
