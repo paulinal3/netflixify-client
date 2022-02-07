@@ -411,3 +411,10 @@ footer {
   background-color: #213749;
   color: #bbc8d3;
 }
+
+/* -------------------------- SHOWPLAYLIST.JS -------------------------- */
+
+#playlistDropdown {
+  background-color: #213749;
+  color: #bbc8d3
+}
