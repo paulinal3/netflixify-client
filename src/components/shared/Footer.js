@@ -21,7 +21,7 @@ export default function Footer() {
                     ><BsLinkedin /></a>
 
                     {/* <!-- Github --> */}
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/paulinal3" target='_blank' rel='noopener noreferrer' role="button"
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/paulinal3/netflixify-client" target='_blank' rel='noopener noreferrer' role="button"
                     ><BsGithub /></a>
                 </section>
                 {/* <!-- Section: Social media --> */}
