@@ -1,4 +1,3 @@
-// import React, { Component, Fragment } from 'react'
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
@@ -7,22 +6,26 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
+import Footer from './components/shared/Footer'
+
 import Home from './components/Home'
+import Search from './components/search/Search'
+
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+
 import Profile from './components/profile/Profile'
-import Search from './components/search/Search'
 import ShowPlaylist from './components/profile/playlist/Show/ShowPlaylist'
 import ShowWatched from './components/profile/playlist/Show/ShowWatched'
 
-
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
-import Footer from './components/shared/Footer'
+
 
 const App = () => {
+
 	// <---------- USER STATES & HELPER METHODS ----------> //
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])

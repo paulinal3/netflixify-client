@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
+import React from 'react'
 import { Link } from 'react-router-dom'
+
+import { Nav, Navbar } from 'react-bootstrap'
+
 const linkStyle = {
 	color: 'white',
 	textDecoration: 'none'
 }
+
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
@@ -53,7 +55,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar id='navBarContainer' expand='md'>
+	<Navbar className="nav-bar-container" expand='md'>
 		{/* <Navbar.Brand>
 			<Link to='/' style={linkStyle}>
 				NETFLIXIFY

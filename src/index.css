@@ -1,17 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 * {
+  box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
   color: #bbc8d3;
 }
 
-#navBarContainer, #footer {
-  /* background-color: #213749; */
+.page-container {
   background-color: #122333;
+  height: 100vh;
 }
+
+.nav-bar-container {
+  background-color: #122333;
+  padding-left: 15px;
+}
+
+.navbar-light .navbar-toggler {
+  /* color: #2eac68; */
+  background-color: #2eac68;
+  /* border: whitesmoke; */
+}
+
+/* #navBarContainer, #footer {
+  background-color: #213749;
+  background-color: #122333;
+} */
 
 /* #copyright {
   background-color: #213749;
@@ -27,7 +47,7 @@
   /* border: 1px solid #bbc8d3; */
 }
 
-#container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #homePage, #signUp, #searchPage {
+#container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #signUp, #searchPage {
   background-color: #122333;
   height: 100vh;
 }
@@ -138,17 +158,17 @@ code {
 } */
 
 #img__description {
-visibility: hidden;
-opacity: 0;
-font-size: 17px;
-font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 17px;
+  font-weight: bold;
 
-transition: opacity .2s, visibility .2s;
+  transition: opacity .2s, visibility .2s;
 }
 
 #img__wrap:hover #img__description {
-visibility: visible;
-opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 #searchPage {
@@ -186,7 +206,7 @@ footer {
   column-gap: 5px;
 }
 
-#titleInput { 
+#titleInput {
   max-width: 25%;
 }
 
@@ -218,26 +238,72 @@ footer {
 }
 
 /* ------------------------------- HOME.JS ------------------------------- */
-#homeContainer {
+#home-page-container {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  justify-content: space-around;
-  column-gap: 1%;
-  color: #bbc8d3;
-  padding-top: 5%;
-}
-
-#homePage, #appName {
-  font-family: 'Oswald', sans-serif;
-  color: #2eac68;
-  font-size: 200%;
+  flex-direction: column;
+  /* justify-content: center; */
   text-align: center;
-  padding-top: 3%;
 }
 
-.landingPage {
-  width: 25%;
+#home-page-container h1 {
+  font-family: 'Fredericka the Great', cursive;
+  color: #2eac68;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 55px;
+  letter-spacing: 10px;
+}
+
+#home-page-container .app-features-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.app-features-container .app-feature {
+  width: 75%;
+}
+
+@media screen and (min-width: 768px) {
+  #home-page-container  {
+    gap: 25px;
+  }
+
+  #home-page-container h1 {
+    font-size: 75px;
+    letter-spacing: 15px;
+  }
+
+  #home-page-container .app-features-container {
+    gap: 50px;
+  }
+
+  .app-features-container .app-feature h5 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #home-page-container {
+    gap: 100px;
+  }
+  
+  #home-page-container h1 {
+    font-size: 100px;
+    letter-spacing: 25px;
+  }
+
+  #home-page-container .app-features-container {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px 50px 0px 50px;
+  }
+
+  .app-features-container .app-feature h5 {
+    font-size: 30px;
+  }
 }
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
@@ -274,6 +340,7 @@ footer {
   border: 1px solid whitesmoke;
   background-color: #28975c;
 }
+
 /* ------------------------------ SIGNIN.JS ------------------------------ */
 #signInContainer {
   padding-top: 10%;
@@ -376,7 +443,7 @@ footer {
   border: 1px solid #bbc8d3;
 }
 
-#newPlaylistModal{
+#newPlaylistModal {
   background-color: #122333;
 }
 
