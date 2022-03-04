@@ -47,7 +47,7 @@
   /* border: 1px solid #bbc8d3; */
 }
 
-#container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #signUp, #searchPage {
+#container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #searchPage {
   background-color: #122333;
   height: 100vh;
 }
@@ -241,7 +241,6 @@ footer {
 #home-page-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   text-align: center;
 }
 
@@ -307,38 +306,79 @@ footer {
 }
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
-#signUpContainer {
-  padding-top: 10%;
+.auth-page-container {
+  display: flex;
+  justify-content: center;
 }
 
-#signUpForm {
-  max-width: 35%;
-  margin: 0 auto;
-  color: #bbc8d3;
+.auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    width: 90%;
+    height: 20px;
+    top: 50%;
+    margin-top: -10px;
+    text-align: center;
 }
 
-#nameContainer {
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form #name-container {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   width: 100%;
-  column-gap: 5%;
+  column-gap: 15px;
 }
 
-#firstName, #lastName, #email, #password, #passwordConfirmation {
+.auth-form #signup-btn {
+  width: 100%;
+  background-color: #2eac68;
+  border: 1px solid #213749;
+}
+
+.auth-form #signup-btn:hover {
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
+}
+
+#first-name, #last-name, #email, #password, #password-confirmation {
   background-color: #213749;
   color: #bbc8d3;
 }
 
-#signUpBtn {
-  width: 100%;
-  background-color: #2eac68;
-  /* border: 2px solid #213749; */
+@media screen and (min-width: 768px) {
+  .auth-form-container {
+    width: 100%;
+  }
+
+  .auth-form {
+    width: 75%;
+  }
+
+  .form-floating {
+    width: 100%;
+  }
 }
 
-#signUpBtn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
+@media screen and (min-width: 1200px) {
+  .auth-form-container {
+    width: 100%;
+  }
+
+  .auth-form {
+    width: 50%;
+  }
+
+  .form-floating {
+    width: 100%;
+  }
 }
 
 /* ------------------------------ SIGNIN.JS ------------------------------ */
