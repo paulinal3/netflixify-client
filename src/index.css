@@ -49,7 +49,7 @@
   /* border: 1px solid #bbc8d3; */
 }
 
-#container, #showPlaylistPage, #watchedPage, #searchPage {
+#showPlaylistPage, #watchedPage, #searchPage {
   background-color: #122333;
   height: 100vh;
 }
@@ -108,11 +108,6 @@ code {
   justify-content: flex-end;
   margin-right: 5%;
   padding-top: 3%;
-}
-
-#sortBy {
-  max-width: 13%;
-  font-size: 15px;
 }
 
 #removeVidBtn, #seeMoreBtn {
@@ -473,28 +468,6 @@ footer {
   margin: 0;
 }
 
-@media screen and (min-width: 768px) {
-  #signout-container {
-    width: 75%;
-  }
-
-  #signout-container h2 {
-    font-size: 50px;
-  }
-
-  #signout-container p {
-    font-size: 35px;
-  }
-
-  #signout-container #signout-btn {
-    font-size: 25px;
-  }
-  
-  #signout-container #cancel-btn {
-    font-size: 25px;
-  }
-}
-
 #signout-container .signout-btns {
   display: flex;
   gap: 7px;
@@ -518,6 +491,28 @@ footer {
 #signout-container #cancel-btn:hover {
   border: 1px solid whitesmoke;
   background-color: #28975c;
+}
+
+@media screen and (min-width: 768px) {
+  #signout-container {
+    width: 75%;
+  }
+
+  #signout-container h2 {
+    font-size: 50px;
+  }
+
+  #signout-container p {
+    font-size: 35px;
+  }
+
+  #signout-container #signout-btn {
+    font-size: 25px;
+  }
+  
+  #signout-container #cancel-btn {
+    font-size: 25px;
+  }
 }
 
 /* ------------------------------ SEARCH.JS ------------------------------ */
@@ -580,21 +575,6 @@ footer {
   border: 2px solid #bbc8d3;
 }
 
-#sortBy {
-  background-color: #213749;
-  color: #bbc8d3;
-}
-
-#createBtn, #changePwBtn, #createPlaylistBtn {
-  background-color: #2eac68;
-  border: 1px solid #2eac68;
-}
-
-#createBtn:hover, #changePwBtn:hover, #createPlaylistBtn:hover {
-  background-color: #28975c;
-  border: 1px solid #bbc8d3;
-}
-
 #newPlaylistModal {
   background-color: #122333;
 }
@@ -603,6 +583,91 @@ footer {
   background-color: #213749;
 }
 
+/* ----------- */
+#profile-header-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 25px;
+}
+
+#profile-header-container .header-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-container .header-title h1 {
+  font-family: 'Fredericka the Great', cursive;
+  margin-bottom: 0;
+}
+
+#profile-settings {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 15px;
+}
+
+#profile-settings #playlists-sort {
+  background-color: #213749;
+  color: #bbc8d3;
+  font-size: 15px;
+}
+
+#profile-settings .profile-settings-btns {
+  display: flex;
+  gap: 5px;
+}
+
+#create-playlist-btn, #change-pw-btn {
+  background-color: #2eac68;
+  border: 1px solid #2eac68;
+  width: 100%
+}
+
+#create-playlist-btn:hover, #change-pw-btn:hover {
+  background-color: #28975c;
+  border: 1px solid #bbc8d3;
+}
+
+.cards-list {
+  background-color: #122333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 25px 0px 25px 0px;
+}
+
+@media screen and (min-width: 768px) {
+  #profile-header-container {
+    justify-content: space-between;
+    padding: 25px 25px 0 25px;
+  }
+
+  #profile-settings {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  #profile-settings #playlists-sort {
+    width: 100%;
+  }
+
+  #profile-settings .profile-settings-btns {
+    gap: 5px;
+  }
+
+  #change-pw-btn {
+    height: 100%;
+  }
+
+  .cards-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 25px;
+  }
+}
 /* -------------------------- SHOWPLAYLIST.JS -------------------------- */
 
 #playlistDropdown {

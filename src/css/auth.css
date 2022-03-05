@@ -1,0 +1,212 @@
+/* ------------------------------ SIGNUP.JS ------------------------------ */
+.auth-page-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .auth-form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      position: absolute;
+      width: 90%;
+      height: 20px;
+      top: 50%;
+      margin-top: -10px;
+      text-align: center;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .auth-form-container {
+      width: 100%;
+    }
+  
+    .auth-form {
+      width: 65%;
+    }
+  
+    .form-floating {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .auth-form-container {
+      width: 100%;
+    }
+  
+    .auth-form {
+      width: 35%;
+    }
+  
+    .form-floating {
+      width: 100%;
+    }
+  }
+  
+  .auth-form #name-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 15px;
+  }
+  
+  .auth-form #signup-btn {
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
+  }
+  
+  .auth-form #signup-btn:hover {
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
+  }
+  
+  #first-name, #last-name, #email, #password, #password-confirmation {
+    background-color: #213749;
+    color: #bbc8d3;
+  }
+  
+  /* ------------------------------ SIGNIN.JS ------------------------------ */
+  #signin-form {
+    width: 100%;
+  }
+  
+  .auth-form #signin-btn {
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
+  }
+  
+  .auth-form #signin-btn:hover {
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
+  }
+  
+  #signin-email, #signin-password {
+    background-color: #213749;
+    color: #bbc8d3;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .auth-form-container {
+      width: 100%;
+    }
+  
+    #signin-form {
+      width: 65%;
+    }
+  
+    .form-floating {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    #signin-form {
+      width: 35%;
+    }
+  }
+  
+  /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
+  #changepw-form {
+    width: 100%;
+  }
+  
+  .auth-form #changepw-btn {
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
+  }
+  
+  .auth-form #changepw-btn:hover {
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
+  }
+  
+  #old-password, #new-password {
+    background-color: #213749;
+    color: #bbc8d3;
+  }
+  
+  @media screen and (min-width: 768px) {
+    #changepw-form {
+      width: 65%;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    #changepw-form {
+      width: 35%;
+    }
+  }
+  
+  /* -------------------------- SIGNOUT.JS -------------------------- */
+  #signout-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #signout-container h2 {
+    font-size: 35px;
+  }
+  
+  #signout-container p {
+    font-size: 20px;
+    color: #2eac68;
+    margin: 0;
+  }
+  
+  #signout-container .signout-btns {
+    display: flex;
+    gap: 7px;
+  }
+  
+  #signout-container #signout-btn {
+    background-color: #E50914;
+    border: 1px solid #213749;
+  }
+  
+  #signout-container #signout-btn:hover {
+    background-color: #bb161e;
+    border: 1px solid whitesmoke;
+  }
+  
+  #signout-container #cancel-btn {
+    background-color: #2eac68;
+    border: 1px solid #213749;
+  }
+  
+  #signout-container #cancel-btn:hover {
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
+  }
+  
+  @media screen and (min-width: 768px) {
+    #signout-container {
+      width: 75%;
+    }
+  
+    #signout-container h2 {
+      font-size: 50px;
+    }
+  
+    #signout-container p {
+      font-size: 35px;
+    }
+  
+    #signout-container #signout-btn {
+      font-size: 25px;
+    }
+    
+    #signout-container #cancel-btn {
+      font-size: 25px;
+    }
+  }
