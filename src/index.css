@@ -8,6 +8,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'Josefin Sans', sans-serif;
   color: #bbc8d3;
 }
@@ -47,7 +49,7 @@
   /* border: 1px solid #bbc8d3; */
 }
 
-#container, #showPlaylistPage, #watchedPage, #changePassword, #signOut, #signIn, #searchPage {
+#container, #showPlaylistPage, #watchedPage, #searchPage {
   background-color: #122333;
   height: 100vh;
 }
@@ -382,6 +384,10 @@ footer {
 }
 
 /* ------------------------------ SIGNIN.JS ------------------------------ */
+#signin-form {
+  width: 100%;
+}
+
 .auth-form #signin-btn {
   width: 100%;
   background-color: #2eac68;
@@ -398,7 +404,31 @@ footer {
   color: #bbc8d3;
 }
 
+@media screen and (min-width: 768px) {
+  .auth-form-container {
+    width: 100%;
+  }
+
+  #signin-form {
+    width: 65%;
+  }
+
+  .form-floating {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #signin-form {
+    width: 35%;
+  }
+}
+
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
+#changepw-form {
+  width: 100%;
+}
+
 .auth-form #changepw-btn {
   width: 100%;
   background-color: #2eac68;
@@ -413,6 +443,81 @@ footer {
 #old-password, #new-password {
   background-color: #213749;
   color: #bbc8d3;
+}
+
+@media screen and (min-width: 768px) {
+  #changepw-form {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #changepw-form {
+    width: 35%;
+  }
+}
+
+/* -------------------------- SIGNOUT.JS -------------------------- */
+#signout-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#signout-container h2 {
+  font-size: 35px;
+}
+
+#signout-container p {
+  font-size: 20px;
+  color: #2eac68;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #signout-container {
+    width: 75%;
+  }
+
+  #signout-container h2 {
+    font-size: 50px;
+  }
+
+  #signout-container p {
+    font-size: 35px;
+  }
+
+  #signout-container #signout-btn {
+    font-size: 25px;
+  }
+  
+  #signout-container #cancel-btn {
+    font-size: 25px;
+  }
+}
+
+#signout-container .signout-btns {
+  display: flex;
+  gap: 7px;
+}
+
+#signout-container #signout-btn {
+  background-color: #E50914;
+  border: 1px solid #213749;
+}
+
+#signout-container #signout-btn:hover {
+  background-color: #bb161e;
+  border: 1px solid whitesmoke;
+}
+
+#signout-container #cancel-btn {
+  background-color: #2eac68;
+  border: 1px solid #213749;
+}
+
+#signout-container #cancel-btn:hover {
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
 }
 
 /* ------------------------------ SEARCH.JS ------------------------------ */

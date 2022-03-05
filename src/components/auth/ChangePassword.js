@@ -49,7 +49,7 @@ const ChangePassword = (props) => {
                         <FloatingLabel
                             controlId="old-password"
                             label="Old Password"
-                            className="mb-3"
+                            className="auth-input"
                         >
                             <Form.Control
                                 required
@@ -65,7 +65,7 @@ const ChangePassword = (props) => {
                         <FloatingLabel
                             controlId="new-password"
                             label="New Password"
-                            className="mb-3"
+                            className="auth-input"
                         >
                             <Form.Control
                                 required
