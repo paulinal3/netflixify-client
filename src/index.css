@@ -330,6 +330,34 @@ footer {
   gap: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .auth-form-container {
+    width: 100%;
+  }
+
+  .auth-form {
+    width: 65%;
+  }
+
+  .form-floating {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .auth-form-container {
+    width: 100%;
+  }
+
+  .auth-form {
+    width: 35%;
+  }
+
+  .form-floating {
+    width: 100%;
+  }
+}
+
 .auth-form #name-container {
   display: flex;
   flex-direction: row;
@@ -353,57 +381,36 @@ footer {
   color: #bbc8d3;
 }
 
-@media screen and (min-width: 768px) {
-  .auth-form-container {
-    width: 100%;
-  }
-
-  .auth-form {
-    width: 75%;
-  }
-
-  .form-floating {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .auth-form-container {
-    width: 100%;
-  }
-
-  .auth-form {
-    width: 50%;
-  }
-
-  .form-floating {
-    width: 100%;
-  }
-}
-
 /* ------------------------------ SIGNIN.JS ------------------------------ */
-#signInContainer {
-  padding-top: 10%;
-}
-
-#signInForm {
-  max-width: 35%;
-  margin: 0 auto;
-  color: #bbc8d3;
-}
-
-#signInBtn {
+.auth-form #signin-btn {
   width: 100%;
   background-color: #2eac68;
-  /* border: 2px solid #213749; */
+  border: 1px solid #213749;
 }
 
-#signInBtn:hover {
+.auth-form #signin-btn:hover {
   border: 1px solid whitesmoke;
   background-color: #28975c;
 }
 
-#signInEmail, #signInPassword {
+#signin-email, #signin-password {
+  background-color: #213749;
+  color: #bbc8d3;
+}
+
+/* -------------------------- CHANGEPASSWORD.JS -------------------------- */
+.auth-form #changepw-btn {
+  width: 100%;
+  background-color: #2eac68;
+  border: 1px solid #213749;
+}
+
+.auth-form #changepw-btn:hover {
+  border: 1px solid whitesmoke;
+  background-color: #28975c;
+}
+
+#old-password, #new-password {
   background-color: #213749;
   color: #bbc8d3;
 }
@@ -489,34 +496,6 @@ footer {
 
 #playlistTitle {
   background-color: #213749;
-}
-
-/* -------------------------- CHANGEPASSWORD.JS -------------------------- */
-#changePwContainer {
-  padding-top: 10%;
-}
-
-#changePwForm {
-  max-width: 35%;
-  margin: 0 auto;
-  color: #bbc8d3;
-}
-
-#changePwBtn {
-  width: 100%;
-  background-color: #2eac68;
-  border: #2eac68;
-  /* border: 2px solid #213749; */
-}
-
-#changePwBtn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
-}
-
-#oldPassword, #newPassword {
-  background-color: #213749;
-  color: #bbc8d3;
 }
 
 /* -------------------------- SHOWPLAYLIST.JS -------------------------- */

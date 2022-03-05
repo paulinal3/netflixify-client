@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
-import { signIn } from '../../api/auth'
-import messages from '../shared/AutoDismissAlert/messages'
+import { signIn } from "../../api/auth"
+import messages from "../shared/AutoDismissAlert/messages"
 
-import { Form, FloatingLabel, Button } from 'react-bootstrap'
+import { Form, FloatingLabel, Button } from "react-bootstrap"
 
 const SignIn = (props) => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
 
     const onSignIn = (event) => {
         event.preventDefault()
-        console.log('the props', props)
+        console.log("the props", props)
         const { msgAlert, setUser } = props
 
         const credentials = { email, password }
@@ -24,61 +24,60 @@ const SignIn = (props) => {
             .then((res) => setUser(res.data.user))
             .then(() =>
                 msgAlert({
-                    heading: 'Sign In Success',
+                    heading: "Sign In Success",
                     message: messages.signInSuccess,
-                    variant: 'success',
+                    variant: "success",
                 })
             )
-            .then(() => navigate('/profile'))
+            .then(() => navigate("/profile"))
             .catch((error) => {
-                setEmail('')
-                setPassword('')
+                setEmail("")
+                setPassword("")
                 msgAlert({
-                    heading: 'Sign In Failed with error: ' + error.message,
+                    heading: "Sign In Failed with error: " + error.message,
                     message: messages.signInFailure,
-                    variant: 'danger',
+                    variant: "danger",
                 })
             })
     }
 
     return (
-        <div className='row' id='signIn'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5' id='signInContainer'>
-                {/* <h3>Sign In</h3> */}
-                <Form id='signInForm' onSubmit={onSignIn}>
+        <div className="page-container auth-page-container" id="signin-page-container">
+            <div className="auth-form-container" id="signin-container">
+                <Form className="auth-form" id="signin-form" onSubmit={onSignIn}>
                     <>
                         {/* <----- EMAIL -----> */}
                         <FloatingLabel
-                            controlId='signInEmail'
-                            label='Email address'
-                            className='mb-3'
+                            controlId="signin-email"
+                            label="Email address"
+                            className="auth-input"
                         >
                             <Form.Control
                                 required
-                                type='email'
-                                name='email'
+                                type="email"
+                                name="email"
                                 value={email}
-                                placeholder='Email'
+                                placeholder="Email"
                                 onChange={e => setEmail(e.target.value)}
                             />
                         </FloatingLabel>
                         {/* <----- PASSWORD -----> */}
                         <FloatingLabel
-                            controlId='signInPassword'
-                            label='Password'
-                            className='mb-3'
+                            controlId="signin-password"
+                            label="Password"
+                            className="auth-input"
                         >
                             <Form.Control
                                 required
-                                name='password'
+                                name="password"
                                 value={password}
-                                type='password'
-                                placeholder='Password'
+                                type="password"
+                                placeholder="Password"
                                 onChange={e => setPassword(e.target.value)}
                             />
                         </FloatingLabel>
                     </>
-                    <Button variant='success' id='signInBtn' type='submit'>
+                    <Button id="signin-btn" type="submit">
                         Sign In
                     </Button>
                 </Form>
