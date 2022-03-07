@@ -56,7 +56,7 @@ export default function AdvSearch(props) {
     }
 
     // conditional for type options
-    const displayVidTypes = props.videoTypeBtn === true ? (
+    const displayVidTypes = props.videoTypeBtn ? (
         // if true, display video type options
         <Form.Select size="sm" onChange={vidTypeClicked}>
             <option value='Any'>Select Video Type</option>
@@ -69,7 +69,7 @@ export default function AdvSearch(props) {
     )
 
     // conditional for genre options
-    const displayGenres = props.genresBtn === true ? (
+    const displayGenres = props.genresBtn ? (
         // if true, display genre options
         <Form.Select size="sm" onChange={genreClicked}>
             <option value='0'>Select Genre</option>
@@ -99,7 +99,7 @@ export default function AdvSearch(props) {
     )
 
     // conditional for start date input
-    const displayReleasedInput = props.yearReleasedBtn === true ? (
+    const displayReleasedInput = props.yearReleasedBtn ? (
         // if true, display video type options
         <Form size="sm">
             <input type='text' placeholder='Year > 1900' onChange={handleDateInput} />
@@ -110,7 +110,7 @@ export default function AdvSearch(props) {
     )
 
     // conditional for end date input
-    const displayEndInput = props.endYearBtn === true ? (
+    const displayEndInput = props.endYearBtn ? (
         // if true, display video type options
         <Form size="sm">
             <input type='text' placeholder='Year < 2022' onChange={handleEndDateInput} />
@@ -128,7 +128,7 @@ export default function AdvSearch(props) {
     })
 
     // conditional for different counties
-    const displayCountries = props.countryBtn === true ? (
+    const displayCountries = props.countryBtn ? (
         // if true, display dropdown of country options
         <Form.Select size='sm' onChange={countryClicked}>
             <option>Select Country</option>
@@ -147,7 +147,7 @@ export default function AdvSearch(props) {
     })
 
     // conditional for subtitles
-    const displaySubtitles = props.subtitlesBtn === true ? (
+    const displaySubtitles = props.subtitlesBtn ? (
         // if true, display dropdown of subtitle options
         <Form.Select size='sm' onChange={subtitleClicked}>
             <option>Select Language</option>
@@ -161,7 +161,7 @@ export default function AdvSearch(props) {
     // conditional to display advanced search options
     const displayAdvSearch = props.advancedSearch
     // if true, display checkbox options
-    if (displayAdvSearch === true) {
+    if (displayAdvSearch) {
         return (
             <div id='advSearchOptions'>
                 <Form>

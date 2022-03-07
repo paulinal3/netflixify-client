@@ -706,4 +706,17 @@ footer {
   #edit-playlist-input {
     max-width: 50%;
   }
+
+  #show-playlist-header h4 {
+    font-size: 25px;
+  }
+  
+  #show-playlist-header h1 {
+    font-size: 45px;
+  }
+
+  #playlist-dropdown-container {
+    display: flex;
+    align-items: center;
+  }
 }

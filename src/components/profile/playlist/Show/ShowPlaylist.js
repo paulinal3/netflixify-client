@@ -136,7 +136,7 @@ export default function ShowPlaylist(props) {
         <div className="page-container" id="show-playlist-page-container">
             {displayHeader}
             <main>
-                <ol className="cards-list" id="playlistVid">{getPlaylistVids}</ol>
+                <ol className="cards-list" id="playlist-vid-res">{getPlaylistVids}</ol>
             </main>
         </div>
     )
