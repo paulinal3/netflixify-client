@@ -35,7 +35,7 @@ export default function IndexVideos(props) {
     }
 
     // conditional to display watched status
-    const markWatched = watchedStatus === true ? <FaCheck /> : <FaCheckSquare />
+    const markWatched = watchedStatus ? <FaCheck /> : <FaCheckSquare />
 
     // hover for remove button
     const removeHover = (props) => (
@@ -52,7 +52,7 @@ export default function IndexVideos(props) {
     )
 
     // hover conditional for watched button
-    const watchedHover = (props) => (watchedStatus === true) ? (
+    const watchedHover = (props) => (watchedStatus) ? (
         // if true
         <Tooltip id='button-tooltip' {...props}>
             Watched
