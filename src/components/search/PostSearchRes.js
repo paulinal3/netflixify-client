@@ -50,7 +50,7 @@ export default function PostSearchRes(props) {
                 {allPlaylists}
             </Form.Select>
             <OverlayTrigger
-                placement="left"
+                placement="top"
                 delay={{ show: 250, hide: 400 }}
                 overlay={addHover}
             >

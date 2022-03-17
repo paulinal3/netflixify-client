@@ -186,12 +186,24 @@ export default function Profile(props) {
             </div>
             <ol className="cards-list" id="all-playlists-container">
                 {allPlaylists}
-                <Card id="watchedCard" style={{ width: "13rem" }}>
+                <Link to={`/playlists/watched`}>
+                    <div id='playlistCard'>
+                        <div className="vidResModal">
+                            <div className="no-images-container">
+                                <p className="no-image">Check out all the Netflix videos you've watched!</p>
+                            </div>
+                        </div>
+                        <div className="playlist-title">
+                            <h4>Watched Videos</h4>
+                        </div>
+                    </div>
+                </Link>
+                {/* <Card id="watchedCard" style={{ width: "13rem" }}>
                     <Card.Body className="vidResModal">
                         <Card.Title>Watched Videos</Card.Title>
                         <Link to={`/playlists/watched`}><Button variant="success">See List</Button></Link>
                     </Card.Body>
-                </Card>
+                </Card> */}
             </ol>
             <NewPlaylist
                 show={modalShow}

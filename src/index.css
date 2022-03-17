@@ -6,6 +6,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
+:root {
+    --main-bg-color: #122333;
+    --main-btn-color: #2eac68;
+    --main-btn-hover-color: #28975c;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +21,7 @@
 }
 
 .page-container {
-  background-color: #122333;
+  background-color: var(--main-bg-color);
   height: 100vh;
 }
 
@@ -159,7 +165,6 @@ code {
   opacity: 0;
   font-size: 17px;
   font-weight: bold;
-
   transition: opacity .2s, visibility .2s;
 }
 
@@ -736,4 +741,67 @@ footer {
     display: flex;
     align-items: center;
   }
+}
+
+#playlistCard {
+    border-radius: 5px;
+    width: 240px;
+    height: 360px;
+}
+
+.playlist-images {
+    border-radius: 5px;
+}
+
+.playlist-image {
+    width: 100px;
+    height: auto;
+}
+
+.single-image {
+    width: 100%;
+}
+
+.no-images-container {
+    background-color: #213749;
+    width: 200px;
+    height: 283px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 25px;
+    border-radius: 5px;
+
+}
+
+.vidResModal {
+    background-color: #122333;
+    padding: 15px;
+}
+
+.playlist-title {
+    display: flex;
+    padding-left: 15px;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* padding-bottom: 15px; */
+}
+
+.playlist-title h3 {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#go-search-btn {
+    background-color: #2eac68;
+    color: #bbc8d3;
+}
+
+#go-search-btn:hover {
+    background-color: #28975c;
 }
