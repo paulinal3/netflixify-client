@@ -13,27 +13,27 @@
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Josefin Sans', sans-serif;
-  color: #bbc8d3;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #bbc8d3;
 }
 
 .page-container {
-  background-color: var(--main-bg-color);
-  height: 100vh;
+    background-color: var(--main-bg-color);
+    height: 100vh;
 }
 
 .nav-bar-container {
-  background-color: #122333;
-  padding-left: 15px;
+    background-color: #122333;
+    padding-left: 15px;
 }
 
 .navbar-light .navbar-toggler {
-  /* color: #2eac68; */
-  background-color: #2eac68;
-  /* border: whitesmoke; */
+    /* color: #2eac68; */
+    background-color: #2eac68;
+    /* border: whitesmoke; */
 }
 
 /* #navBarContainer, #footer {
@@ -46,113 +46,113 @@
 } */
 
 #btn {
-  background-color: #2eac68;
-  border: #2eac68;
+    background-color: #2eac68;
+    border: #2eac68;
 }
 
 #btn:hover {
-  background-color: #28975c;
-  /* border: 1px solid #bbc8d3; */
+    background-color: #28975c;
+    /* border: 1px solid #bbc8d3; */
 }
 
 #watchedPage, #searchPage {
-  background-color: #122333;
-  height: 100vh;
+    background-color: #122333;
+    height: 100vh;
 }
 
 #searchResult, #allPlaylists {
-  background-color: #122333;
+    background-color: #122333;
 }
 
 #signOut, #watchedPage {
-  color: white;
+    color: white;
 }
 
 #showPlaylistTitle {
-  font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 #searchResult, #allPlaylists {
-  display: flex;
-  /* align-content: center; */
-  /* justify-content: center; */
-  flex-wrap: wrap;
-  gap: 20px;
+    display: flex;
+    /* align-content: center; */
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .glyphicon-move {
-  cursor: move;
-  cursor: -webkit-grabbing;
+    cursor: move;
+    cursor: -webkit-grabbing;
 }
 
 #profileHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: white;
-  margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    margin-left: 5%;
 }
 
 #profileSetting {
-  display: flex;
-  flex-direction: row;
-  column-gap: 1%;
-  justify-content: flex-end;
-  margin-right: 5%;
-  padding-top: 3%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1%;
+    justify-content: flex-end;
+    margin-right: 5%;
+    padding-top: 3%;
 }
 
 #removeVidBtn, #seeMoreBtn {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #showOptions {
-  position: relative;
-  top: 70%;
-  display: flex;
-  justify-content: space-between;
-  column-gap: 5%;
+    position: relative;
+    top: 70%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5%;
 }
 
 #advSearchToggle {
-  /* display: flex; */
-  padding: 2% 0 0 2%;
-  /* justify-content: flex-end;
+    /* display: flex; */
+    padding: 2% 0 0 2%;
+    /* justify-content: flex-end;
   align-items: flex-end; */
 }
 
 #advSearchOptions {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  column-gap: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 2%;
 }
 
 #typeOption {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 #options {
-  display: flex;
-  flex-direction: row;
-  column-gap: 2%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2%;
 }
 
 /* #img__wrap {
@@ -161,11 +161,11 @@ code {
 } */
 
 #img__description {
-  visibility: hidden;
-  opacity: 0;
-  font-size: 17px;
-  font-weight: bold;
-  transition: opacity .2s, visibility .2s;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 17px;
+    font-weight: bold;
+    transition: opacity .2s, visibility .2s;
 }
 
 #img__wrap {
@@ -176,133 +176,133 @@ code {
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
-  }
-  
+}
+
 #img__wrap:hover {
--webkit-transform: scale(1.055) translateY(-2px);
-transform: scale(1.055) translateY(-2px);
--webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+    -webkit-transform: scale(1.055) translateY(-2px);
+    transform: scale(1.055) translateY(-2px);
+    -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+    box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
 }
 
 #img__wrap:hover #img__description {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 #searchPage {
-  background-color: #122333;
-  color: white;
-  /* height: 100vh; */
-  padding-top: 5%;
+    background-color: #122333;
+    color: white;
+    /* height: 100vh; */
+    padding-top: 5%;
 }
 
 footer {
-  background-color: #122333;
-  color: white
+    background-color: #122333;
+    color: white
 }
 
 #resultCardBody, #playlistBody {
-  margin-top: 5%;
-  /* background-color: rgba(0, 0, 0, 0.75); */
+    margin-top: 5%;
+    /* background-color: rgba(0, 0, 0, 0.75); */
 }
 
 #postPlaylist {
-  display: flex;
-  flex-direction: row;
-  column-gap: 7px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 7px;
 }
 
 #editPlaylist {
-  display: flex;
-  flex-direction: row;
-  column-gap: 5px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
 }
 
 #watchedVids {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 #watchedHeader {
-  margin-left: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
+    margin-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 /* ------------------------------- HOME.JS ------------------------------- */
 #home-page-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #home-page-container h1 {
-  font-family: 'Fredericka the Great', cursive;
-  color: #2eac68;
-  text-align: center;
-  padding-top: 50px;
-  font-size: 55px;
-  letter-spacing: 10px;
+    font-family: 'Fredericka the Great', cursive;
+    color: #2eac68;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 55px;
+    letter-spacing: 10px;
 }
 
 #home-page-container .app-features-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-  margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
 }
 
 .app-features-container .app-feature {
-  width: 75%;
+    width: 75%;
 }
 
 @media screen and (min-width: 768px) {
-  #home-page-container  {
-    gap: 25px;
-  }
+    #home-page-container {
+        gap: 25px;
+    }
 
-  #home-page-container h1 {
-    font-size: 75px;
-    letter-spacing: 15px;
-  }
+    #home-page-container h1 {
+        font-size: 75px;
+        letter-spacing: 15px;
+    }
 
-  #home-page-container .app-features-container {
-    gap: 50px;
-  }
+    #home-page-container .app-features-container {
+        gap: 50px;
+    }
 
-  .app-features-container .app-feature h5 {
-    font-size: 25px;
-  }
+    .app-features-container .app-feature h5 {
+        font-size: 25px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  #home-page-container {
-    gap: 100px;
-  }
-  
-  #home-page-container h1 {
-    font-size: 100px;
-    letter-spacing: 25px;
-  }
+    #home-page-container {
+        gap: 100px;
+    }
 
-  #home-page-container .app-features-container {
-    flex-direction: row;
-    justify-content: center;
-    padding: 0px 50px 0px 50px;
-  }
+    #home-page-container h1 {
+        font-size: 100px;
+        letter-spacing: 25px;
+    }
 
-  .app-features-container .app-feature h5 {
-    font-size: 30px;
-  }
+    #home-page-container .app-features-container {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0px 50px 0px 50px;
+    }
+
+    .app-features-container .app-feature h5 {
+        font-size: 30px;
+    }
 }
 
 /* ------------------------------ SIGNUP.JS ------------------------------ */
 .auth-page-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .auth-form-container {
@@ -319,434 +319,449 @@ footer {
 }
 
 .auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .auth-form-container {
-    width: 100%;
-  }
+    .auth-form-container {
+        width: 100%;
+    }
 
-  .auth-form {
-    width: 65%;
-  }
+    .auth-form {
+        width: 65%;
+    }
 
-  .form-floating {
-    width: 100%;
-  }
+    .form-floating {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  .auth-form-container {
-    width: 100%;
-  }
+    .auth-form-container {
+        width: 100%;
+    }
 
-  .auth-form {
-    width: 35%;
-  }
+    .auth-form {
+        width: 35%;
+    }
 
-  .form-floating {
-    width: 100%;
-  }
+    .form-floating {
+        width: 100%;
+    }
 }
 
 .auth-form #name-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  column-gap: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 15px;
 }
 
 .auth-form #signup-btn {
-  width: 100%;
-  background-color: #2eac68;
-  border: 1px solid #213749;
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
 }
 
 .auth-form #signup-btn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
 }
 
 #first-name, #last-name, #email, #password, #password-confirmation {
-  background-color: #213749;
-  color: #bbc8d3;
+    background-color: #213749;
+    color: #bbc8d3;
 }
 
 /* ------------------------------ SIGNIN.JS ------------------------------ */
 #signin-form {
-  width: 100%;
+    width: 100%;
 }
 
 .auth-form #signin-btn {
-  width: 100%;
-  background-color: #2eac68;
-  border: 1px solid #213749;
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
 }
 
 .auth-form #signin-btn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
 }
 
 #signin-email, #signin-password {
-  background-color: #213749;
-  color: #bbc8d3;
+    background-color: #213749;
+    color: #bbc8d3;
 }
 
 @media screen and (min-width: 768px) {
-  .auth-form-container {
-    width: 100%;
-  }
+    .auth-form-container {
+        width: 100%;
+    }
 
-  #signin-form {
-    width: 65%;
-  }
+    #signin-form {
+        width: 65%;
+    }
 
-  .form-floating {
-    width: 100%;
-  }
+    .form-floating {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  #signin-form {
-    width: 35%;
-  }
+    #signin-form {
+        width: 35%;
+    }
 }
 
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
 #changepw-form {
-  width: 100%;
+    width: 100%;
 }
 
 .auth-form #changepw-btn {
-  width: 100%;
-  background-color: #2eac68;
-  border: 1px solid #213749;
+    width: 100%;
+    background-color: #2eac68;
+    border: 1px solid #213749;
 }
 
 .auth-form #changepw-btn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
 }
 
 #old-password, #new-password {
-  background-color: #213749;
-  color: #bbc8d3;
+    background-color: #213749;
+    color: #bbc8d3;
 }
 
 @media screen and (min-width: 768px) {
-  #changepw-form {
-    width: 65%;
-  }
+    #changepw-form {
+        width: 65%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  #changepw-form {
-    width: 35%;
-  }
+    #changepw-form {
+        width: 35%;
+    }
 }
 
 /* -------------------------- SIGNOUT.JS -------------------------- */
 #signout-container {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 #signout-container h2 {
-  font-size: 35px;
+    font-size: 35px;
 }
 
 #signout-container p {
-  font-size: 20px;
-  color: #2eac68;
-  margin: 0;
+    font-size: 20px;
+    color: #2eac68;
+    margin: 0;
 }
 
 #signout-container .signout-btns {
-  display: flex;
-  gap: 7px;
+    display: flex;
+    gap: 7px;
 }
 
 #signout-container #signout-btn {
-  background-color: #E50914;
-  border: 1px solid #213749;
+    background-color: #E50914;
+    border: 1px solid #213749;
 }
 
 #signout-container #signout-btn:hover {
-  background-color: #bb161e;
-  border: 1px solid whitesmoke;
+    background-color: #bb161e;
+    border: 1px solid whitesmoke;
 }
 
 #signout-container #cancel-btn {
-  background-color: #2eac68;
-  border: 1px solid #213749;
+    background-color: #2eac68;
+    border: 1px solid #213749;
 }
 
 #signout-container #cancel-btn:hover {
-  border: 1px solid whitesmoke;
-  background-color: #28975c;
+    border: 1px solid whitesmoke;
+    background-color: #28975c;
 }
 
 @media screen and (min-width: 768px) {
-  #signout-container {
-    width: 75%;
-  }
+    #signout-container {
+        width: 75%;
+    }
 
-  #signout-container h2 {
-    font-size: 50px;
-  }
+    #signout-container h2 {
+        font-size: 50px;
+    }
 
-  #signout-container p {
-    font-size: 35px;
-  }
+    #signout-container p {
+        font-size: 35px;
+    }
 
-  #signout-container #signout-btn {
-    font-size: 25px;
-  }
-  
-  #signout-container #cancel-btn {
-    font-size: 25px;
-  }
+    #signout-container #signout-btn {
+        font-size: 25px;
+    }
+
+    #signout-container #cancel-btn {
+        font-size: 25px;
+    }
 }
 
 /* ------------------------------ SEARCH.JS ------------------------------ */
 #search {
-  max-width: 45%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 10px;
-  margin-left: 10px;
-  margin: auto;
+    max-width: 45%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-left: 10px;
+    margin: auto;
 }
 
 #searchTerm {
-  background-color: #213749;
-  color: #bbc8d3;
+    background-color: #213749;
+    color: #bbc8d3;
 }
 
 #searchBtn {
-  background-color: #2eac68;
-  color: whitesmoke;
+    background-color: #2eac68;
+    color: whitesmoke;
 }
 
 #searchBtn:hover {
-  border: 1px solid #bbc8d3;
-  background-color: #28975c;
+    border: 1px solid #bbc8d3;
+    background-color: #28975c;
 }
 
 #searchResContainer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 #searchOptions {
-  position: relative;
-  top: 65%;
-  display: flex;
-  justify-content: end;
-  column-gap: 5%;
+    position: relative;
+    top: 65%;
+    display: flex;
+    justify-content: end;
+    column-gap: 5%;
 }
 
 .vidResModal {
-  background-color: #213749;
+    background-color: #213749;
 }
 
 #resCard {
-  border: 5px solid #213749;
+    border: 5px solid #213749;
 }
 
 #resCard:hover {
-  border: 5px solid black;
+    border: 5px solid black;
 }
 
 /* ------------------------------ PROFILE.JS ------------------------------ */
 #playlistCard, #watchedCard {
-  border: 5px solid #213749;
+    border: 5px solid #213749;
 }
 
 #playlistCard:hover, #watchedCard:hover {
-  border: 2px solid #bbc8d3;
+    border: 2px solid #bbc8d3;
 }
 
 #newPlaylistModal {
-  background-color: #122333;
+    background-color: #122333;
 }
 
 #playlistTitle {
-  background-color: #213749;
+    background-color: #213749;
 }
 
 /* ----------- */
 #profile-header-container {
-  display: flex;
-  justify-content: space-evenly;
-  padding-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 25px;
 }
 
 #profile-header-container .header-title {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .header-container .header-title h1 {
-  font-family: 'Fredericka the Great', cursive;
-  margin-bottom: 0;
+    font-family: 'Fredericka the Great', cursive;
+    margin-bottom: 0;
 }
 
 #profile-settings {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 15px;
 }
 
 #profile-settings #playlists-sort {
-  background-color: #213749;
-  color: #bbc8d3;
-  font-size: 15px;
+    background-color: #213749;
+    color: #bbc8d3;
+    font-size: 15px;
 }
 
 #profile-settings .profile-settings-btns {
-  display: flex;
-  gap: 5px;
+    display: flex;
+    gap: 5px;
 }
 
 #create-playlist-btn, #change-pw-btn {
-  background-color: #2eac68;
-  border: 1px solid #2eac68;
-  width: 100%
+    background-color: #2eac68;
+    border: 1px solid #2eac68;
+    width: 100%
 }
 
 #create-playlist-btn:hover, #change-pw-btn:hover {
-  background-color: #28975c;
-  border: 1px solid #bbc8d3;
+    background-color: #28975c;
+    border: 1px solid #bbc8d3;
 }
 
 .cards-list {
-  background-color: #122333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 25px 0px 25px 0px;
+    background-color: #122333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 0px 25px 0px;
 }
 
 @media screen and (min-width: 768px) {
-  #profile-header-container {
-    justify-content: space-between;
-    padding: 25px 25px 0 25px;
-  }
+    #profile-header-container {
+        justify-content: space-between;
+        padding: 25px 25px 0 25px;
+    }
 
-  #profile-settings {
-    flex-direction: row;
-    gap: 5px;
-  }
+    #profile-settings {
+        flex-direction: row;
+        gap: 5px;
+    }
 
-  #profile-settings #playlists-sort {
-    width: 100%;
-  }
+    #profile-settings #playlists-sort {
+        width: 100%;
+    }
 
-  #profile-settings .profile-settings-btns {
-    gap: 5px;
-  }
+    #profile-settings .profile-settings-btns {
+        gap: 5px;
+    }
 
-  #change-pw-btn {
-    height: 100%;
-  }
+    #change-pw-btn {
+        height: 100%;
+    }
 
-  .cards-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-    padding: 25px;
-  }
+    .cards-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        padding: 25px;
+    }
 }
+
 /* -------------------------- SHOWPLAYLIST.JS -------------------------- */
 #show-playlist-header {
-  display: flex;
-  flex-direction: column;
-  padding-top: 25px;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    gap: 10px;
 }
 
 #show-playlist-header .header-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
 }
 
 #show-playlist-header .row-one-header {
-  align-items: flex-end;
+    align-items: flex-end;
 }
 
 #show-playlist-header h4 {
-  font-size: 15px;
-  margin-bottom: 0;
+    font-size: 15px;
+    margin-bottom: 0;
 }
 
 #edit-playlist-btn, #save-playlist-btn {
-  background-color: #2eac68;
-  border: 1px solid #2eac68;
+    background-color: #2eac68;
+    border: 1px solid #2eac68;
 }
 
 #edit-playlist-input {
-  max-width: 45%;
+    max-width: 45%;
 }
 
 #edit-playlist-btn:hover, #save-playlist-btn:hover {
-  background-color: #28975c;
-  border: 1px solid #bbc8d3;
+    background-color: #28975c;
+    border: 1px solid #bbc8d3;
 }
 
 #delete-playlist-btn {
-  background-color: #E50914;
-  border: 1px solid #213749;
+    background-color: #E50914;
+    border: 1px solid #213749;
 }
 
 #delete-playlist-btn:hover {
-  background-color: #bb161e;
-  border: 1px solid whitesmoke;
+    background-color: #bb161e;
+    border: 1px solid whitesmoke;
 }
 
 #show-playlist-header h1 {
-  font-size: 35px;
-  padding-left: 10px;
-  font-family: 'Fredericka the Great', cursive;
-  margin-bottom: 0;
+    font-size: 35px;
+    padding-left: 10px;
+    font-family: 'Fredericka the Great', cursive;
+    margin-bottom: 0;
 }
 
 #playlist-dropdown-container #playlists-dropdown {
-  background-color: #213749;
-  color: #bbc8d3;
+    background-color: #213749;
+    color: #bbc8d3;
 }
 
 @media screen and (min-width: 768px) {
-  #edit-playlist-input {
-    max-width: 50%;
-  }
+    #edit-playlist-input {
+        max-width: 50%;
+    }
 
-  #show-playlist-header h4 {
-    font-size: 25px;
-  }
-  
-  #show-playlist-header h1 {
-    font-size: 45px;
-  }
+    #show-playlist-header h4 {
+        font-size: 25px;
+    }
 
-  #playlist-dropdown-container {
-    display: flex;
-    align-items: center;
-  }
+    #show-playlist-header h1 {
+        font-size: 45px;
+    }
+
+    #playlist-dropdown-container {
+        display: flex;
+        align-items: center;
+    }
 }
 
 #playlistCard {
     border-radius: 5px;
     width: 240px;
     height: 360px;
+    margin-bottom: 1rem;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
+}
+
+#playlistCard:hover {
+    -webkit-transform: scale(1.055) translateY(-2px);
+    transform: scale(1.055) translateY(-2px);
+    -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+    box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
 }
 
 .playlist-images {
@@ -758,8 +773,25 @@ footer {
     height: auto;
 }
 
+#image-one {
+    border-top-left-radius: 10px;
+}
+
+#image-two {
+    border-top-right-radius: 10px;
+}
+
+#image-three {
+    border-bottom-left-radius: 10px;
+}
+
+#image-four {
+    border-bottom-right-radius: 10px;
+}
+
 .single-image {
     width: 100%;
+    border-radius: 10px;
 }
 
 .no-images-container {
@@ -772,7 +804,7 @@ footer {
     justify-content: center;
     text-align: center;
     padding: 0px 25px;
-    border-radius: 5px;
+    border-radius: 10px;
 
 }
 
@@ -784,9 +816,6 @@ footer {
 .playlist-title {
     display: flex;
     padding-left: 15px;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* padding-bottom: 15px; */
 }
 
 .playlist-title h3 {

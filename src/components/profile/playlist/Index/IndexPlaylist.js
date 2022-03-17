@@ -12,12 +12,12 @@ export default function IndexPlaylist(props) {
             <div id='playlistCard'>
                 <div className="vidResModal">
                     <div className="playlist-images">
-                        <img className="playlist-image" src={props.playlist.videos[0].image} />
-                        <img className="playlist-image" src={props.playlist.videos[1].image} />
+                        <img className="playlist-image" id="image-one" src={props.playlist.videos[0].image} />
+                        <img className="playlist-image" id="image-two" src={props.playlist.videos[1].image} />
                     </div>
                     <div className="playlist-images">
-                        <img className="playlist-image" src={props.playlist.videos[2].image} />
-                        <img className="playlist-image" src={props.playlist.videos[3].image} />
+                        <img className="playlist-image" id="image-three" src={props.playlist.videos[2].image} />
+                        <img className="playlist-image" id="image-four" src={props.playlist.videos[3].image} />
                     </div>
                 </div>
                 <div className="playlist-title">
