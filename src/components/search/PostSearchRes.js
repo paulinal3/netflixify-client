@@ -17,7 +17,6 @@ export default function PostSearchRes(props) {
     const postVideoToPlaylist = (e) => {
         e.preventDefault()
         console.log('this is the playlist id:', props.indexPlaylists)
-        // axios call to db
         postVideo(props.currUser, playlist, props.videoData)
             .then(() => {
                 props.refPlaylists()
@@ -33,10 +32,8 @@ export default function PostSearchRes(props) {
         </Tooltip>
     )
 
-    // map through state
     const allPlaylists = props.indexPlaylists.sort((a, b) => (a.title < b.title) ? -1 : 1).map(p => {
         return (
-            // and display each playlist title as a dropdown option
             <option key={p.title} value={p._id}>
                 {p.title}
             </option>
@@ -57,5 +54,18 @@ export default function PostSearchRes(props) {
                 <Button variant='success' type='submit' id='img__description'><GrAdd /></Button>
             </OverlayTrigger>
         </Form>
+    //     <form id='postPlaylist' onSubmit={postVideoToPlaylist}>
+    //     <select aria-label="add video to playlist selector" id='img__description' onChange={playlistClicked}>
+    //         <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
+    //         {allPlaylists}
+    //     </select>
+    //     <OverlayTrigger
+    //         placement="top"
+    //         delay={{ show: 250, hide: 400 }}
+    //         overlay={addHover}
+    //     >
+    //         <button variant='success' type='submit' id='img__description'><GrAdd /></button>
+    //     </OverlayTrigger>
+    // </form>
     )
 }

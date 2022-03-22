@@ -26,7 +26,7 @@
 }
 
 .nav-bar-container {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     padding-left: 15px;
 }
 
@@ -38,7 +38,7 @@
 
 /* #navBarContainer, #footer {
   background-color: #213749;
-  background-color: #122333;
+  background-color: var(--main-bg-color);
 } */
 
 /* #copyright {
@@ -56,12 +56,12 @@
 }
 
 #watchedPage, #searchPage {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     height: 100vh;
 }
 
 #searchResult, #allPlaylists {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
 }
 
 #signOut, #watchedPage {
@@ -188,17 +188,18 @@ code {
 #img__wrap:hover #img__description {
     visibility: visible;
     opacity: 1;
+    transition: opacity 1.5s;
 }
 
 #searchPage {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     color: white;
     /* height: 100vh; */
     padding-top: 5%;
 }
 
 footer {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     color: white
 }
 
@@ -573,7 +574,7 @@ footer {
 }
 
 #newPlaylistModal {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
 }
 
 #playlistTitle {
@@ -627,7 +628,7 @@ footer {
 }
 
 .cards-list {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -809,7 +810,7 @@ footer {
 }
 
 .vidResModal {
-    background-color: #122333;
+    background-color: var(--main-bg-color);
     padding: 15px;
 }
 

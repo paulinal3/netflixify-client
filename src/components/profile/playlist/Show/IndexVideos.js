@@ -13,7 +13,6 @@ export default function IndexVideos(props) {
 
     // helper method to update a video's watched status
     const editVideo = (e) => {
-        // axios call
         updateVideo(props.currentUser, e.target.value, watchedStatus)
         // .catch(err => console.error)
     }
@@ -26,7 +25,6 @@ export default function IndexVideos(props) {
 
     // helper method to delete a video
     const deleteVideo = (e) => {
-        // axios call
         destroyVideo(props.currentUser, e.target.value)
             .then(() => {
                 props.refreshPlaylist()
@@ -37,34 +35,28 @@ export default function IndexVideos(props) {
     // conditional to display watched status
     const markWatched = watchedStatus ? <FaCheck /> : <FaCheckSquare />
 
-    // hover for remove button
     const removeHover = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             Remove from playlist
         </Tooltip>
     )
 
-    // hover for play button
     const playHover = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             Watch Now
         </Tooltip>
     )
 
-    // hover conditional for watched button
     const watchedHover = (props) => (watchedStatus) ? (
-        // if true
         <Tooltip id='button-tooltip' {...props}>
             Watched
         </Tooltip>
     ) : (
-        // if false
         <Tooltip id='button-tooltip' {...props}>
             Mark as Watched
         </Tooltip>
     )
 
-    // hover for more details button
     const moreHover = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             More info

@@ -17,7 +17,7 @@ export default function IndexSearchRes(props) {
     )
 
     // conditional to check if a user is signed in
-    const userSignedIn = props.currentUser !== null ? (
+    const userSignedIn = props.currentUser ? (
         // if a user is, display add to playlist and watched functions
         <div>
             <PostSearchRes
@@ -71,5 +71,23 @@ export default function IndexSearchRes(props) {
                 result={props.res}
             />
         </div>
+        // <div id='indexSearchRes'>
+        //     <div id="img__wrap">
+        //         <div className="playlist-images">
+        //             <img className="single-image" src={props.res.image} alt={props.res.title} />
+        //         </div>
+        //     </div>
+        //     <div id='searchOptions'>
+        //         {userSignedIn}
+        //     </div>
+        //     {/* <div className="playlist-title">
+        //         <h4>{props.playlist.title}</h4>
+        //     </div> */}
+        //     <ShowSearchRes
+        //         show={modalShow}
+        //         onHide={() => setModalShow(false)}
+        //         result={props.res}
+        //     />
+        // </div>
     )
 }
