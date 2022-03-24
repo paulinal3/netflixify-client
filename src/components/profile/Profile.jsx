@@ -1,69 +1,67 @@
-import { useState, useEffect } from "react"
-import { Button, Card, Form, OverlayTrigger, Tooltip } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { Button, Card, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import { getPlaylists } from "../../api/playlist"
+import { getPlaylists } from "../../api/playlist";
 
-import IndexPlaylist from "./playlist/Index/IndexPlaylist"
-import NewPlaylist from "./playlist/NewPlaylist"
+import Playlist from "./playlist/Playlist";
+import NewPlaylist from "./newPlaylist/NewPlaylist";
 
-import { GrAdd } from "react-icons/gr"
-import { RiLockPasswordFill } from "react-icons/ri"
+import { GrAdd } from "react-icons/gr";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 export default function Profile(props) {
+    const { user, getAllPlaylists, playlists, setPlaylists } = props
 
-    // const [playlist, setPlaylist] = useState([])
-    const [modalShow, setModalShow] = useState(false)
-    const [playlistsOrder, setPlaylistsOrder] = useState("alph")
+    const [modalShow, setModalShow] = useState(false);
+    const [playlistsOrder, setPlaylistsOrder] = useState("alph");
 
     useEffect(() => {
-        getPlaylists(props.user)
+        getPlaylists(user)
             .then(foundPlaylists => {
-                console.log(`the current user's playlists \n`, foundPlaylists.data.foundPlaylists)
-                props.setPlaylists(foundPlaylists.data.foundPlaylists)
-                // props.playlists.push({ title: "Watched Videos"})
+                // console.log(`the current user's playlists \n`, foundPlaylists.data.foundPlaylists)
+                setPlaylists(foundPlaylists.data.foundPlaylists)
             })
-            .catch(err => console.error)
+            .catch(err => console.log(err))
     }, [])
 
     // helper method to determine which playlist is being clicked
-    const playlistClicked = (e) => {
-        console.log("this playlist id was selected:\n", e.target)
-        props.setPlaylists(e.target.value)
-    }
+    // const playlistClicked = (e) => {
+    //     setPlaylists(e.target.value)
+    // }
 
     // sort the playlists alphabeticaly
-    let allPlaylists = props.playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
+    let allPlaylists = playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
         .map(p => {
             return (
-                <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+                <Playlist key={p._id} playlist={p} />
             )
         })
 
     // sort the playlists newest -> oldest
-    const newestPlaylists = props.playlists.sort((a, b) => {
+    const newestPlaylists = playlists.sort((a, b) => {
         return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     }).reverse().map(p => {
         return (
-            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+            <Playlist key={p._id} playlist={p} />
         )
     })
 
     // sort the playlists oldest -> newest
-    const oldestPlaylists = props.playlists.sort((a, b) => {
+    const oldestPlaylists = playlists.sort((a, b) => {
         return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     }).map(p => {
         return (
-            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+            <Playlist key={p._id} playlist={p} />
         )
     })
 
     // sort the playlists by most recently updated first
-    const updatedPlaylists = props.playlists.sort((a, b) => {
+    const updatedPlaylists = playlists.sort((a, b) => {
         return new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
     }).reverse().map(p => {
         return (
-            <IndexPlaylist playlist={p} selectedPlaylist={playlistClicked} />
+            <Playlist key={p._id} playlist={p} />
         )
     })
 
@@ -99,7 +97,7 @@ export default function Profile(props) {
         <div className="page-container" id="profile-page-container">
             <div className="header-container" id="profile-header-container">
                 <header className="header-title">
-                    <h1>{props.user.firstName}'s Playlists:</h1>
+                    <h1>{user.firstName}'s Playlists:</h1>
                 </header>
                 <div id="profile-settings">
                     {/* <-- playlist sort dropdown --> */}
@@ -147,8 +145,8 @@ export default function Profile(props) {
             <NewPlaylist
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                currentUser={props.user}
-                allPlaylists={props.getAllPlaylists}
+                currentUser={user}
+                allPlaylists={getAllPlaylists}
             />
         </div>
     )

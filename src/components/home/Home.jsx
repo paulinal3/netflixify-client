@@ -1,14 +1,13 @@
+import Footer from "../shared/Footer"
+
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
-
-import logo from "../img/logo.png"
 
 const Home = (props) => {
 	console.log('props in home', props)
 
 	return (
 		<div className="page-container" id="home-page-container">
-			{/* <img src={logo} /> */}
 			<h1 id='app-name'>Netflixify</h1>
 			<div className='app-features-container'>
 				<div className='app-feature'>
@@ -27,6 +26,7 @@ const Home = (props) => {
 					<h5>Be directed straight to Netflix based off the show or movie you want to watch.</h5>
 				</div>
 			</div>
+            <Footer />
 		</div>
 	)
 }
