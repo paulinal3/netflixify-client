@@ -3,7 +3,7 @@
 With Netflixify, a user can search all the the current movies and shows on their country's Netflix. User's will have the ability to create their own playlists and add as many shows/movies to it. Organize your watchlists with ease!
 
 ## Deployed App
-
+[Netflixify App](https://netflixify.herokuapp.com/)
 
 ## User Story
 * AAU, I want to view all shows/movies based on country
@@ -19,19 +19,34 @@ With Netflixify, a user can search all the the current movies and shows on their
 ![userflow](img/p4-userflow.png)
 
 ## Install
-1. Go to https://rapidapi.com/unogs/api/unogsng and https://rapidapi.com/unogs/api/uNoGS to sign up for a free account to subscribe for a free API key
+1. Fork and clone repo, then run `npm i`
+2. Open code
+3. Go to [unogsNG](https://rapidapi.com/unogs/api/unogsng) and [uNoGS](https://rapidapi.com/unogs/api/uNoGS) to sign up for a free account to subscribe for a free API key
 2. Download code to your terminal and run `npm i`
 3. Open code 
-4. Copy API key from and paste in `.env` file
+4. Copy API keys and paste in `.env` file
 ```js
-REACT_APP_RAPID_API_KEY='<API key>'
+REACT_APP_RAPID_API_KEY="<uNoGS API key>"
+REACT_APP_UNOGSNG_KEY="<unogsNG API key>"
 ```
+7. run `npm start` in terminal
+8. Fork and clone [Server Repository](https://github.com/paulinal3/netflixify-api), then run `npm i`
+9. Go to [MongoDB Atlas](https://www.mongodb.com/atlas/database) and sign up for free account
+10. Create a user in `Database Access` and add IP address that is allowed from anywhere in `Network Access`
+11. Create a cluster, connect your application, and copy your connection string and paste in `.env` file
+``` js
+MONGODB_URI=mongodb+srv://<username>:<password>@netflixify.tjno5.mongodb.net/<dbName>?retryWrites=true&w=majority
+```
+12. run `nodemon` in terminal
 
 ## Tech Stack
 * Mongo
 * Express
 * React
 * CSS/Bootstrap
+
+## Server Repository
+[Netflixify API Repository](https://github.com/paulinal3/netflixify-api)
 
 ## ERD
 ![ERD](img/p4-erd.png)
@@ -41,6 +56,7 @@ REACT_APP_RAPID_API_KEY='<API key>'
 
 ## API
 * uNoGS
+* unogsNG
 
 ## Endpoint Examples
 
@@ -86,45 +102,3 @@ REDIRECT to Netflix --> `https://www.netflix.com/title/<netflixid>`
 * Allow users to mark what shows/movies they have watched
 * Allow user to leave notes about shows/movies
 * Allow for international users to be able to search based on their country's Netflix
-
-## Potential Roadblocks
-* Using an unofficial api
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
