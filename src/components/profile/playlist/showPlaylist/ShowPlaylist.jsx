@@ -18,6 +18,19 @@ export default function ShowPlaylist(props) {
     const [playlistTitle, setPlaylistTitle] = useState("")
     const [title, setTitle] = useState(true)
 
+    // const showPlaylist = () => {
+    //     getOnePlaylist(user, playlistId)
+    //         .then(foundPlaylist => {
+    //             console.log("this is the found playlist\n", foundPlaylist.data.playlist)
+    //             setPlaylist(foundPlaylist.data.playlist)
+    //             setPlaylistVids(foundPlaylist.data.playlist.videos)
+    //             setPlaylistTitle(foundPlaylist.data.playlist.title)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+
+    // useEffect(showPlaylist(), [playlistId, playlistTitle])
+
     useEffect(() => {
         getOnePlaylist(user, playlistId)
             .then(foundPlaylist => {
@@ -30,11 +43,9 @@ export default function ShowPlaylist(props) {
     }, [playlistId])
 
     const refreshPlaylist = () => {
-        // axios call to find the selected playlist in the db
         getOnePlaylist(user, playlistId)
             .then(foundPlaylist => {
                 console.log("this is the found playlist\n", foundPlaylist.data.playlist)
-                // set the found playlist to state
                 setPlaylist(foundPlaylist.data.playlist)
                 setPlaylistVids(foundPlaylist.data.playlist.videos)
             })
@@ -45,17 +56,12 @@ export default function ShowPlaylist(props) {
         setPlaylistTitle(e.target.value)
     }
 
-    // helper method that listens for when edit button is clicked
     const displayEdit = (e) => {
-        // if clicked, it changes title state to false to display edit/delete
         setTitle(false)
     }
 
-    // helper method to edit the playlist title
     const editPlaylist = () => {
-        // axios call
         updatePlaylist(user, playlistId, playlistTitle)
-            // refresh playlist call and set title back to true to display new title
             .then(() => {
                 refreshPlaylist()
                 setPlaylistTitle(playlistTitle)
@@ -64,26 +70,21 @@ export default function ShowPlaylist(props) {
     }
 
     const navigate = useNavigate()
-    // helper method to delete the playlist
     const deletePlaylist = () => {
-        // axios call
         destroyPlaylist(user, playlistId)
             // redirect back to profile
             .then(() => navigate("/profile"))
             .catch(err => console.error)
     }
 
-    // map over all videos in specified playlist
     const getPlaylistVids = playlistVids.map(v => {
         return (
-            // and pass a prop to IndexVideos
-            <IndexVideos playlistVids={v} currentUser={user} refreshPlaylist={refreshPlaylist} />
+            <IndexVideos key={v._id} playlistVids={v} currentUser={user} refreshPlaylist={refreshPlaylist} />
         )
     })
 
     // list the playlists alphabetically
     const playlistsDropdown = playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
-        // then map through them
         .map(p => {
             return (
                 <option value={p._id}>{p.title}</option>
@@ -96,7 +97,6 @@ export default function ShowPlaylist(props) {
     }
 
     const displayHeader = title ? (
-        // if true, display title and edit button
         <header className="header-container" id="show-playlist-header">
             <div className="header-row row-one-header">
                 <h4>PLAYLIST</h4>
@@ -113,7 +113,6 @@ export default function ShowPlaylist(props) {
             </div>
         </header>
     ) : (
-        // if false, display text to edit title and save/delete buttons
         <header className="header-container" id="show-playlist-header">
             <div className="header-row row-one-header">
                 <h4>PLAYLIST</h4>

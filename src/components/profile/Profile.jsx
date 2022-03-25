@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-import { getPlaylists } from "../../api/playlist";
 
 import Playlist from "./playlist/Playlist";
 import NewPlaylist from "./newPlaylist/NewPlaylist";
@@ -11,24 +9,12 @@ import { GrAdd } from "react-icons/gr";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 export default function Profile(props) {
-    const { user, getAllPlaylists, playlists, setPlaylists } = props
+    const { user, getAllPlaylists, playlists } = props
 
     const [modalShow, setModalShow] = useState(false);
     const [playlistsOrder, setPlaylistsOrder] = useState("alph");
 
-    useEffect(() => {
-        getPlaylists(user)
-            .then(foundPlaylists => {
-                // console.log(`the current user's playlists \n`, foundPlaylists.data.foundPlaylists)
-                setPlaylists(foundPlaylists.data.foundPlaylists)
-            })
-            .catch(err => console.log(err))
-    }, [])
-
-    // helper method to determine which playlist is being clicked
-    // const playlistClicked = (e) => {
-    //     setPlaylists(e.target.value)
-    // }
+    useEffect(getAllPlaylists, [])
 
     // sort the playlists alphabeticaly
     let allPlaylists = playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
@@ -146,7 +132,7 @@ export default function Profile(props) {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 currentUser={user}
-                allPlaylists={getAllPlaylists}
+                refreshPlaylists={getAllPlaylists}
             />
         </div>
     )

@@ -17,8 +17,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 import Profile from './components/profile/Profile'
-import ShowPlaylist from './components/profile/playlist/Show/ShowPlaylist'
-import ShowWatched from './components/profile/playlist/Show/ShowWatched'
+import ShowPlaylist from './components/profile/playlist/showPlaylist/ShowPlaylist'
+import ShowWatched from './components/profile/playlist/showPlaylist/ShowWatched'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
@@ -129,7 +129,7 @@ const App = () => {
                     path='/profile'
                     element={
                         <RequireAuth user={user}>
-                            <Profile user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} setPlaylists={setPlaylists} />
+                            <Profile user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} />
                         </RequireAuth>
                     }
                 />
