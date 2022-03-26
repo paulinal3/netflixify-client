@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button, Card, Tooltip, OverlayTrigger } from "react-bootstrap"
-import { destroyVideo, updateVideo } from "../../../../api/video"
-import ShowVideo from "./ShowVideo"
+import { destroyVideo, updateVideo } from "../../../api/video"
+import ShowVideo from "../showVideos/ShowVideo"
 import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
 import { GrExpand } from 'react-icons/gr'

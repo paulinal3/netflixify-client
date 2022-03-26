@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import Playlist from "./playlist/Playlist";
+import IndexPlaylist from "./indexPlaylist/IndexPlaylist";
 import NewPlaylist from "./newPlaylist/NewPlaylist";
 
 import { GrAdd } from "react-icons/gr";
@@ -20,7 +20,7 @@ export default function Profile(props) {
     let allPlaylists = playlists.sort((a, b) => (a.title < b.title) ? -1 : 1)
         .map(p => {
             return (
-                <Playlist key={p._id} playlist={p} />
+                <IndexPlaylist key={p._id} playlist={p} />
             )
         })
 
@@ -29,7 +29,7 @@ export default function Profile(props) {
         return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     }).reverse().map(p => {
         return (
-            <Playlist key={p._id} playlist={p} />
+            <IndexPlaylist key={p._id} playlist={p} />
         )
     })
 
@@ -38,7 +38,7 @@ export default function Profile(props) {
         return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     }).map(p => {
         return (
-            <Playlist key={p._id} playlist={p} />
+            <IndexPlaylist key={p._id} playlist={p} />
         )
     })
 
@@ -47,7 +47,7 @@ export default function Profile(props) {
         return new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
     }).reverse().map(p => {
         return (
-            <Playlist key={p._id} playlist={p} />
+            <IndexPlaylist key={p._id} playlist={p} />
         )
     })
 

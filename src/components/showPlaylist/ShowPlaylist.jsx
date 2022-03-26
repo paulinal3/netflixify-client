@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Button, Form } from "react-bootstrap"
 
-import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../../../api/playlist"
-import IndexVideos from "./IndexVideos"
+import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../api/playlist"
+import IndexVideos from "./indexVideos/IndexVideos"
 
 export default function ShowPlaylist(props) {
 
@@ -29,7 +29,7 @@ export default function ShowPlaylist(props) {
     //         .catch(err => console.log(err))
     // }
 
-    // useEffect(showPlaylist(), [playlistId, playlistTitle])
+    // useEffect(showPlaylist(), [playlistId, title])
 
     useEffect(() => {
         getOnePlaylist(user, playlistId)

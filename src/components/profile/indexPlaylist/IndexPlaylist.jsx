@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Playlist({ playlist }) {
+export default function IndexPlaylist({ playlist }) {
 
     if (playlist.videos.length > 3) {
         return (
@@ -40,16 +40,19 @@ export default function Playlist({ playlist }) {
     }
 
     return (
-        <div id='playlistCard'>
-            <div className="vidResModal">
-                <div className="no-images-container">
-                    <p className="no-image">This playlist has no videos yet!</p>
-                    <Link to={"/search"}><button className="btn" id="go-search-btn">Search Now!</button></Link>
+        <Link to={`/playlists/${playlist._id}`}>
+            <div id='playlistCard'>
+                <div className="vidResModal">
+                    <div className="no-images-container">
+                        <p className="no-image">This playlist has no videos yet!</p>
+                        <Link to={"/search"}><button className="btn" id="go-search-btn">Search Now!</button></Link>
+                    </div>
+                </div>
+                <div className="playlist-title">
+                    <h4>{playlist.title}</h4>
                 </div>
             </div>
-            <div className="playlist-title">
-                <h4>{playlist.title}</h4>
-            </div>
-        </div>
+        </Link>
+
     )
 }

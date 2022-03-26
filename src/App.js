@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
-import Footer from './components/shared/Footer'
+// import Footer from './components/shared/Footer'
 
 import Home from './components/home/Home'
 import Search from './components/search/Search'
@@ -17,12 +17,11 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 import Profile from './components/profile/Profile'
-import ShowPlaylist from './components/profile/playlist/showPlaylist/ShowPlaylist'
-import ShowWatched from './components/profile/playlist/showPlaylist/ShowWatched'
+import ShowPlaylist from './components/showPlaylist/ShowPlaylist'
+import ShowWatched from './components/showWatched/ShowWatched'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
-import { useEffect } from 'react'
 
 
 const App = () => {
