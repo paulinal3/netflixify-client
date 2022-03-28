@@ -4,10 +4,10 @@ import { Button, Form } from "react-bootstrap"
 
 import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../api/playlist"
 import IndexVideos from "./indexVideos/IndexVideos"
+// import PlaylistHeader from "./header/PlaylistHeader"
+// import EditTitleForm from "./header/EditTitleForm"
 
-export default function ShowPlaylist(props) {
-
-    const { user, getAllPlaylists, playlists } = props
+export default function ShowPlaylist({ user, playlists }) {
 
     const { pathname } = useLocation()
     const playlistId = pathname.split("/")[2]
@@ -30,16 +30,20 @@ export default function ShowPlaylist(props) {
     // }
 
     // useEffect(showPlaylist(), [playlistId, title])
+    const navigate = useNavigate()
 
     useEffect(() => {
-        getOnePlaylist(user, playlistId)
-            .then(foundPlaylist => {
-                console.log("this is the found playlist\n", foundPlaylist.data.playlist)
-                setPlaylist(foundPlaylist.data.playlist)
-                setPlaylistVids(foundPlaylist.data.playlist.videos)
-                setPlaylistTitle(foundPlaylist.data.playlist.title)
-            })
-            .catch(err => console.log(err))
+        user ?
+            getOnePlaylist(user, playlistId)
+                .then(foundPlaylist => {
+                    console.log("this is the found playlist\n", foundPlaylist.data.playlist)
+                    setPlaylist(foundPlaylist.data.playlist)
+                    setPlaylistVids(foundPlaylist.data.playlist.videos)
+                    setPlaylistTitle(foundPlaylist.data.playlist.title)
+                })
+                .catch(err => console.log(err))
+        :
+            navigate("/sign-in")
     }, [playlistId])
 
     const refreshPlaylist = () => {
@@ -69,7 +73,6 @@ export default function ShowPlaylist(props) {
             })
     }
 
-    const navigate = useNavigate()
     const deletePlaylist = () => {
         destroyPlaylist(user, playlistId)
             // redirect back to profile
@@ -79,7 +82,7 @@ export default function ShowPlaylist(props) {
 
     const getPlaylistVids = playlistVids.map(v => {
         return (
-            <IndexVideos key={v._id} playlistVids={v} currentUser={user} refreshPlaylist={refreshPlaylist} />
+            <IndexVideos key={v._id} playlistVids={v} user={user} refreshPlaylist={refreshPlaylist} />
         )
     })
 
@@ -130,9 +133,12 @@ export default function ShowPlaylist(props) {
 
     return (
         <div className="page-container" id="show-playlist-page-container">
+            {/* { title ? <PlaylistHeader displayEdit={displayEdit} /> : <EditTitleForm /> } */}
             {displayHeader}
             <main>
-                <ol className="cards-list" id="playlist-vid-res">{getPlaylistVids}</ol>
+                <ol className="cards-list" id="playlist-vid-res">
+                    {getPlaylistVids}
+                </ol>
             </main>
         </div>
     )

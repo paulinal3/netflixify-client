@@ -1,38 +1,39 @@
-import { Card, Button, Form, Modal } from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap"
 
-import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
+import { FaPlay } from "react-icons/fa"
+import { ImCross } from 'react-icons/im'
+import "./showVideo.css"
 
-export default function ShowVideo(props) {
+export default function ShowVideo({ showVideoModal, playlistVid, watchedClicked, watchedStatus, markedWatchedIcon, setShowVideoModal }) {
 
-    const markWatched = props.watchedStatus === true ? '  Watched' : '  Mark as Watched'
-    const markWatchedIcon = props.watchedStatus === true ? <FaCheck /> : <FaCheckSquare />
+    const markWatched = watchedStatus ? '  Watched' : '  Mark as Watched'
 
     return (
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header closeButton className="vidResModal">
-                {/* <Card.Img variant="top" src={props.playlistVid.image} /> */}
-                <Modal.Title id="contained-modal-title-vcenter">
-                    {props.playlistVid.title}
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="vidResModal">
-                <p>{props.playlistVid.synopsis}</p>
-                <p>Rating: {props.playlistVid.rating}</p>
-                <small>{props.playlistVid.released} {props.playlistVid.type}</small>
-            </Modal.Body>
-            <Modal.Footer className="vidResModal">
-                <Button variant='success' value={props.playlistVid._id} onClick={props.watchedClicked}>{markWatchedIcon}{markWatched}</Button>
-                <a href={`https://www.netflix.com/title/${props.playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                    <Button variant='success'>
-                        <FaPlay /> Play
-                    </Button>
-                </a>
-            </Modal.Footer>
-        </Modal>
+        <div className={showVideoModal ? "display-show-vid-modal" : "hide-show-vid-modal"}>
+            <div className="close-modal-btn">
+                <Button variant="success" onClick={() => setShowVideoModal(false)}><ImCross /></Button>
+            </div>
+            <div className="modal-body">
+                <img src={playlistVid.image} />
+                <div className="modal-description">
+                    <h3>{playlistVid.title}</h3>
+                    <h5>{playlistVid.synopsis}</h5>
+                    {playlistVid.rating ? 
+                    <p>Rating: {playlistVid.rating}</p>
+                    : null }
+                    <p>{playlistVid.released} {playlistVid.type}</p>
+                    <div className="modal-settings">
+                        <form onSubmit={watchedClicked}>
+                            <Button type="submit" variant='success' value={playlistVid._id}>{markedWatchedIcon}{markWatched}</Button>
+                        </form>
+                        <a href={`https://www.netflix.com/title/${playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
+                            <Button variant='success'>
+                                <FaPlay /> Play
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
