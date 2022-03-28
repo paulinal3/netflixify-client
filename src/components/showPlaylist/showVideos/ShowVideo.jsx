@@ -1,5 +1,4 @@
-import { Button, Modal } from "react-bootstrap"
-
+import { Button } from "react-bootstrap"
 import { FaPlay } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
 import "./showVideo.css"

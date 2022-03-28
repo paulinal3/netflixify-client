@@ -11,7 +11,6 @@ import { GrExpand } from 'react-icons/gr'
 export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
 
     const [watchedStatus, setWatchedStatus] = useState(playlistVids.watched)
-    const [modalShow, setModalShow] = useState(false)
     const [showVideoModal, setShowVideoModal] = useState(false)
 
     // helper method to update a video's watched status
@@ -32,7 +31,8 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
 
     // helper method to delete a video
     const deleteVideo = (e) => {
-        destroyVideo(user, e.target.value)
+        e.preventDefault()
+        destroyVideo(user, e.target[0].value)
             .then(() => {
                 refreshPlaylist()
             })
@@ -83,7 +83,9 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={removeHover}
                                 >
-                                    <Button id='img__description' variant='danger' value={playlistVids._id} onClick={deleteVideo}><ImCross /></Button>
+                                    <form onSubmit={deleteVideo}>
+                                        <Button type="submit" id='img__description' variant='danger' value={playlistVids._id}><ImCross /></Button>
+                                    </form>
                                 </OverlayTrigger>,
                             </div>
                             <div id='showOptions'>
@@ -119,11 +121,8 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                         </Card.ImgOverlay>
                     </Card >
                     <ShowVideo
-                        // key={playlistVids._id}
                         showVideoModal={showVideoModal}
                         setShowVideoModal={setShowVideoModal}
-                        // show={modalShow}
-                        // onHide={() => setModalShow(false)}
                         playlistVid={playlistVids}
                         watchedClicked={watchedClicked}
                         watchedStatus={watchedStatus}
