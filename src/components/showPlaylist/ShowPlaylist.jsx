@@ -82,7 +82,7 @@ export default function ShowPlaylist({ user, playlists }) {
 
     const getPlaylistVids = playlistVids.map(v => {
         return (
-            <IndexVideos key={v._id} playlistVids={v} user={user} refreshPlaylist={refreshPlaylist} />
+            <IndexVideos key={v._id} video={v} playlistVids={playlistVids} setPlaylistVids={setPlaylistVids} user={user} refreshPlaylist={refreshPlaylist} />
         )
     })
 

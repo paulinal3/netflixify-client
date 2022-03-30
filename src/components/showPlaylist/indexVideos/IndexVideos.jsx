@@ -8,7 +8,7 @@ import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
 import { GrExpand } from 'react-icons/gr'
 
-export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
+export default function IndexVideos({ video, playlistVids, user, setPlaylistVids }) {
 
     const [watchedStatus, setWatchedStatus] = useState(playlistVids.watched)
     const [showVideoModal, setShowVideoModal] = useState(false)
@@ -33,8 +33,13 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
     const deleteVideo = (e) => {
         e.preventDefault()
         destroyVideo(user, e.target[0].value)
-            .then(() => {
-                refreshPlaylist()
+        // const newVids = playlistVids.filter(vid => vid._id !== e.target[0].value)
+        // setPlaylistVids(newVids)
+            .then(res => {
+                if (res.status == 204) {
+                    const newVids = playlistVids.filter(vid => vid._id !== e.target[0].value)
+                    setPlaylistVids(newVids)
+                }
             })
             .catch(err => console.error)
     }
@@ -75,7 +80,7 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
             {user ?
                 <>
                     <Card id="img__wrap" className="bg-dark text-white" style={{ width: '13rem' }}>
-                        <Card.Img src={playlistVids.image} alt={playlistVids.title} />
+                        <Card.Img src={video.image} alt={video.title} />
                         <Card.ImgOverlay>
                             <div id='removeVidBtn'>
                                 <OverlayTrigger
@@ -84,7 +89,7 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                                     overlay={removeHover}
                                 >
                                     <form onSubmit={deleteVideo}>
-                                        <Button type="submit" id='img__description' variant='danger' value={playlistVids._id}><ImCross /></Button>
+                                        <Button type="submit" id='img__description' variant='danger' value={video._id}><ImCross /></Button>
                                     </form>
                                 </OverlayTrigger>,
                             </div>
@@ -95,7 +100,7 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                                     overlay={watchedHover}
                                 >
                                     <form onSubmit={watchedClicked}>
-                                        <Button type="submit" variant='success' value={playlistVids._id} id='img__description'>{markedWatchedIcon}</Button>
+                                        <Button type="submit" variant='success' value={video._id} id='img__description'>{markedWatchedIcon}</Button>
                                     </form>
                                 </OverlayTrigger>
                                 <OverlayTrigger
@@ -103,7 +108,7 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={playHover}
                                 >
-                                    <a href={`https://www.netflix.com/title/${playlistVids.netflixid}`} target='_blank' rel='noopener noreferrer'>
+                                    <a href={`https://www.netflix.com/title/${video.netflixid}`} target='_blank' rel='noopener noreferrer'>
                                         <Button id='img__description' variant='success'>
                                             <FaPlay />
                                         </Button>
@@ -123,7 +128,7 @@ export default function IndexVideos({ playlistVids, user, refreshPlaylist }) {
                     <ShowVideo
                         showVideoModal={showVideoModal}
                         setShowVideoModal={setShowVideoModal}
-                        playlistVid={playlistVids}
+                        playlistVid={video}
                         watchedClicked={watchedClicked}
                         watchedStatus={watchedStatus}
                         markedWatchedIcon={markedWatchedIcon}

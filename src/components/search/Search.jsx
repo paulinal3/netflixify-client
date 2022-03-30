@@ -7,6 +7,31 @@ import SearchBar from './SearchBar'
 export default function Search(props) {
 
     // passed to SearchBar as a prop
+    // const [search, setSearch] = ({
+    //     searchTerm: "",
+    //     searchRes: []
+    // })
+
+    // const [advSearch, setAdvSearch] = ({
+    //     advSearchToggle: false,
+    //     vidType: "Any",
+    //     genre: "0",
+    //     startDate: "1900",
+    //     endDate: "2022",
+    //     countries: [],
+    //     country: "78",
+    //     subtitle: "Any"
+    // })
+
+    // const [advSearchBtns, setAdvSearchBtns] = ({
+    //     vidType: false,
+    //     genre: false,
+    //     startDate: false,
+    //     endDate: false,
+    //     countries: false,
+    //     subtitle: false
+    // })
+
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
     // passed to AdvSearch as a prop
@@ -41,14 +66,6 @@ export default function Search(props) {
             })
             .catch(err => console.error)
     }
-
-    useEffect(() =>{
-        getCountries()
-            .then(foundCountries => {
-                console.log('these are the countries\n', foundCountries.data.results)
-                setCountries(foundCountries.data.results)
-            })
-    }, [])
 
     // map through all videos found in state
     const allSearchRes = searchRes.map(res => {

@@ -1,4 +1,6 @@
 import { Form } from "react-bootstrap"
+import Countries from "../../data/Countries"
+import Genres from "../../data/Genres"
 import Subtitles from "../../data/Subtitles"
 
 export default function AdvSearch(props) {
@@ -68,30 +70,17 @@ export default function AdvSearch(props) {
         props.setVideoType('Any')
     )
 
+    const genreOptions = Genres.map(genre => {
+        return (
+            <option key={genre.id} value={genre.id}>{genre.name}</option>
+        )
+    })
+
     // conditional for genre options
     const displayGenres = props.genresBtn ? (
         // if true, display genre options
         <Form.Select size="sm" onChange={genreClicked}>
-            <option value='0'>Select Genre</option>
-            <option value='1365'>Action & Adventure</option>
-            <option value='7424'>Anime</option>
-            <option value='783'>Children & Family Movies</option>
-            <option value='31574'>Classic Movies</option>
-            <option value='6548'>Comedies</option>
-            <option value='7627'>Cult Movies</option>
-            <option value='6839'>Documentaries</option>
-            <option value='5763'>Dramas</option>
-            <option value='26835'>Faith & Spirituality</option>
-            <option value='7462'>Foreign Movies</option>
-            <option value='5977'>Gay & Lesbian Movies</option>
-            <option value='8711'>Horror Movies</option>
-            <option value='7077'>Independent Movies</option>
-            <option value='1701'>Music</option>
-            <option value='8883'>Romantic Movies</option>
-            <option value='1492'>Sci-Fi & Fantasy</option>
-            <option value='4370'>Sports Movies</option>
-            <option value='8933'>Thrillers</option>
-            <option value='83'>TV Shows</option>
+            {genreOptions}
         </Form.Select>
         // if false reset state
     ) : (
@@ -120,10 +109,9 @@ export default function AdvSearch(props) {
         props.setYearReleased('2022')
     )
 
-    // map through countries state
-    const displayCountryOptions = props.allCountries.map(c => {
+    const countryOptions = Countries.map(country => {
         return (
-            <option value={c.id}>{c.country}</option>
+            <option value={country.id}>{country.country}</option>
         )
     })
 
@@ -131,8 +119,7 @@ export default function AdvSearch(props) {
     const displayCountries = props.countryBtn ? (
         // if true, display dropdown of country options
         <Form.Select size='sm' onChange={countryClicked}>
-            <option>Select Country</option>
-            {displayCountryOptions}
+            {countryOptions}
         </Form.Select>
     ) : (
         // if false, reset state
