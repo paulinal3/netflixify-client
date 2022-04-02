@@ -1,77 +1,48 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { getCountries, getSearchTermRes } from '../../api/external'
+import { getSearchTermRes } from '../../api/external'
 import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
 export default function Search(props) {
-
-    // passed to SearchBar as a prop
-    // const [search, setSearch] = ({
-    //     searchTerm: "",
-    //     searchRes: []
-    // })
-
-    // const [advSearch, setAdvSearch] = ({
-    //     advSearchToggle: false,
-    //     vidType: "Any",
-    //     genre: "0",
-    //     startDate: "1900",
-    //     endDate: "2022",
-    //     countries: [],
-    //     country: "78",
-    //     subtitle: "Any"
-    // })
-
-    // const [advSearchBtns, setAdvSearchBtns] = ({
-    //     vidType: false,
-    //     genre: false,
-    //     startDate: false,
-    //     endDate: false,
-    //     countries: false,
-    //     subtitle: false
-    // })
-
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
-    // passed to AdvSearch as a prop
-    const [advSearch, setAdvSearch] = useState(false)
-    const [vidTypeBtn, setVidTypeBtn] = useState(false)
-    const [vidType, setVidType] = useState('Any')
-    const [genreBtn, setGenreBtn] = useState(false)
-    const [genre, setGenre] = useState('0')
-    const [releasedBtn, setReleasedBtn] = useState(false)
-    const [released, setReleased] = useState('1900')
-    const [endDateBtn, setEndDateBtn] = useState(false)
-    const [endDate, setEndDate] = useState('2022')
-    const [countriesBtn, setCountriesBtn] = useState(false)
-    const [countries, setCountries] = useState([])
-    const [selectedCountry, setSelectedCountry] = useState('78')
-    const [subtitleBtn, setSubtitleBtn] = useState(false)
-    const [subtitle, setSubtitle] = useState('Any')
+    const [advSearchToggle, setAdvSearchToggle] = useState(false)
+    const [advSearchBtns, setAdvSearchBtns] = useState({
+        vidType: false,
+        genre: false,
+        startDate: false,
+        endDate: false,
+        subtitles: false,
+        country: false
+    })
+    const [advSearch, setAdvSearch] = useState({
+        vidType: "Any",
+        genre: "0",
+        startDate: "1900",
+        endDate: "2022",
+        subtitles: "Any",
+        country: "78"
+    })
 
-    const handleSearchTermChange = (e) => {
-        setSearchTerm(e.target.value)
-    }
+    const { vidType, genre, startDate, endDate, subtitles, country } = advSearch
 
-    // helper method to find netflix shows based on search term
-    const searchTermVids = (e) => {
+    const handleSearchTermChange = (e) => setSearchTerm(e.target.value)
+
+    const searchVids = (e) => {
         e.preventDefault()
-        // axios call to external api
-        getSearchTermRes(searchTerm, vidType, genre, selectedCountry, subtitle, released, endDate)
+        getSearchTermRes(searchTerm, vidType, genre, country, subtitles, startDate, endDate)
             .then(videos => {
-                console.log(`these are the videos based on search term: ${searchTerm}\n`, videos.data)
+                console.log(`${searchTerm} video search res \n`, videos.data)
                 setSearchRes(videos.data.ITEMS)
-                // setVidType('any')
             })
-            .catch(err => console.error)
+            .catch(err => console.log(err))
     }
 
-    // map through all videos found in state
-    const allSearchRes = searchRes.map(res => {
+    const displaySearchRes = searchRes.map(res => {
         return (
-            // and pass to IndexSearchRes as a prop
             <IndexSearchRes
+                key={res.netflixid}
                 res={res} 
                 netflixid={res.netflixid} 
                 allPlaylists={props.playlists} 
@@ -80,51 +51,45 @@ export default function Search(props) {
             />
         )
     })
+    
+    const searchToggle = () => {
+        setAdvSearchToggle(!advSearchToggle)
+        if (advSearchToggle) {
+            setAdvSearchBtns({
+                vidType: false,
+                genre: false,
+                startDate: false,
+                endDate: false,
+                country: false,
+                subtitles: false
+            })
+            setAdvSearch({
+                vidType: "Any",
+                genre: "0",
+                startDate: "1900",
+                endDate: "2022",
+                country: "78",
+                subtitles: "Any"
+            })
+        }
+    }
 
     return (
         <div id='searchPage'>
             <SearchBar 
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
-                searchTermVids={searchTermVids}
-
+                searchVids={searchVids}
                 advSearch={advSearch}
                 setAdvSearch={setAdvSearch}
-
-                vidTypeBtn={vidTypeBtn}
-                setVidTypeBtn={setVidTypeBtn}
-                vidType={vidType}
-                setVidType={setVidType}
-
-                genreBtn={genreBtn}
-                setGenreBtn={setGenreBtn}
-                genre={genre}
-                setGenre={setGenre}
-
-                releasedBtn={releasedBtn}
-                setReleasedBtn={setReleasedBtn}
-                released={released}
-                setReleased={setReleased}
-
-                endDateBtn={endDateBtn}
-                setEndDateBtn={setEndDateBtn}
-                endDate={endDate}
-                setEndDate={setEndDate}
-
-                countriesBtn={countriesBtn}
-                setCountriesBtn={setCountriesBtn}
-                selectedCountry={selectedCountry}
-                setSelectedCountry={setSelectedCountry}
-                countries={countries}
-
-                subtitleBtn={subtitleBtn}
-                setSubtitleBtn={setSubtitleBtn}
-                setSubtitle={setSubtitle}
-                subtitle={subtitle}
+                advSearchBtns={advSearchBtns}
+                setAdvSearchBtns={setAdvSearchBtns}
+                searchToggle={searchToggle}
+                advSearchToggle={advSearchToggle}
             />
             <hr />
             <div id='searchResContainer'>
-                <ol id='searchResult'>{allSearchRes}</ol>
+                <ol id='searchResult'>{displaySearchRes}</ol>
             </div>
         </div>
     )
