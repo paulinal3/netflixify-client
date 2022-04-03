@@ -5,6 +5,7 @@ import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
 export default function Search(props) {
+
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
     const [advSearchToggle, setAdvSearchToggle] = useState(false)
@@ -74,18 +75,76 @@ export default function Search(props) {
         }
     }
 
+    const advSearchBtnClick = (e) => {
+        setAdvSearchBtns({
+            ...advSearchBtns,
+            [e.target.name]: !advSearchBtns[e.target.name]
+        })
+        if (advSearchBtns.vidType) {
+            setAdvSearch({
+                ...advSearch,
+                vidType: "Any"
+            })
+        }
+        if (advSearchBtns.genre) {
+            setAdvSearch({
+                ...advSearch,
+                genre: "0"
+            })
+        }
+        if (advSearchBtns.startDate) {
+            setAdvSearch({
+                ...advSearch,
+                startDate: "1990"
+            })
+        }
+        if (advSearchBtns.endDate) {
+            setAdvSearch({
+                ...advSearch,
+                endDate: "2022"
+            })
+        }
+        if (advSearchBtns.subtitles) {
+            setAdvSearch({
+                ...advSearch,
+                subtitles: "Any"
+            })
+        }
+        if (advSearchBtns.country) {
+            setAdvSearch({
+                ...advSearch,
+                country: "78"
+            })
+        }
+    }
+
+    const advSearchDatesInput = (e) => {
+        setAdvSearch({
+            ...advSearch,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const advSearchOptionsInput = (e) => {
+        setAdvSearch({
+            ...advSearch,
+            [e.target[0].attributes[0].value]: e.target.value
+        })
+    }
+
     return (
         <div id='searchPage'>
             <SearchBar 
                 searchTerm={searchTerm} 
                 handleSearchTermChange={handleSearchTermChange} 
                 searchVids={searchVids}
-                advSearch={advSearch}
-                setAdvSearch={setAdvSearch}
+
                 advSearchBtns={advSearchBtns}
-                setAdvSearchBtns={setAdvSearchBtns}
                 searchToggle={searchToggle}
                 advSearchToggle={advSearchToggle}
+                advSearchBtnClick={advSearchBtnClick}
+                advSearchDatesInput={advSearchDatesInput}
+                advSearchOptionsInput={advSearchOptionsInput}
             />
             <hr />
             <div id='searchResContainer'>
