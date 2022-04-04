@@ -25,6 +25,9 @@ export default function PostSearchRes(props) {
             .catch(err => console.error)
     }
 
+
+        
+
     // hover for add button
     const addHover = (props) => (
         <Tooltip id="button-tooltip" {...props}>

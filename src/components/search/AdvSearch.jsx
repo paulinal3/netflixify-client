@@ -7,117 +7,23 @@ export default function AdvSearch(props) {
 
     const { advSearchBtns, searchToggle, advSearchToggle, advSearchBtnClick, advSearchDatesInput, advSearchOptionsInput } = props
 
-    // conditional for type options
-    const displayVidTypes = advSearchBtns.vidType ? (
-        // if true, display video type options
-        <Form.Select size="sm" onChange={advSearchOptionsInput}>
-            <option name="vidType" value='Any'>Select Video Type</option>
-            <option name="vidType" value='movie'>Movie</option>
-            <option name="vidType" value='series'>Series</option>
-        </Form.Select>
-        // if false reset state
-    ) : (
-        // setAdvSearch({
-        //     ...advSearch,
-        //     vidType: "Any"
-        // })
-        null
-    )
-
     const genreOptions = Genres.map(genre => {
         return (
             <option name="genre" value={genre.id}>{genre.name}</option>
         )
     })
 
-    // conditional for genre options
-    const displayGenres = advSearchBtns.genre ? (
-        // if true, display genre options
-        <Form.Select size="sm" onChange={advSearchOptionsInput}>
-            {genreOptions}
-        </Form.Select>
-        // if false reset state
-    ) : (
-        // setAdvSearch({
-        //     ...advSearch,
-        //     genre: "0"
-        // })
-        null
-    )
-
-    // conditional for start date input
-    const displayReleasedInput = advSearchBtns.startDate ? (
-        // if true, display video type options
-        <Form size="sm">
-            <input name="startDate" type='text' placeholder='Year > 1900' onChange={advSearchDatesInput} />
-        </Form>
-    ) : (
-        // if false reset state
-        // setAdvSearch({
-        //     ...advSearch,
-        //     startDate: "1900"
-        // })
-        null
-    )
-
-    // conditional for end date input
-    const displayEndInput = advSearchBtns.endDate ? (
-        // if true, display video type options
-        <Form size="sm">
-            <input name="endDate" type='text' placeholder='Year < 2022' onChange={advSearchDatesInput} />
-        </Form>
-    ) : (
-        // if false reset state
-        // setAdvSearch({
-        //     ...advSearch,
-        //     endDate: "2022"
-        // })
-        null
-    )
+    const subtitleOptions = Subtitles.languages.map(s => {
+        return (
+            <option name="subtitles" value={s}>{s}</option>
+        )
+    })
 
     const countryOptions = Countries.map(country => {
         return (
             <option name="country" value={country.id}>{country.country}</option>
         )
     })
-
-    // conditional for different counties
-    const displayCountries = advSearchBtns.country ? (
-        // if true, display dropdown of country options
-        <Form.Select size='sm' onChange={advSearchOptionsInput}>
-            {countryOptions}
-        </Form.Select>
-    ) : (
-        // if false, reset state
-        // setAdvSearch({
-        //     ...advSearch,
-        //     country: "78"
-        // })
-        null
-    )
-
-    // map through all subtitles
-    const displaySubtitleOptions = Subtitles.languages.map(s => {
-        return (
-            <option name="subtitles" value={s}>{s}</option>
-        )
-    })
-
-    // conditional for subtitles
-    const displaySubtitles = advSearchBtns.subtitles ? (
-        // if true, display dropdown of subtitle options
-        <Form.Select size='sm' onChange={advSearchOptionsInput}>
-            <option name="subtitles" value="Any">Select Language</option>
-            {displaySubtitleOptions}
-        </Form.Select>
-    ) : (
-        // if false, reset state
-        // setAdvSearch({
-        //     ...advSearch,
-        //     subtitles: "Any"
-        // })
-        null
-    )
 
     return (
         <>
@@ -143,7 +49,15 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-1`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displayVidTypes}
+                                {
+                                    advSearchBtns.vidType ?
+                                        <Form.Select size="sm" onChange={advSearchOptionsInput}>
+                                            <option name="vidType" value='Any'>Select Video Type</option>
+                                            <option name="vidType" value='movie'>Movie</option>
+                                            <option name="vidType" value='series'>Series</option>
+                                        </Form.Select>
+                                        : null
+                                }
                             </div>
                             <div>
                                 <Form.Check
@@ -154,7 +68,13 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-1`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displayGenres}
+                                {
+                                    advSearchBtns.genre ?
+                                        <Form.Select size="sm" onChange={advSearchOptionsInput}>
+                                            {genreOptions}
+                                        </Form.Select>
+                                        : null
+                                }
                             </div>
                             <div>
                                 <Form.Check
@@ -165,7 +85,13 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-2`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displayReleasedInput}
+                                {
+                                    advSearchBtns.startDate ?
+                                        <Form size="sm">
+                                            <input name="startDate" type='text' placeholder='Year > 1900' onChange={advSearchDatesInput} />
+                                        </Form>
+                                        : null
+                                }
                             </div>
                             <div>
                                 <Form.Check
@@ -176,7 +102,13 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-2`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displayEndInput}
+                                {
+                                    advSearchBtns.endDate ?
+                                        <Form size="sm">
+                                            <input name="endDate" type='text' placeholder='Year < 2022' onChange={advSearchDatesInput} />
+                                        </Form>
+                                        : null
+                                }
                             </div>
                             <div>
                                 <Form.Check
@@ -187,7 +119,14 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-3`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displaySubtitles}
+                                {
+                                    advSearchBtns.subtitles ?
+                                        <Form.Select size='sm' onChange={advSearchOptionsInput}>
+                                            <option name="subtitles" value="Any">Select Language</option>
+                                            {subtitleOptions}
+                                        </Form.Select>
+                                        : null
+                                }
                             </div>
                             <div>
                                 <Form.Check
@@ -198,7 +137,13 @@ export default function AdvSearch(props) {
                                     id={`inline-$checkbox-3`}
                                     onClick={advSearchBtnClick}
                                 />
-                                {displayCountries}
+                                {
+                                    advSearchBtns.country ?
+                                        <Form.Select size='sm' onChange={advSearchOptionsInput}>
+                                            {countryOptions}
+                                        </Form.Select>
+                                        : null
+                                }
                             </div>
                         </div>
                     </div>
@@ -213,7 +158,6 @@ export default function AdvSearch(props) {
                                 onClick={searchToggle}
                             />
                         </Form>
-                        {/* {displayAdvSearch} */}
                     </div>
             }
         </>

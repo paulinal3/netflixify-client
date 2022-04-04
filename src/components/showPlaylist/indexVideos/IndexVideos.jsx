@@ -8,9 +8,9 @@ import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
 import { GrExpand } from 'react-icons/gr'
 
-export default function IndexVideos({ video, playlistVids, user, setPlaylistVids }) {
+export default function IndexVideos({ video, playlistId, playlistVids, user, setPlaylistVids }) {
 
-    const [watchedStatus, setWatchedStatus] = useState(playlistVids.watched)
+    const [watchedStatus, setWatchedStatus] = useState(video.watched)
     const [showVideoModal, setShowVideoModal] = useState(false)
 
     // helper method to update a video's watched status
@@ -32,7 +32,7 @@ export default function IndexVideos({ video, playlistVids, user, setPlaylistVids
     // helper method to delete a video
     const deleteVideo = (e) => {
         e.preventDefault()
-        destroyVideo(user, e.target[0].value)
+        destroyVideo(user, playlistId, e.target[0].value)
         // const newVids = playlistVids.filter(vid => vid._id !== e.target[0].value)
         // setPlaylistVids(newVids)
             .then(res => {
@@ -41,7 +41,7 @@ export default function IndexVideos({ video, playlistVids, user, setPlaylistVids
                     setPlaylistVids(newVids)
                 }
             })
-            .catch(err => console.error)
+            .catch(err => console.log(err))
     }
 
     // conditional to display watched status

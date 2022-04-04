@@ -1,10 +1,19 @@
+import { useEffect } from "react"
 import Footer from "../shared/Footer"
 
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
+import { getAdminVideos } from "../../api/video"
 
-const Home = (props) => {
-	console.log('props in home', props)
+const Home = ({ setNetflixVids }) => {
+    useEffect(() => {
+    	getAdminVideos()
+    		.then(videos => {
+    			console.log("all vids\n", videos)
+    			setNetflixVids(videos.data.videos)
+    		})
+    		.catch(err => console.log(err))
+    }, [])
 
 	return (
 		<div className="page-container" id="home-page-container">

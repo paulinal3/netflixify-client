@@ -110,6 +110,12 @@ export default function Profile(props) {
                         >
                             <Link to="../change-password"><Button size="sm" id="change-pw-btn"><RiLockPasswordFill /></Button></Link>
                         </OverlayTrigger>
+                        { 
+                            user._id == process.env.REACT_APP_ADMIN_KEY ?
+                                <Link to="/admin"><Button>Admin</Button></Link>
+                                : null
+
+                        }
                     </div>
                 </div>
             </div>

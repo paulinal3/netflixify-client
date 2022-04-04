@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -22,7 +22,8 @@ import ShowWatched from './components/showWatched/ShowWatched'
 
 // import { getNetflixVideos, getSearchTermRes } from './api/external'
 import { getPlaylists } from './api/playlist'
-
+import Admin from './components/admin/Admin'
+import { getAdminVideos, getVideos } from './api/video'
 
 const App = () => {
 
@@ -75,32 +76,14 @@ const App = () => {
     		.catch(err => console.log)
     }
 
-    // <---------- EXTERNAL API STATES & HELPER METHODS ----------> //
-    // const [netflixVids, setNetflixVids] = useState([])
-
-    // useEffect(() => {
-    // 	getNetflixVideos()
-    // 		.then(videos => {
-    // 			console.log('these are all the videos on US Netflix\n', videos.data)
-    // 			setNetflixVids(videos.data.ITEMS)
-    // 		})
-    // 		.catch(err => console.error)
-    // }, [])
-
-    // const searchTermVids = () => {
-    // 	getSearchTermRes()
-    // 		.then(videos => {
-    // 			console.log('thesea re the videos based on search term\n', videos)
-    // 		})
-    // 		.catch(err => console.error)
-    // }
+    const [netflixVids, setNetflixVids] = useState([])
 
     return (
         <Fragment>
             <Header user={user} />
             <Routes>
                 {/* <---------- USER ROUTES ----------> */}
-                <Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+                <Route path='/' element={<Home msgAlert={msgAlert} user={user} setNetflixVids={setNetflixVids} />} />
                 <Route
                     path='/sign-up'
                     element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
@@ -132,6 +115,16 @@ const App = () => {
                         </RequireAuth>
                     }
                 />
+                {/* <----------- ADMIN ROUTES ----------> */}
+                <Route 
+                    path="/admin"
+                    element={
+                        <RequireAuth user={user}>
+                            <Admin user={user} />
+                        </RequireAuth>
+                    }
+                />
+
                 {/* <---------- SEARCH ROUTES ----------> */}
                 <Route
                     path='/search'

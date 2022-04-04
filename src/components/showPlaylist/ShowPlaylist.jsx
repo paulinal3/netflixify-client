@@ -36,7 +36,7 @@ export default function ShowPlaylist({ user, playlists }) {
         user ?
             getOnePlaylist(user, playlistId)
                 .then(foundPlaylist => {
-                    console.log("this is the found playlist\n", foundPlaylist.data.playlist)
+                    console.log("found playlist\n", foundPlaylist.data.playlist)
                     setPlaylist(foundPlaylist.data.playlist)
                     setPlaylistVids(foundPlaylist.data.playlist.videos)
                     setPlaylistTitle(foundPlaylist.data.playlist.title)
@@ -82,7 +82,7 @@ export default function ShowPlaylist({ user, playlists }) {
 
     const getPlaylistVids = playlistVids.map(v => {
         return (
-            <IndexVideos key={v._id} video={v} playlistVids={playlistVids} setPlaylistVids={setPlaylistVids} user={user} refreshPlaylist={refreshPlaylist} />
+            <IndexVideos key={v._id} video={v} playlistId={playlistId} playlistVids={playlistVids} setPlaylistVids={setPlaylistVids} user={user} />
         )
     })
 

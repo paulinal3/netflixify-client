@@ -4,7 +4,7 @@ import { getSearchTermRes } from '../../api/external'
 import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
-export default function Search(props) {
+export default function Search({ user, getAllPlaylists, playlists }) {
 
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
@@ -46,9 +46,9 @@ export default function Search(props) {
                 key={res.netflixid}
                 res={res} 
                 netflixid={res.netflixid} 
-                allPlaylists={props.playlists} 
-                currentUser={props.user} 
-                refreshPlaylists={props.getAllPlaylists}
+                allPlaylists={playlists} 
+                currentUser={user} 
+                refreshPlaylists={getAllPlaylists}
             />
         )
     })

@@ -75,7 +75,6 @@ const SignUp = (props) => {
                             className="auth-input"
                         >
                             <Form.Control
-                                required
                                 type="lastName"
                                 name="lastName"
                                 value={lastName}
