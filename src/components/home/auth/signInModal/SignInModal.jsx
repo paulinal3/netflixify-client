@@ -42,7 +42,7 @@ const SignInModal = (props) => {
     }
 
     return (
-        <div className="auth-page-container" id="signin-page-container">
+        <div className="page-container auth-page-container" id="signin-page-container">
             <div className="auth-form-container" id="signin-container">
                 <Form className="auth-form" id="signin-form" onSubmit={onSignIn}>
                     <>
