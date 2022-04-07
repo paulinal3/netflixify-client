@@ -1,9 +1,8 @@
 import { useEffect } from "react"
 import Footer from "../shared/Footer"
-
+import { getAdminVideos } from "../../api/video"
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
-import { getAdminVideos } from "../../api/video"
 
 const Home = ({ setNetflixVids }) => {
     useEffect(() => {

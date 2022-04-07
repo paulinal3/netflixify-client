@@ -128,7 +128,7 @@ const App = () => {
                 {/* <---------- SEARCH ROUTES ----------> */}
                 <Route
                     path='/search'
-                    element={<Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} />}
+                    element={<Search user={user} getAllPlaylists={getAllPlaylists} playlists={playlists} netflixVids={netflixVids} />}
                 />
                 {/* <---------- PLAYLIST ROUTES ----------> */}
                 <Route

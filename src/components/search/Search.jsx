@@ -4,7 +4,7 @@ import { getSearchTermRes } from '../../api/external'
 import IndexSearchRes from './IndexSearchRes'
 import SearchBar from './SearchBar'
 
-export default function Search({ user, getAllPlaylists, playlists }) {
+export default function Search({ user, getAllPlaylists, playlists, netflixVids }) {
 
     const [searchTerm, setSearchTerm] = useState('')
     const [searchRes, setSearchRes] = useState([])
@@ -27,6 +27,19 @@ export default function Search({ user, getAllPlaylists, playlists }) {
     })
 
     const { vidType, genre, startDate, endDate, subtitles, country } = advSearch
+
+    const allNetflixVids = netflixVids.map(vid => {
+        return (
+            <IndexSearchRes
+            key={vid._id}
+            res={vid} 
+            netflixid={vid.netflixid} 
+            allPlaylists={playlists} 
+            currentUser={user} 
+            refreshPlaylists={getAllPlaylists}
+        />
+        )
+    })
 
     const handleSearchTermChange = (e) => setSearchTerm(e.target.value)
 
@@ -148,6 +161,7 @@ export default function Search({ user, getAllPlaylists, playlists }) {
             />
             <hr />
             <div id='searchResContainer'>
+                {/* {allNetflixVids} */}
                 <ol id='searchResult'>{displaySearchRes}</ol>
             </div>
         </div>

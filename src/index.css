@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 :root {
-    --main-bg-color: #122333;
+    --main-bg-color: rgb(20,20,20);
     --main-btn-color: #2eac68;
     --main-btn-hover-color: #28975c;
 }
