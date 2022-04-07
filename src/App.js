@@ -53,6 +53,23 @@ const App = () => {
         })
     }
 
+    // <---------- HOME STATES & HELPER METHODS ----------> //
+    const [showAuthModal, setShowAuthModal] = useState(false)
+    const [showLoginModal, setShowLoginModal] = useState(false)
+    const [showRegisterModal, setShowRegisterModal] = useState(false)
+
+    const toggleSignIn = () => {
+        setShowAuthModal(true)
+        setShowLoginModal(true)
+        setShowRegisterModal(false)
+    }
+
+    const toggleSignUp = () => {
+        setShowAuthModal(true)
+        setShowRegisterModal(true)
+        setShowLoginModal(false)
+    }
+
     // <---------- PLAYLIST STATES & HELPER METHODS ----------> //
     const [playlists, setPlaylists] = useState([])
 
@@ -80,10 +97,10 @@ const App = () => {
 
     return (
         <Fragment>
-            <Header user={user} />
+            <Header user={user} toggleSignIn={toggleSignIn} toggleSignUp={toggleSignUp} />
             <Routes>
                 {/* <---------- USER ROUTES ----------> */}
-                <Route path='/' element={<Home msgAlert={msgAlert} user={user} setNetflixVids={setNetflixVids} />} />
+                <Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser} setNetflixVids={setNetflixVids} showAuthModal={showAuthModal} showLoginModal={showLoginModal} showRegisterModal={showRegisterModal} />} />
                 <Route
                     path='/sign-up'
                     element={<SignUp msgAlert={msgAlert} setUser={setUser} />}

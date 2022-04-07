@@ -1,18 +1,20 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Footer from "../shared/Footer"
 import { getAdminVideos } from "../../api/video"
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
+import Auth from "./auth/Auth"
 
-const Home = ({ setNetflixVids }) => {
-    useEffect(() => {
-    	getAdminVideos()
-    		.then(videos => {
-    			console.log("all vids\n", videos)
-    			setNetflixVids(videos.data.videos)
-    		})
-    		.catch(err => console.log(err))
-    }, [])
+const Home = ({ setNetflixVids, setUser, showAuthModal, showLoginModal, showRegisterModal }) => {
+
+    // useEffect(() => {
+    // 	getAdminVideos()
+    // 		.then(videos => {
+    // 			console.log("all vids\n", videos)
+    // 			setNetflixVids(videos.data.videos)
+    // 		})
+    // 		.catch(err => console.log(err))
+    // }, [])
 
 	return (
 		<div className="page-container" id="home-page-container">
@@ -34,6 +36,9 @@ const Home = ({ setNetflixVids }) => {
 					<h5>Be directed straight to Netflix based off the show or movie you want to watch.</h5>
 				</div>
 			</div>
+            {
+                showAuthModal ? <Auth setUser={setUser} showLoginModal={showLoginModal} showRegisterModal={showRegisterModal} /> : null
+            }
             <Footer />
 		</div>
 	)
