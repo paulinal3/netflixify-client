@@ -15,12 +15,19 @@
       top: 50%;
       margin-top: -10px;
       text-align: center;
+      z-index: 2;
+      /* border: solid 2px var(--main-border-color); */
   }
   
   .auth-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border: solid 2px var(--main-border-color);
+    border-radius: 5px;
+    padding: 50px;
+    /* background-color: rgb(20,20,20); */
+    background-color: rgb(30,32,37);
   }
   
   @media screen and (min-width: 768px) {
@@ -60,17 +67,17 @@
   
   .auth-form #signup-btn {
     width: 100%;
-    background-color: #2eac68;
-    border: 1px solid #213749;
+    background-color: var(--main-btn-color);
+    border: 1px solid var(--main-bg-color);
   }
   
   .auth-form #signup-btn:hover {
     border: 1px solid whitesmoke;
-    background-color: #28975c;
+    background-color: var(--main-btn-hover-color);
   }
   
   #first-name, #last-name, #email, #password, #password-confirmation {
-    background-color: #213749;
+    background-color: var(--main-bg-color);
     color: #bbc8d3;
   }
   
@@ -81,17 +88,17 @@
   
   .auth-form #signin-btn {
     width: 100%;
-    background-color: #2eac68;
-    border: 1px solid #213749;
+    background-color: var(--main-btn-color);
+    border: 1px solid var(--main-bg-color);
   }
   
   .auth-form #signin-btn:hover {
     border: 1px solid whitesmoke;
-    background-color: #28975c;
+    background-color: var(--main-btn-hover-color);
   }
   
   #signin-email, #signin-password {
-    background-color: #213749;
+    background-color: var(--main-bg-color);
     color: #bbc8d3;
   }
   
@@ -122,17 +129,17 @@
   
   .auth-form #changepw-btn {
     width: 100%;
-    background-color: #2eac68;
-    border: 1px solid #213749;
+    background-color: var(--main-btn-color);
+    border: 1px solid var(--main-bg-color);
   }
   
   .auth-form #changepw-btn:hover {
     border: 1px solid whitesmoke;
-    background-color: #28975c;
+    background-color: var(--main-btn-hover-color);
   }
   
   #old-password, #new-password {
-    background-color: #213749;
+    background-color: var(--main-bg-color);
     color: #bbc8d3;
   }
   
@@ -160,7 +167,7 @@
   
   #signout-container p {
     font-size: 20px;
-    color: #2eac68;
+    color: var(--main-btn-color);
     margin: 0;
   }
   
@@ -171,7 +178,7 @@
   
   #signout-container #signout-btn {
     background-color: #E50914;
-    border: 1px solid #213749;
+    border: 1px solid var(--main-bg-color);
   }
   
   #signout-container #signout-btn:hover {
@@ -180,13 +187,13 @@
   }
   
   #signout-container #cancel-btn {
-    background-color: #2eac68;
-    border: 1px solid #213749;
+    background-color: var(--main-btn-color);
+    border: 1px solid var(--main-bg-color);
   }
   
   #signout-container #cancel-btn:hover {
     border: 1px solid whitesmoke;
-    background-color: #28975c;
+    background-color: var(--main-btn-hover-color);
   }
   
   @media screen and (min-width: 768px) {

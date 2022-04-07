@@ -49,7 +49,7 @@ const SignUpModal = (props) => {
     }
 
     return (
-        <div id="signup-page-container" className="page-container auth-page-container">
+        <div id="signup-page-container" className="auth-page-container">
             <div id="signup-container" className="auth-form-container">
                 <Form id="signup-form" className="auth-form" onSubmit={onSignUp}>
                     <div id="name-container">

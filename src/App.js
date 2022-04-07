@@ -70,6 +70,8 @@ const App = () => {
         setShowLoginModal(false)
     }
 
+    const closeModal = () => setShowAuthModal(false)
+
     // <---------- PLAYLIST STATES & HELPER METHODS ----------> //
     const [playlists, setPlaylists] = useState([])
 
@@ -100,7 +102,7 @@ const App = () => {
             <Header user={user} toggleSignIn={toggleSignIn} toggleSignUp={toggleSignUp} />
             <Routes>
                 {/* <---------- USER ROUTES ----------> */}
-                <Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser} setNetflixVids={setNetflixVids} showAuthModal={showAuthModal} showLoginModal={showLoginModal} showRegisterModal={showRegisterModal} />} />
+                <Route path='/' element={<Home msgAlert={msgAlert} user={user} setUser={setUser} setNetflixVids={setNetflixVids} showAuthModal={showAuthModal} showLoginModal={showLoginModal} showRegisterModal={showRegisterModal} closeModal={closeModal} />} />
                 <Route
                     path='/sign-up'
                     element={<SignUp msgAlert={msgAlert} setUser={setUser} />}

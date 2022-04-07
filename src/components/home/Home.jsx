@@ -5,7 +5,7 @@ import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
 import Auth from "./auth/Auth"
 
-const Home = ({ setNetflixVids, setUser, showAuthModal, showLoginModal, showRegisterModal }) => {
+const Home = ({ setNetflixVids, setUser, showAuthModal, showLoginModal, showRegisterModal, closeModal }) => {
 
     // useEffect(() => {
     // 	getAdminVideos()
@@ -17,7 +17,7 @@ const Home = ({ setNetflixVids, setUser, showAuthModal, showLoginModal, showRegi
     // }, [])
 
 	return (
-		<div className="page-container" id="home-page-container">
+		<div onClick={closeModal} className="page-container" id="home-page-container">
 			<h1 id='app-name'>Netflixify</h1>
 			<div className='app-features-container'>
 				<div className='app-feature'>
