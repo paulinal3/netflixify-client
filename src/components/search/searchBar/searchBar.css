@@ -1,0 +1,19 @@
+#search-term {
+    background-color: var(--main-bg-color);
+    color: #bbc8d3;
+}
+
+#search-term:focus {
+    border: 1px solid var(--burlywood);
+    box-shadow: 0 0 10px #bbc8d3;
+}
+
+#search-btn {
+    background-color: var(--main-btn-color);
+    color: rgb(30,32,37);
+}
+
+#search-btn:hover {
+    border: 1px solid #bbc8d3;
+    background-color: #28975c;
+}

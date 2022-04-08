@@ -1,12 +1,12 @@
-import { useState } from 'react'
-
-import { getSearchTermRes } from '../../api/external'
-import IndexSearchRes from './indexSearchRes/IndexSearchRes'
-import SearchBar from './searchBar/SearchBar'
+import { useState } from "react"
+import { getSearchTermRes } from "../../api/external"
+import IndexSearchRes from "./indexSearchRes/IndexSearchRes"
+import SearchBar from "./searchBar/SearchBar"
+import "./search.css"
 
 export default function Search({ user, getAllPlaylists, playlists, netflixVids }) {
 
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState("")
     const [searchRes, setSearchRes] = useState([])
     const [advSearchToggle, setAdvSearchToggle] = useState(false)
     const [advSearchBtns, setAdvSearchBtns] = useState({
@@ -28,18 +28,18 @@ export default function Search({ user, getAllPlaylists, playlists, netflixVids }
 
     const { vidType, genre, startDate, endDate, subtitles, country } = advSearch
 
-    const allNetflixVids = netflixVids.map(vid => {
-        return (
-            <IndexSearchRes
-            key={vid._id}
-            res={vid} 
-            netflixid={vid.netflixid} 
-            allPlaylists={playlists} 
-            currentUser={user} 
-            refreshPlaylists={getAllPlaylists}
-        />
-        )
-    })
+    // const allNetflixVids = netflixVids.map(vid => {
+    //     return (
+    //         <IndexSearchRes
+    //         key={vid._id}
+    //         res={vid} 
+    //         netflixid={vid.netflixid} 
+    //         allPlaylists={playlists} 
+    //         currentUser={user} 
+    //         refreshPlaylists={getAllPlaylists}
+    //     />
+    //     )
+    // })
 
     const handleSearchTermChange = (e) => setSearchTerm(e.target.value)
 
@@ -146,24 +146,25 @@ export default function Search({ user, getAllPlaylists, playlists, netflixVids }
     }
 
     return (
-        <div id='searchPage'>
-            <SearchBar 
-                searchTerm={searchTerm} 
-                handleSearchTermChange={handleSearchTermChange} 
-                searchVids={searchVids}
+        <div className="page-container" id="search-page-container">
+            <header>
+                <SearchBar 
+                    searchTerm={searchTerm} 
+                    handleSearchTermChange={handleSearchTermChange} 
+                    searchVids={searchVids}
 
-                advSearchBtns={advSearchBtns}
-                searchToggle={searchToggle}
-                advSearchToggle={advSearchToggle}
-                advSearchBtnClick={advSearchBtnClick}
-                advSearchDatesInput={advSearchDatesInput}
-                advSearchOptionsInput={advSearchOptionsInput}
-            />
-            <hr />
-            <div id='searchResContainer'>
+                    advSearchBtns={advSearchBtns}
+                    searchToggle={searchToggle}
+                    advSearchToggle={advSearchToggle}
+                    advSearchBtnClick={advSearchBtnClick}
+                    advSearchDatesInput={advSearchDatesInput}
+                    advSearchOptionsInput={advSearchOptionsInput}
+                />
+            </header>
+            <main id="search-res-container">
                 {/* {allNetflixVids} */}
-                <ol id='searchResult'>{displaySearchRes}</ol>
-            </div>
+                <div id="search-res">{displaySearchRes}</div>
+            </main>
         </div>
     )
 }

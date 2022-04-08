@@ -1,0 +1,48 @@
+#search-page-container {
+    padding: 50px 0 50px 0;
+}
+
+#search-res-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#search-res {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    padding: 50px 0 50px 0;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+#search {
+    max-width: 45%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-left: 10px;
+    margin: auto;
+}
+
+#searchOptions {
+    position: relative;
+    top: 65%;
+    display: flex;
+    justify-content: end;
+    column-gap: 5%;
+}
+
+.vidResModal {
+    background-color: #213749;
+}
+
+#resCard {
+    border: 5px solid #213749;
+}
+
+#resCard:hover {
+    border: 5px solid black;
+}

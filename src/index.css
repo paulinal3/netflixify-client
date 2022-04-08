@@ -58,12 +58,12 @@
     /* border: 1px solid #bbc8d3; */
 }
 
-#watchedPage, #searchPage {
+#watchedPage {
     background-color: var(--main-bg-color);
     height: 100vh;
 }
 
-#searchResult, #allPlaylists {
+#allPlaylists {
     background-color: var(--main-bg-color);
 }
 
@@ -89,7 +89,7 @@ code {
         monospace;
 }
 
-#searchResult, #allPlaylists {
+#allPlaylists {
     display: flex;
     /* align-content: center; */
     /* justify-content: center; */
@@ -192,13 +192,6 @@ code {
     visibility: visible;
     opacity: 1;
     transition: opacity 1.5s;
-}
-
-#searchPage {
-    background-color: var(--main-bg-color);
-    color: white;
-    /* height: 100vh; */
-    padding-top: 5%;
 }
 
 footer {
@@ -331,57 +324,6 @@ footer {
     #signout-container #cancel-btn {
         font-size: 25px;
     }
-}
-
-/* ------------------------------ SEARCH.JS ------------------------------ */
-#search {
-    max-width: 45%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
-    margin-left: 10px;
-    margin: auto;
-}
-
-#searchTerm {
-    background-color: #213749;
-    color: #bbc8d3;
-}
-
-#searchBtn {
-    background-color: #2eac68;
-    color: whitesmoke;
-}
-
-#searchBtn:hover {
-    border: 1px solid #bbc8d3;
-    background-color: #28975c;
-}
-
-#searchResContainer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-#searchOptions {
-    position: relative;
-    top: 65%;
-    display: flex;
-    justify-content: end;
-    column-gap: 5%;
-}
-
-.vidResModal {
-    background-color: #213749;
-}
-
-#resCard {
-    border: 5px solid #213749;
-}
-
-#resCard:hover {
-    border: 5px solid black;
 }
 
 /* ------------------------------ PROFILE.JS ------------------------------ */
