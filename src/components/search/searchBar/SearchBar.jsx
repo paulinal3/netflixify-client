@@ -1,5 +1,5 @@
 import { Button, Form } from "react-bootstrap"
-import AdvSearch from "./AdvSearch"
+import AdvSearch from "../advSearch/AdvSearch"
 
 export default function SearchBar(props) {
 

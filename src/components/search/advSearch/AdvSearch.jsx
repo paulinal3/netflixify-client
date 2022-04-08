@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap"
-import Countries from "../../data/Countries"
-import Genres from "../../data/Genres"
-import Subtitles from "../../data/Subtitles"
+import Countries from "../../../data/Countries"
+import Genres from "../../../data/Genres"
+import Subtitles from "../../../data/Subtitles"
 
 export default function AdvSearch(props) {
 

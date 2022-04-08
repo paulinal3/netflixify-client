@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import { getSearchTermRes } from '../../api/external'
-import IndexSearchRes from './IndexSearchRes'
-import SearchBar from './SearchBar'
+import IndexSearchRes from './indexSearchRes/IndexSearchRes'
+import SearchBar from './searchBar/SearchBar'
 
 export default function Search({ user, getAllPlaylists, playlists, netflixVids }) {
 
