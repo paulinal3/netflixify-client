@@ -326,109 +326,6 @@ footer {
     }
 }
 
-/* ------------------------------ PROFILE.JS ------------------------------ */
-#playlistCard, #watchedCard {
-    border: 5px solid #213749;
-}
-
-#playlistCard:hover, #watchedCard:hover {
-    border: 2px solid #bbc8d3;
-}
-
-#newPlaylistModal {
-    background-color: var(--main-bg-color);
-}
-
-#playlistTitle {
-    background-color: #213749;
-}
-
-/* ----------- */
-#profile-header-container {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 25px;
-}
-
-#profile-header-container .header-title {
-    display: flex;
-    align-items: center;
-}
-
-.header-container .header-title h1 {
-    font-family: 'Fredericka the Great', cursive;
-    margin-bottom: 0;
-}
-
-#profile-settings {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    gap: 15px;
-}
-
-#profile-settings #playlists-sort {
-    background-color: #213749;
-    color: #bbc8d3;
-    font-size: 15px;
-}
-
-#profile-settings .profile-settings-btns {
-    display: flex;
-    gap: 5px;
-}
-
-#create-playlist-btn, #change-pw-btn {
-    background-color: #2eac68;
-    border: 1px solid #2eac68;
-    width: 100%
-}
-
-#create-playlist-btn:hover, #change-pw-btn:hover {
-    background-color: #28975c;
-    border: 1px solid #bbc8d3;
-}
-
-.cards-list {
-    background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 25px 0px 25px 0px;
-}
-
-@media screen and (min-width: 768px) {
-    #profile-header-container {
-        justify-content: space-between;
-        padding: 25px 25px 0 25px;
-    }
-
-    #profile-settings {
-        flex-direction: row;
-        gap: 5px;
-    }
-
-    #profile-settings #playlists-sort {
-        width: 100%;
-    }
-
-    #profile-settings .profile-settings-btns {
-        gap: 5px;
-    }
-
-    #change-pw-btn {
-        height: 100%;
-    }
-
-    .cards-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: stretch;
-        padding: 25px;
-    }
-}
-
 /* -------------------------- SHOWPLAYLIST.JS -------------------------- */
 #show-playlist-header {
     display: flex;
@@ -507,26 +404,6 @@ footer {
     }
 }
 
-#playlistCard {
-    border-radius: 5px;
-    width: 240px;
-    height: 360px;
-    margin-bottom: 1rem;
-    -webkit-transition: all .1s ease-in-out;
-    transition: all .1s ease-in-out;
-    border-radius: 5px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
-}
-
-#playlistCard:hover {
-    -webkit-transform: scale(1.055) translateY(-2px);
-    transform: scale(1.055) translateY(-2px);
-    -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-    box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-}
-
 .playlist-images {
     border-radius: 5px;
 }
@@ -534,46 +411,6 @@ footer {
 .playlist-image {
     width: 100px;
     height: auto;
-}
-
-#image-one {
-    border-top-left-radius: 10px;
-}
-
-#image-two {
-    border-top-right-radius: 10px;
-}
-
-#image-three {
-    border-bottom-left-radius: 10px;
-}
-
-#image-four {
-    border-bottom-right-radius: 10px;
-}
-
-.single-image {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.no-images-container {
-    background-color: #213749;
-    width: 200px;
-    height: 283px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0px 25px;
-    border-radius: 10px;
-
-}
-
-.vidResModal {
-    background-color: var(--main-bg-color);
-    padding: 15px;
 }
 
 .playlist-title {

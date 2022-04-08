@@ -25,7 +25,7 @@ export default function SearchBar(props) {
                     value={searchTerm}
                     onChange={handleSearchTermChange}
                 />
-                <Button id="search-btn" type="submit" variant="success">Search</Button>
+                <button id="search-btn" type="submit" variant="success">Search</button>
             </Form.Group>
             <div id="advSearchToggle">
                 <AdvSearch

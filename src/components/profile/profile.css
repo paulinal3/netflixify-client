@@ -1,0 +1,105 @@
+#profile-header-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 25px;
+}
+
+#profile-header-container .header-title {
+    display: flex;
+    align-items: center;
+}
+
+.header-container .header-title h1 {
+    font-family: 'Fredericka the Great', cursive;
+    margin-bottom: 0;
+}
+
+#profile-settings {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 15px;
+}
+
+#profile-settings #playlists-sort {
+    background-color: var(--main-bg-color);
+    color: #bbc8d3;
+    font-size: 15px;
+}
+
+#profile-settings #playlists-sort:focus {
+    border: 1px solid var(--burlywood);
+    box-shadow: 0 0 10px #bbc8d3;
+}
+
+#profile-settings .profile-settings-btns {
+    display: flex;
+    gap: 5px;
+}
+
+#create-playlist-btn, #change-pw-btn {
+    background-color: #2eac68;
+    border: 1px solid #2eac68;
+    width: 100%
+}
+
+#create-playlist-btn:hover, #change-pw-btn:hover {
+    background-color: #28975c;
+    border: 1px solid #bbc8d3;
+}
+
+.cards-list {
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 0px 25px 0px;
+}
+
+@media screen and (min-width: 768px) {
+    #profile-header-container {
+        justify-content: space-between;
+        padding: 25px 25px 0 25px;
+    }
+
+    #profile-settings {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    #profile-settings #playlists-sort {
+        width: 100%;
+    }
+
+    #profile-settings .profile-settings-btns {
+        gap: 5px;
+    }
+
+    #change-pw-btn {
+        height: 100%;
+    }
+
+    .cards-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        padding: 25px;
+    }
+}
+
+#playlistCard, #watchedCard {
+    border: 5px solid #213749;
+}
+
+#playlistCard:hover, #watchedCard:hover {
+    border: 2px solid #bbc8d3;
+}
+
+#newPlaylistModal {
+    background-color: var(--main-bg-color);
+}
+
+#playlistTitle {
+    background-color: #213749;
+}
