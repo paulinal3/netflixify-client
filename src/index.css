@@ -12,6 +12,7 @@
     --main-btn-color: rgb(25,222,203);
     --main-btn-hover-color: #28975c;
     --burlywood: rgb(237,193,152);
+    --darkturquoise: rgb(25, 222, 203);
 }
 
 * {
@@ -234,73 +235,7 @@ footer {
     padding-bottom: 3%;
 }
 
-/* ------------------------------- HOME.JS ------------------------------- */
-#home-page-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
-#home-page-container h1 {
-    font-family: 'Fredericka the Great', cursive;
-    color: #2eac68;
-    text-align: center;
-    padding-top: 50px;
-    font-size: 55px;
-    letter-spacing: 10px;
-}
-
-#home-page-container .app-features-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
-}
-
-.app-features-container .app-feature {
-    width: 75%;
-}
-
-@media screen and (min-width: 768px) {
-    #home-page-container {
-        gap: 25px;
-    }
-
-    #home-page-container h1 {
-        font-size: 75px;
-        letter-spacing: 15px;
-    }
-
-    #home-page-container .app-features-container {
-        gap: 50px;
-    }
-
-    .app-features-container .app-feature h5 {
-        font-size: 25px;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #home-page-container {
-        gap: 100px;
-    }
-
-    #home-page-container h1 {
-        font-size: 100px;
-        letter-spacing: 25px;
-    }
-
-    #home-page-container .app-features-container {
-        flex-direction: row;
-        justify-content: center;
-        padding: 0px 50px 0px 50px;
-    }
-
-    .app-features-container .app-feature h5 {
-        font-size: 30px;
-    }
-}
 
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
 #changepw-form {

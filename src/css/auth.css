@@ -92,7 +92,8 @@
 }
 
 .auth-form #signup-btn:hover {
-    color: #fff;
+    color: rgb(30, 32, 37);
+    box-shadow: 0 0 5px #bbc8d3;
 }
 
 .auth-form #signup-btn:hover:after {
@@ -103,6 +104,11 @@
     background-color: var(--main-bg-color);
     color: #bbc8d3;
     border: solid 1px rgb(59, 66, 76);
+}
+
+#first-name:focus, #last-name:focus, #email:focus, #password:focus, #password-confirmation:focus {
+    border: 1px solid var(--burlywood);
+    box-shadow: 0 0 10px #bbc8d3;
 }
 
 /* ------------------------------ SIGNIN.JS ------------------------------ */
@@ -139,7 +145,8 @@
 }
 
 .auth-form #signin-btn:hover {
-    color: #fff;
+    color: rgb(30, 32, 37);
+    box-shadow: 0 0 5px #bbc8d3;
 }
 
 .auth-form #signin-btn:hover:after {
@@ -150,6 +157,11 @@
     background-color: var(--main-bg-color);
     color: #bbc8d3;
     border: solid 1px rgb(59, 66, 76);
+}
+
+#signin-email:focus, #signin-password:focus {
+    border: 1px solid var(--burlywood);
+    box-shadow: 0 0 10px #bbc8d3;
 }
 
 @media screen and (min-width: 768px) {

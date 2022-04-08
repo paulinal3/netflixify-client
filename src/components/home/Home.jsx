@@ -4,6 +4,8 @@ import { getAdminVideos } from "../../api/video"
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
 
+import "./home.css"
+
 const Home = ({ setNetflixVids }) => {
     useEffect(() => {
     	getAdminVideos()
