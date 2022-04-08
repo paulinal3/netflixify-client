@@ -1,0 +1,43 @@
+.hide-show-vid-modal {
+    display: none;
+}
+
+.display-show-vid-modal {
+    display: block;
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    /* height: 2px; */
+    top: 50%;
+    margin-top: -10px;
+    text-align: center;
+    z-index: 2;
+    background-color: #213749;
+    border-radius: 5px;
+}
+
+.modal-body {
+    display: flex;
+}
+
+.modal-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.modal-settings {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.close-modal-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 15px -25px 0;
+    position: relative;
+    z-index: 1;
+}

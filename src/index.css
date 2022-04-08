@@ -7,9 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 :root {
-    --main-bg-color: #122333;
-    --main-btn-color: #2eac68;
+    /* --main-bg-color: rgb(20,20,20); */
+    --main-bg-color: rgb(30,32,37);
+    --main-btn-color: rgb(25,222,203);
     --main-btn-hover-color: #28975c;
+    --burlywood: rgb(237,193,152);
+    --darkturquoise: rgb(25, 222, 203);
 }
 
 * {
@@ -55,12 +58,12 @@
     /* border: 1px solid #bbc8d3; */
 }
 
-#watchedPage, #searchPage {
+#watchedPage {
     background-color: var(--main-bg-color);
     height: 100vh;
 }
 
-#searchResult, #allPlaylists {
+#allPlaylists {
     background-color: var(--main-bg-color);
 }
 
@@ -86,7 +89,7 @@ code {
         monospace;
 }
 
-#searchResult, #allPlaylists {
+#allPlaylists {
     display: flex;
     /* align-content: center; */
     /* justify-content: center; */
@@ -191,13 +194,6 @@ code {
     transition: opacity 1.5s;
 }
 
-#searchPage {
-    background-color: var(--main-bg-color);
-    color: white;
-    /* height: 100vh; */
-    padding-top: 5%;
-}
-
 footer {
     background-color: var(--main-bg-color);
     color: white
@@ -232,190 +228,7 @@ footer {
     padding-bottom: 3%;
 }
 
-/* ------------------------------- HOME.JS ------------------------------- */
-#home-page-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
-#home-page-container h1 {
-    font-family: 'Fredericka the Great', cursive;
-    color: #2eac68;
-    text-align: center;
-    padding-top: 50px;
-    font-size: 55px;
-    letter-spacing: 10px;
-}
-
-#home-page-container .app-features-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
-}
-
-.app-features-container .app-feature {
-    width: 75%;
-}
-
-@media screen and (min-width: 768px) {
-    #home-page-container {
-        gap: 25px;
-    }
-
-    #home-page-container h1 {
-        font-size: 75px;
-        letter-spacing: 15px;
-    }
-
-    #home-page-container .app-features-container {
-        gap: 50px;
-    }
-
-    .app-features-container .app-feature h5 {
-        font-size: 25px;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #home-page-container {
-        gap: 100px;
-    }
-
-    #home-page-container h1 {
-        font-size: 100px;
-        letter-spacing: 25px;
-    }
-
-    #home-page-container .app-features-container {
-        flex-direction: row;
-        justify-content: center;
-        padding: 0px 50px 0px 50px;
-    }
-
-    .app-features-container .app-feature h5 {
-        font-size: 30px;
-    }
-}
-
-/* ------------------------------ SIGNUP.JS ------------------------------ */
-.auth-page-container {
-    display: flex;
-    justify-content: center;
-}
-
-.auth-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    position: absolute;
-    width: 90%;
-    height: 20px;
-    top: 50%;
-    margin-top: -10px;
-    text-align: center;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-@media screen and (min-width: 768px) {
-    .auth-form-container {
-        width: 100%;
-    }
-
-    .auth-form {
-        width: 65%;
-    }
-
-    .form-floating {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .auth-form-container {
-        width: 100%;
-    }
-
-    .auth-form {
-        width: 35%;
-    }
-
-    .form-floating {
-        width: 100%;
-    }
-}
-
-.auth-form #name-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    column-gap: 15px;
-}
-
-.auth-form #signup-btn {
-    width: 100%;
-    background-color: #2eac68;
-    border: 1px solid #213749;
-}
-
-.auth-form #signup-btn:hover {
-    border: 1px solid whitesmoke;
-    background-color: #28975c;
-}
-
-#first-name, #last-name, #email, #password, #password-confirmation {
-    background-color: #213749;
-    color: #bbc8d3;
-}
-
-/* ------------------------------ SIGNIN.JS ------------------------------ */
-#signin-form {
-    width: 100%;
-}
-
-.auth-form #signin-btn {
-    width: 100%;
-    background-color: #2eac68;
-    border: 1px solid #213749;
-}
-
-.auth-form #signin-btn:hover {
-    border: 1px solid whitesmoke;
-    background-color: #28975c;
-}
-
-#signin-email, #signin-password {
-    background-color: #213749;
-    color: #bbc8d3;
-}
-
-@media screen and (min-width: 768px) {
-    .auth-form-container {
-        width: 100%;
-    }
-
-    #signin-form {
-        width: 65%;
-    }
-
-    .form-floating {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #signin-form {
-        width: 35%;
-    }
-}
 
 /* -------------------------- CHANGEPASSWORD.JS -------------------------- */
 #changepw-form {
@@ -511,57 +324,6 @@ footer {
     #signout-container #cancel-btn {
         font-size: 25px;
     }
-}
-
-/* ------------------------------ SEARCH.JS ------------------------------ */
-#search {
-    max-width: 45%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
-    margin-left: 10px;
-    margin: auto;
-}
-
-#searchTerm {
-    background-color: #213749;
-    color: #bbc8d3;
-}
-
-#searchBtn {
-    background-color: #2eac68;
-    color: whitesmoke;
-}
-
-#searchBtn:hover {
-    border: 1px solid #bbc8d3;
-    background-color: #28975c;
-}
-
-#searchResContainer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-#searchOptions {
-    position: relative;
-    top: 65%;
-    display: flex;
-    justify-content: end;
-    column-gap: 5%;
-}
-
-.vidResModal {
-    background-color: #213749;
-}
-
-#resCard {
-    border: 5px solid #213749;
-}
-
-#resCard:hover {
-    border: 5px solid black;
 }
 
 /* ------------------------------ PROFILE.JS ------------------------------ */
@@ -835,3 +597,33 @@ a:link {
 #go-search-btn:hover {
     background-color: #28975c;
 }
+
+/* .header-link:hover,
+.header-link:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--burlywood);
+    transform: translateY(-0.25em);
+} */
+
+.header-link {
+    display: inline-block;
+    position: relative;
+    color: var(--burlywood);
+  }
+  
+  .header-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-btn-color);
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .header-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: center;
+  }

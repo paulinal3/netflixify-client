@@ -52,6 +52,7 @@ const SignUp = (props) => {
         <div id="signup-page-container" className="page-container auth-page-container">
             <div id="signup-container" className="auth-form-container">
                 <Form id="signup-form" className="auth-form" onSubmit={onSignUp}>
+                    <h3>Sign Up</h3>
                     <div id="name-container">
                         {/* <----- FIRST NAME -----> */}
                         <FloatingLabel
@@ -75,7 +76,6 @@ const SignUp = (props) => {
                             className="auth-input"
                         >
                             <Form.Control
-                                required
                                 type="lastName"
                                 name="lastName"
                                 value={lastName}

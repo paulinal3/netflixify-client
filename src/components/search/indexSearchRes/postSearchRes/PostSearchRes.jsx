@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Form, Tooltip, OverlayTrigger, Button } from "react-bootstrap"
-import { postVideo } from "../../api/video"
+import { postVideo } from "../../../../api/video"
 import { GrAdd } from "react-icons/gr"
 
 export default function PostSearchRes(props) {
@@ -24,6 +24,9 @@ export default function PostSearchRes(props) {
             })
             .catch(err => console.error)
     }
+
+
+        
 
     // hover for add button
     const addHover = (props) => (

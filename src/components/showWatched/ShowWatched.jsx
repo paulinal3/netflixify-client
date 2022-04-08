@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getWatchedVideos } from "../../../../api/video"
+import { getWatchedVideos } from "../../api/video"
 import { Card } from "react-bootstrap"
 
 export default function ShowWatched(props) {

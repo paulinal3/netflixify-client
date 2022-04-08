@@ -7,7 +7,7 @@ const apiHost = 'unogs-unogs-v1.p.rapidapi.com'
 export const getNetflixVideos = () => {
     return axios({
         method: 'GET',
-        url: `${rootAPI}?q=&cl=78&p=2&t=ns&st=adv`,
+        url: `${rootAPI}?q=&cl=78&p=1&t=ns&st=adv`,
         headers: {
             'X-RapidAPI-Host': `${apiHost}`,
             'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY
@@ -41,13 +41,13 @@ export const getSearchTermRes = (searchTerm, vidType, genre,countryId, subtitle,
 // }
 
 // <-------------------- unogsNG API --------------------> //
-export const getCountries = () => {
-    return axios({
-        method: 'GET',
-        url: `https://unogsng.p.rapidapi.com/countries`,
-        headers: {
-            'X-RapidAPI-Host': `unogsng.p.rapidapi.com`,
-            'X-RapidAPI-Key': process.env.REACT_APP_UNOGSNG_KEY
-        }
-    })
-}
+// export const getCountries = () => {
+//     return axios({
+//         method: 'GET',
+//         url: `https://unogsng.p.rapidapi.com/countries`,
+//         headers: {
+//             'X-RapidAPI-Host': `unogsng.p.rapidapi.com`,
+//             'X-RapidAPI-Key': process.env.REACT_APP_UNOGSNG_KEY
+//         }
+//     })
+// }

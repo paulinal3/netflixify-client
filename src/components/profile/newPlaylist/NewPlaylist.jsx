@@ -4,6 +4,8 @@ import { postPlaylist } from "../../../api/playlist"
 
 export default function NewPlaylist(props) {
 
+    const { show, onHide, currentUser, refreshPlaylists } = props
+
     const [newPlaylist, setNewPlaylist] = useState('')
 
     const handleTitleChange = (e) => {
@@ -13,11 +15,10 @@ export default function NewPlaylist(props) {
 
     // helper method to create a playlist
     const createNewPlaylist = () => {
-        // axios call
-        postPlaylist(props.currentUser, newPlaylist)
+        postPlaylist(currentUser, newPlaylist)
             .then(() => {
-                props.allPlaylists()
-                props.onHide()
+                refreshPlaylists()
+                onHide()
                 setNewPlaylist('')
             })
             .catch(err => console.error)
@@ -42,7 +43,7 @@ export default function NewPlaylist(props) {
                             name='title'
                             value={newPlaylist.title}
                             onChange={handleTitleChange}
-                            placeholder='Playlist Title'
+                            placeholder='Enter Playlist Title'
                         />
                     </FloatingLabel>
                     <Button id='createPlaylistBtn' onClick={() => createNewPlaylist()}>Create Playlist</Button>

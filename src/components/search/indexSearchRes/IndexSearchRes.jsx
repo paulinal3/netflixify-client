@@ -1,10 +1,15 @@
 import { Button, Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { useState } from 'react'
-import PostSearchRes from './PostSearchRes'
-import ShowSearchRes from './ShowSearchRes'
+import PostSearchRes from './postSearchRes/PostSearchRes'
+import ShowSearchRes from './showSearchRes/ShowSearchRes'
 
 import { GrExpand } from 'react-icons/gr'
 import { FaPlay } from "react-icons/fa"
+
+const style = {
+    width: '13rem',
+    border: '1px solid #213749',
+  }
 
 export default function IndexSearchRes(props) {
 
@@ -48,7 +53,7 @@ export default function IndexSearchRes(props) {
 
     return (
         <div id='indexSearchRes'>
-            <Card id='img__wrap' style={{ width: '13rem' }, { border: '1px solid #213749' }}>
+            <Card id='img__wrap' style={style}>
                 <Card.Img src={props.res.image} alt={props.res.title} />
                 <Card.ImgOverlay>
                     <div id='seeMoreBtn'>

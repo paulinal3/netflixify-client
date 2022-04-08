@@ -46,6 +46,7 @@ const SignIn = (props) => {
             <div className="auth-form-container" id="signin-container">
                 <Form className="auth-form" id="signin-form" onSubmit={onSignIn}>
                     <>
+                        <h3>Sign In</h3>
                         {/* <----- EMAIL -----> */}
                         <FloatingLabel
                             controlId="signin-email"

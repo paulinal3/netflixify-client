@@ -1,14 +1,23 @@
+import { useEffect } from "react"
+import Footer from "../shared/Footer"
+import { getAdminVideos } from "../../api/video"
 import {BsSearch, BsPlayCircle} from "react-icons/bs"
 import {MdOutlineAddCircleOutline} from "react-icons/md"
 
-import logo from "../img/logo.png"
+import "./home.css"
 
-const Home = (props) => {
-	console.log('props in home', props)
+const Home = ({ setNetflixVids }) => {
+    useEffect(() => {
+    	getAdminVideos()
+    		.then(videos => {
+    			console.log("all vids\n", videos)
+    			setNetflixVids(videos.data.videos)
+    		})
+    		.catch(err => console.log(err))
+    }, [])
 
 	return (
 		<div className="page-container" id="home-page-container">
-			{/* <img src={logo} /> */}
 			<h1 id='app-name'>Netflixify</h1>
 			<div className='app-features-container'>
 				<div className='app-feature'>
@@ -27,6 +36,7 @@ const Home = (props) => {
 					<h5>Be directed straight to Netflix based off the show or movie you want to watch.</h5>
 				</div>
 			</div>
+            <Footer />
 		</div>
 	)
 }
