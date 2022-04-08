@@ -11,17 +11,12 @@ const linkStyle = {
 const authenticatedOptions = (
     <>
         <Nav.Link>
-            <Link to='profile' style={linkStyle}>
+            <Link to='profile' className="header-link" style={linkStyle}>
                 Profile
             </Link>
         </Nav.Link>
-        {/* <Nav.Link>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
-			</Link>
-		</Nav.Link> */}
         <Nav.Link>
-            <Link to='sign-out' style={linkStyle}>
+            <Link to='sign-out' className="header-link" style={linkStyle}>
                 Sign Out
             </Link>
         </Nav.Link>
@@ -31,10 +26,10 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
     <>
         <Nav.Link>
-            <Link to='sign-up' style={linkStyle}>Sign Up</Link>
+            <Link to='sign-up' className="header-link" style={linkStyle}>Sign Up</Link>
         </Nav.Link>
         <Nav.Link>
-            <Link to='sign-in' style={linkStyle}>Sign In</Link>
+            <Link to='sign-in' className="header-link" style={linkStyle}>Sign In</Link>
         </Nav.Link>
     </>
 )
@@ -42,12 +37,12 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
     <>
         <Nav.Link>
-            <Link to='/' style={linkStyle}>
+            <Link to='/' className="header-link" style={linkStyle}>
                 Home
             </Link>
         </Nav.Link>
         <Nav.Link>
-            <Link to='/search' style={linkStyle}>
+            <Link to='/search' className="header-link" style={linkStyle}>
                 Search
             </Link>
         </Nav.Link>
@@ -56,18 +51,14 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
     <Navbar className="nav-bar-container" expand='md'>
-        {/* <Navbar.Brand>
+        <Navbar.Brand>
 			<Link to='/' style={linkStyle}>
 				NETFLIXIFY
 			</Link>
-		</Navbar.Brand> */}
+		</Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
-                {user && (
-                    // <span className='navbar-text mr-2'>Welcome, {user.firstName}</span>
-                    <span></span>
-                )}
                 {alwaysOptions}
                 {user ? authenticatedOptions : unauthenticatedOptions}
             </Nav>
