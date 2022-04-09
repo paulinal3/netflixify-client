@@ -78,9 +78,9 @@ const SignIn = (props) => {
                             />
                         </FloatingLabel>
                     </>
-                    <Button id="signin-btn" type="submit">
+                    <button className="btn" id="signin-btn" type="submit">
                         Sign In
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>

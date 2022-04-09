@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { Modal, Button, Form, FloatingLabel } from "react-bootstrap"
 import { postPlaylist } from "../../../api/playlist"
-
+import "./newPlaylist.css"
 export default function NewPlaylist(props) {
 
-    const { show, onHide, currentUser, refreshPlaylists } = props
+    const { currentUser, refreshPlaylists, setShowNewPlayModal } = props
 
     const [newPlaylist, setNewPlaylist] = useState('')
 
@@ -13,42 +13,26 @@ export default function NewPlaylist(props) {
         setNewPlaylist(e.target.value)
     }
 
-    // helper method to create a playlist
-    const createNewPlaylist = () => {
+    const createNewPlaylist = (e) => {
+        e.preventDefault();
         postPlaylist(currentUser, newPlaylist)
             .then(() => {
                 refreshPlaylists()
-                onHide()
+                setShowNewPlayModal(false)
                 setNewPlaylist('')
             })
-            .catch(err => console.error)
+            .catch(err => console.log(err))
     }
 
     return (
-        <Modal
-            {...props}
-            size="md"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Form>
-                <Modal.Body id='newPlaylistModal'>
-                    <FloatingLabel
-                        controlId='playlistTitle'
-                        label='Playlist Title'
-                        className='mb-3'
-                    >
-                        <Form.Control
-                            type='text'
-                            name='title'
-                            value={newPlaylist.title}
-                            onChange={handleTitleChange}
-                            placeholder='Enter Playlist Title'
-                        />
-                    </FloatingLabel>
-                    <Button id='createPlaylistBtn' onClick={() => createNewPlaylist()}>Create Playlist</Button>
-                </Modal.Body>
-            </Form>
-        </Modal>
+        <div className="modal-container">
+            <form onSubmit={createNewPlaylist} className="new-playlist-form">
+                <input type="text" name="title" value={newPlaylist.title} onChange={handleTitleChange} id="new-playlist-title" placeholder="  Enter playlist title" />
+                <div className="new-playlist-btns">
+                    <button type="submit" className="btn" id="create-btn">Create Playlist</button>
+                    <button onClick={() => setShowNewPlayModal(false)} className="btn" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
     )
 }

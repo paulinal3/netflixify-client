@@ -129,9 +129,9 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </FloatingLabel>
-                    <Button className="auth-btn" id="signup-btn" type="submit">
+                    <button className="auth-btn" id="signup-btn" type="submit">
                         Sign Up
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>

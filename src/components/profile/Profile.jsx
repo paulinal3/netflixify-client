@@ -11,7 +11,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import "./profile.css"
 
 export default function Profile({ user, getAllPlaylists, playlists }) {
-    const [modalShow, setModalShow] = useState(false);
+    const [showNewPlayModal, setShowNewPlayModal] = useState(false);
     const [playlistsOrder, setPlaylistsOrder] = useState("alph");
 
     useEffect(getAllPlaylists, [])
@@ -100,7 +100,7 @@ export default function Profile({ user, getAllPlaylists, playlists }) {
                             delay={{ show: 250, hide: 400 }}
                             overlay={createHover}
                         >
-                            <Button size="sm" id="create-playlist-btn"><GrAdd onClick={() => setModalShow(true)} /></Button>
+                            <Button size="sm" id="create-playlist-btn"><GrAdd onClick={() => setShowNewPlayModal(true)} /></Button>
                         </OverlayTrigger>
                         {/* <-- change password button --> */}
                         <OverlayTrigger
@@ -134,12 +134,15 @@ export default function Profile({ user, getAllPlaylists, playlists }) {
                     </div>
                 </Link>
             </ol>
-            <NewPlaylist
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                currentUser={user}
-                refreshPlaylists={getAllPlaylists}
-            />
+            { 
+                showNewPlayModal ?
+                <NewPlaylist
+                    currentUser={user}
+                    refreshPlaylists={getAllPlaylists}
+                    setShowNewPlayModal={setShowNewPlayModal}
+                />
+                : null
+            }
         </div>
     )
 }

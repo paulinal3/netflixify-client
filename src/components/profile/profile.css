@@ -12,6 +12,7 @@
 .header-container .header-title h1 {
     font-family: 'Fredericka the Great', cursive;
     margin-bottom: 0;
+    text-shadow: 0 0 10px rgba(25, 222, 203, 0.3);
 }
 
 #profile-settings {
