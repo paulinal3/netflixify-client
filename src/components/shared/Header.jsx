@@ -50,7 +50,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-    <Navbar className="nav-bar-container" expand='md'>
+    <Navbar id="nav-bar-container" expand='md'>
         <Navbar.Brand>
 			<Link to='/' style={linkStyle}>
 				NETFLIXIFY
