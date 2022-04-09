@@ -77,9 +77,9 @@ const ChangePassword = (props) => {
                             />
                         </FloatingLabel>
                     </Form.Group>
-                    <Button id="changepw-btn" type="submit">
+                    <button id="changepw-btn" type="submit">
                         Change Password
-                    </Button>
+                    </button>
                 </Form>
             </div>
         </div>

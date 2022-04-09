@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Modal, Button, Form, FloatingLabel } from "react-bootstrap"
 import { postPlaylist } from "../../../api/playlist"
 import "./newPlaylist.css"
+
 export default function NewPlaylist(props) {
 
     const { currentUser, refreshPlaylists, setShowNewPlayModal } = props

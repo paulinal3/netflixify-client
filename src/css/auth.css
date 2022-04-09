@@ -193,20 +193,53 @@
     width: 100%;
 }
 
-.auth-form #changepw-btn {
+#changepw-btn {
+    background-color: rgb(30, 32, 37);
+    border: solid 2px rgb(59, 66, 76);
+    border-radius: 5px;
+    color: #bbc8d3;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-transition: color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
     width: 100%;
-    background-color: var(--main-btn-color);
-    border: 1px solid #213749;
+    height: 40px;
 }
 
-.auth-form #changepw-btn:hover {
-    border: 1px solid var(--burlywood);
-    background-color: #28975c;
+#changepw-btn:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: var(--main-btn-color);
+    z-index: -1;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+}
+
+#changepw-btn:hover {
+    color: rgb(30, 32, 37);
+    box-shadow: 0 0 5px #bbc8d3;
+}
+
+#changepw-btn:hover:after {
+    width: 110%;
 }
 
 #old-password, #new-password {
-    background-color: #213749;
+    background-color: var(--main-bg-color);
     color: #bbc8d3;
+}
+
+#old-password:focus, #new-password:focus {
+    border: 1px solid var(--burlywood);
+    box-shadow: 0 0 10px #bbc8d3;
 }
 
 @media screen and (min-width: 768px) {
