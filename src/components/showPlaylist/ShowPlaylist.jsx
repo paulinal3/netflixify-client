@@ -60,8 +60,8 @@ export default function ShowPlaylist({ user, playlists }) {
         setPlaylistTitle(e.target.value)
     }
 
-    const displayEdit = (e) => {
-        setTitle(false)
+    const displayEdit = () => {
+        setTitle(!title)
     }
 
     const editPlaylist = () => {
@@ -75,7 +75,6 @@ export default function ShowPlaylist({ user, playlists }) {
 
     const deletePlaylist = () => {
         destroyPlaylist(user, playlistId)
-            // redirect back to profile
             .then(() => navigate("/profile"))
             .catch(err => console.error)
     }
@@ -119,7 +118,7 @@ export default function ShowPlaylist({ user, playlists }) {
         <header className="header-container" id="show-playlist-header">
             <div className="header-row row-one-header">
                 <h4>PLAYLIST</h4>
-                <Button id="edit-playlist-btn" className="float-end" size="sm" onClick={displayEdit}>Edit Playlist</Button>
+                <Button id="edit-playlist-btn" className="float-end" size="sm" onClick={displayEdit}>Cancel</Button>
             </div>
             <div className="header-row row-two-header">
                 <Form id="editPlaylist">

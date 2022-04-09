@@ -8,9 +8,9 @@ import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { GrAdd } from "react-icons/gr";
 import { RiLockPasswordFill } from "react-icons/ri";
 
-export default function Profile(props) {
-    const { user, getAllPlaylists, playlists } = props
+import "./profile.css"
 
+export default function Profile({ user, getAllPlaylists, playlists }) {
     const [modalShow, setModalShow] = useState(false);
     const [playlistsOrder, setPlaylistsOrder] = useState("alph");
 
@@ -85,7 +85,7 @@ export default function Profile(props) {
                 <header className="header-title">
                     <h1>{user.firstName}'s Playlists:</h1>
                 </header>
-                <div id="profile-settings">
+                <aside id="profile-settings">
                     {/* <-- playlist sort dropdown --> */}
                     <Form.Select id="playlists-sort" onChange={sortClicked}>
                         <option value="alph">A to Z</option>
@@ -117,13 +117,13 @@ export default function Profile(props) {
 
                         }
                     </div>
-                </div>
+                </aside>
             </div>
             <ol className="cards-list" id="all-playlists-container">
                 {allPlaylists}
                 <Link to={`/playlists/watched`}>
-                    <div id='playlistCard'>
-                        <div className="vidResModal">
+                    <div className="playlist-card">
+                        <div className="playlist-img-container">
                             <div className="no-images-container">
                                 <p className="no-image">Check out all the Netflix videos you've watched!</p>
                             </div>

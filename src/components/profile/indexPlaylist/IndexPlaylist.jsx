@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 
+import "./indexPlaylist.css";
+
 export default function IndexPlaylist({ playlist }) {
 
     if (playlist.videos.length > 3) {
         return (
             <Link to={`/playlists/${playlist._id}`}>
-                <div id='playlistCard'>
-                    <div className="vidResModal">
+                <div className="playlist-card">
+                    <div className="playlist-img-container">
                         <div className="playlist-images">
                             <img className="playlist-image" id="image-one" src={playlist.videos[0].image} />
                             <img className="playlist-image" id="image-two" src={playlist.videos[1].image} />
@@ -25,8 +27,8 @@ export default function IndexPlaylist({ playlist }) {
     } else if (playlist.videos.length > 0) {
         return (
             <Link to={`/playlists/${playlist._id}`}>
-                <div id='playlistCard'>
-                    <div className="vidResModal">
+                <div className="playlist-card">
+                    <div className="playlist-img-container">
                         <div className="playlist-images">
                             <img className="single-image" src={playlist.videos[0].image} />
                         </div>
@@ -41,8 +43,8 @@ export default function IndexPlaylist({ playlist }) {
 
     return (
         <Link to={`/playlists/${playlist._id}`}>
-            <div id='playlistCard'>
-                <div className="vidResModal">
+            <div className="playlist-card">
+                <div className="playlist-img-container">
                     <div className="no-images-container">
                         <p className="no-image">This playlist has no videos yet!</p>
                         <Link to={"/search"}><button className="btn" id="go-search-btn">Search Now!</button></Link>
