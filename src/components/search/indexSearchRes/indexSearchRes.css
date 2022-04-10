@@ -1,0 +1,54 @@
+.index-res-card {
+    /* border: solid 2px rgba(25,222,203,0.1); */
+    border-radius: 5px;
+    width: 175px;
+    height: 225px;
+    margin-bottom: 1rem;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 5px 20px rgba(20,20,20, 1);
+    background-color: var(--main-bg-color);
+}
+
+.index-res-card:hover {
+    /* width: 200px; */
+    /* height: 100%; */
+    -webkit-transform: scale(1.055) translateY(-2px);
+    transform: scale(1.155) translateY(-2px);
+    -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+    box-shadow: 0 2px 25px 0 rgba(237,193,152, 0.1);
+    /* border: solid 2px rgb(25,222,203); */
+}
+
+#more-info-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#more-info-btn-container button {
+    width: 45px;
+    /* background-color: rgba(237, 193, 152, 0.75); */
+    background-color: var(--burlywood);
+}
+
+.play-btn-container button {
+    width: 45px;
+    background-color: var(--burlywood);
+}
+
+.playlist-img-container {
+    background-color: var(--main-bg-color);
+    padding: 15px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.netflix-image {
+    width: 175px;
+    border-radius: 5px;
+}

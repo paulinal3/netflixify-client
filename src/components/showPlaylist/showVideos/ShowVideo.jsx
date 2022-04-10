@@ -1,6 +1,6 @@
-import { Button } from "react-bootstrap"
 import { FaPlay } from "react-icons/fa"
 import { ImCross } from 'react-icons/im'
+import { IconContext } from "react-icons/lib"
 import "./showVideo.css"
 
 export default function ShowVideo({ showVideoModal, playlistVid, watchedClicked, watchedStatus, markedWatchedIcon, setShowVideoModal }) {
@@ -10,10 +10,10 @@ export default function ShowVideo({ showVideoModal, playlistVid, watchedClicked,
     return (
         <div className={showVideoModal ? "display-show-vid-modal" : "hide-show-vid-modal"}>
             <div className="close-modal-btn">
-                <Button variant="success" onClick={() => setShowVideoModal(false)}><ImCross /></Button>
+                <button className="btn" id="close-btn" onClick={() => setShowVideoModal(false)}><ImCross /></button>
             </div>
             <div className="modal-body">
-                <img src={playlistVid.image} />
+                <img className="modal-image" src={playlistVid.image} />
                 <div className="modal-description">
                     <h3>{playlistVid.title}</h3>
                     <h5>{playlistVid.synopsis}</h5>
@@ -23,12 +23,12 @@ export default function ShowVideo({ showVideoModal, playlistVid, watchedClicked,
                     <p>{playlistVid.released} {playlistVid.type}</p>
                     <div className="modal-settings">
                         <form onSubmit={watchedClicked}>
-                            <Button type="submit" variant='success' value={playlistVid._id}>{markedWatchedIcon}{markWatched}</Button>
+                            <button type="submit" className="btn" id="watched-status-btn" value={playlistVid._id}>{markedWatchedIcon}{markWatched}</button>
                         </form>
                         <a href={`https://www.netflix.com/title/${playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                            <Button variant='success'>
+                            <button className="btn" id="play-btn">
                                 <FaPlay /> Play
-                            </Button>
+                            </button>
                         </a>
                     </div>
                 </div>

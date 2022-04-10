@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Form, Tooltip, OverlayTrigger, Button } from "react-bootstrap"
 import { postVideo } from "../../../../api/video"
 import { GrAdd } from "react-icons/gr"
+import "./postSearchRes.css"
 
 export default function PostSearchRes(props) {
 
@@ -9,14 +10,14 @@ export default function PostSearchRes(props) {
 
     // helper method to set state based on what playist is clicked
     const playlistClicked = (e) => {
-        console.log('this playlist id was selected:\n', e.target.value)
+        console.log("this playlist id was selected:\n", e.target.value)
         setPlaylist(e.target.value)
     }
 
     // helper method to add a video to a playlist
     const postVideoToPlaylist = (e) => {
         e.preventDefault()
-        console.log('this is the playlist id:', props.indexPlaylists)
+        console.log("this is the playlist id:", props.indexPlaylists)
         postVideo(props.currUser, playlist, props.videoData)
             .then(() => {
                 props.refPlaylists()
@@ -26,7 +27,7 @@ export default function PostSearchRes(props) {
     }
 
 
-        
+
 
     // hover for add button
     const addHover = (props) => (
@@ -44,8 +45,8 @@ export default function PostSearchRes(props) {
     })
 
     return (
-        <Form id='postPlaylist' onSubmit={postVideoToPlaylist}>
-            <Form.Select aria-label="add video to playlist selector" id='img__description' onChange={playlistClicked}>
+        <Form id="postPlaylist" onSubmit={postVideoToPlaylist}>
+            <Form.Select aria-label="add video to playlist selector" id="img__description" onChange={playlistClicked}>
                 <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
                 {allPlaylists}
             </Form.Select>
@@ -54,21 +55,36 @@ export default function PostSearchRes(props) {
                 delay={{ show: 250, hide: 400 }}
                 overlay={addHover}
             >
-                <Button variant='success' type='submit' id='img__description'><GrAdd /></Button>
+                <button type="submit" className="btn" id="img__description"><GrAdd /></button>
             </OverlayTrigger>
         </Form>
-    //     <form id='postPlaylist' onSubmit={postVideoToPlaylist}>
-    //     <select aria-label="add video to playlist selector" id='img__description' onChange={playlistClicked}>
-    //         <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
-    //         {allPlaylists}
-    //     </select>
-    //     <OverlayTrigger
-    //         placement="top"
-    //         delay={{ show: 250, hide: 400 }}
-    //         overlay={addHover}
-    //     >
-    //         <button variant='success' type='submit' id='img__description'><GrAdd /></button>
-    //     </OverlayTrigger>
-    // </form>
+
+        // <Form id="postPlaylist" onSubmit={postVideoToPlaylist}>
+        //     <Form.Select aria-label="add video to playlist selector" onChange={playlistClicked}>
+        //         <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
+        //         {allPlaylists}
+        //     </Form.Select>
+        //     <OverlayTrigger
+        //         placement="top"
+        //         delay={{ show: 250, hide: 400 }}
+        //         overlay={addHover}
+        //     >
+        //         <button className="btn " type="submit"><GrAdd /></button>
+        //     </OverlayTrigger>
+        // </Form>
+
+        //     <form id="postPlaylist" onSubmit={postVideoToPlaylist}>
+        //     <select aria-label="add video to playlist selector" id="img__description" onChange={playlistClicked}>
+        //         <option value={null} selected={playlist == null ? true : false}>Select Playlist</option>
+        //         {allPlaylists}
+        //     </select>
+        //     <OverlayTrigger
+        //         placement="top"
+        //         delay={{ show: 250, hide: 400 }}
+        //         overlay={addHover}
+        //     >
+        //         <button variant="success" type="submit" id="img__description"><GrAdd /></button>
+        //     </OverlayTrigger>
+        // </form>
     )
 }

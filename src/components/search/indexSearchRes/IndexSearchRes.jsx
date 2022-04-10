@@ -1,15 +1,16 @@
-import { Button, Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { useState } from 'react'
-import PostSearchRes from './postSearchRes/PostSearchRes'
-import ShowSearchRes from './showSearchRes/ShowSearchRes'
+import { Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap"
+import { useState } from "react"
+import PostSearchRes from "./postSearchRes/PostSearchRes"
+import ShowSearchRes from "./showSearchRes/ShowSearchRes"
 
-import { GrExpand } from 'react-icons/gr'
+import { GrExpand } from "react-icons/gr"
 import { FaPlay } from "react-icons/fa"
+import "./indexSearchRes.css"
 
 const style = {
-    width: '13rem',
-    border: '1px solid #213749',
-  }
+    width: "13rem",
+    border: "1px solid #213749",
+}
 
 export default function IndexSearchRes(props) {
 
@@ -34,14 +35,15 @@ export default function IndexSearchRes(props) {
         </div>
     ) : (
         // if not only display watch now function
-        <OverlayTrigger
-            placement="left"
-            delay={{ show: 250, hide: 400 }}
-            overlay={playHover}
-        >
-            <a href={`https://www.netflix.com/title/${props.netflixid}`} target='_blank' rel='noopener noreferrer'><Button variant='success' id='img__description'><FaPlay /></Button></a>
-        </OverlayTrigger>
-
+        <div className="play-btn-container">
+            <OverlayTrigger
+                placement="left"
+                delay={{ show: 250, hide: 400 }}
+                overlay={playHover}
+            >
+                <a href={`https://www.netflix.com/title/${props.netflixid}`} target="_blank" rel="noopener noreferrer"><button className="btn" id="img__description"><FaPlay /></button></a>
+            </OverlayTrigger>
+        </div>
     )
 
     // hover for more details button
@@ -52,20 +54,20 @@ export default function IndexSearchRes(props) {
     )
 
     return (
-        <div id='indexSearchRes'>
-            <Card id='img__wrap' style={style}>
+        <div id="indexSearchRes">
+            <Card id="img__wrap" style={style}>
                 <Card.Img src={props.res.image} alt={props.res.title} />
                 <Card.ImgOverlay>
-                    <div id='seeMoreBtn'>
+                    <div id="more-info-btn-container">
                         <OverlayTrigger
                             placement="left"
                             delay={{ show: 250, hide: 400 }}
                             overlay={moreHover}
                         >
-                            <Button variant='success' id='img__description' onClick={() => setModalShow(true)}><GrExpand alt='Click for more details' /></Button>
+                            <button className="btn" id="img__description" onClick={() => setModalShow(true)}><GrExpand alt="Click for more details" /></button>
                         </OverlayTrigger>
                     </div>
-                    <div id='searchOptions'>
+                    <div id="searchOptions">
                         {userSignedIn}
                     </div>
                 </Card.ImgOverlay>
@@ -76,23 +78,66 @@ export default function IndexSearchRes(props) {
                 result={props.res}
             />
         </div>
-        // <div id='indexSearchRes'>
-        //     <div id="img__wrap">
-        //         <div className="playlist-images">
-        //             <img className="single-image" src={props.res.image} alt={props.res.title} />
+
+        // <div>
+        //     <img src={props.res.image} alt={props.res.title} />
+        //     <div>
+        //         <OverlayTrigger
+        //             placement="left"
+        //             delay={{ show: 250, hide: 400 }}
+        //             overlay={moreHover}
+        //         >
+        //             <Button variant="success" onClick={() => setModalShow(true)}><GrExpand alt="Click for more details" /></Button>
+        //         </OverlayTrigger>
+        //         <div>
+        //             {userSignedIn}
         //         </div>
         //     </div>
-        //     <div id='searchOptions'>
-        //         {userSignedIn}
-        //     </div>
-        //     {/* <div className="playlist-title">
-        //         <h4>{props.playlist.title}</h4>
-        //     </div> */}
+        // </div>
+
+        // <div id="indexSearchRes">
+        //     {/* <div id="img__wrap"> */}
+        //         <div className="index-res-card">
+        //             <img className="netflix-image" src={props.res.image} alt={props.res.title} />
+        //             <div id="seeMoreBtn">
+        //                  <OverlayTrigger
+        //                      placement="left"
+        //                      delay={{ show: 250, hide: 400 }}
+        //                      overlay={moreHover}
+        //                  >
+        //                      <button className="btn" onClick={() => setModalShow(true)}><GrExpand alt="Click for more details" /></button>
+        //                  </OverlayTrigger>
+        //              </div>
+        //             <div id="searchOptions img__description">
+        //                 {userSignedIn}
+        //             </div>
+        //         </div>
+        //     {/* </div> */}
         //     <ShowSearchRes
         //         show={modalShow}
         //         onHide={() => setModalShow(false)}
         //         result={props.res}
         //     />
+        // </div>
+
+        // <div className="playlist-card">
+        //     <div className="playlist-img-container">
+        //         <div className="playlist-images">
+        //             <img className="single-image" src={props.res.image} alt={props.res.title} />
+        //         </div>
+        //     </div>
+        //     <div id="seeMoreBtn">
+        //         <OverlayTrigger
+        //             placement="left"
+        //             delay={{ show: 250, hide: 400 }}
+        //             overlay={moreHover}
+        //         >
+        //             <Button variant="success" onClick={() => setModalShow(true)}><GrExpand alt="Click for more details" /></Button>
+        //         </OverlayTrigger>
+        //     </div>
+        //     <div id="searchOptions">
+        //         {userSignedIn}
+        //     </div>
         // </div>
     )
 }

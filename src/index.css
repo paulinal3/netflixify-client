@@ -158,7 +158,7 @@ code {
     padding-top: 3%;
 }
 
-#removeVidBtn, #seeMoreBtn {
+#removeVidBtn {
     display: flex;
     justify-content: flex-end;
 }

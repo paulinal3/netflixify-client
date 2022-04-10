@@ -5,15 +5,21 @@
 .display-show-vid-modal {
     display: block;
     position: absolute;
-    width: 70%;
-    left: 15%;
+    width: 60%;
+    left: 20%;
     /* height: 2px; */
-    top: 50%;
+    top: 30%;
     margin-top: -10px;
     text-align: center;
     z-index: 2;
-    background-color: #213749;
+    background-color: rgb(31,41,45);
+    /* border: 1px solid var(--darkturquoise); */
     border-radius: 5px;
+    padding: 25px;
+}
+
+#close-btn {
+    width: 50px;
 }
 
 .modal-body {
@@ -26,6 +32,31 @@
     justify-content: center;
     align-items: center;
     padding: 0 20px;
+}
+
+.modal-image {
+    width: 450px;
+}
+
+#watched-status-btn {
+    width: 200px;
+    background-color: rgb(30, 32, 37);
+    border: solid 2px rgb(59, 66, 76);
+    color: #bbc8d3;
+}
+
+#watched-status-btn:hover {
+    color: var(--main-bg-color);
+}
+
+#play-btn {
+    background-color: rgb(30, 32, 37);
+    border: solid 2px rgb(59, 66, 76);
+    color: #bbc8d3;
+}
+
+#play-btn:hover {
+    color: var(--main-bg-color);
 }
 
 .modal-settings {
