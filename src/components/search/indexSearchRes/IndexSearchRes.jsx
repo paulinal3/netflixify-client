@@ -15,6 +15,7 @@ const style = {
 export default function IndexSearchRes(props) {
 
     const [modalShow, setModalShow] = useState(false)
+    const [showVideoModal, setShowVideoModal] = useState(false)
 
     const playHover = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -64,7 +65,7 @@ export default function IndexSearchRes(props) {
                             delay={{ show: 250, hide: 400 }}
                             overlay={moreHover}
                         >
-                            <button className="btn" id="img__description" onClick={() => setModalShow(true)}><GrExpand alt="Click for more details" /></button>
+                            <button className="btn" id="img__description" onClick={() => setShowVideoModal(true)}><GrExpand alt="Click for more details" /></button>
                         </OverlayTrigger>
                     </div>
                     <div id="searchOptions">
@@ -73,6 +74,8 @@ export default function IndexSearchRes(props) {
                 </Card.ImgOverlay>
             </Card>
             <ShowSearchRes
+                showVideoModal={showVideoModal}
+                setShowVideoModal={setShowVideoModal}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 result={props.res}
