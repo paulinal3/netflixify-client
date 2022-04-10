@@ -5,15 +5,16 @@ import ShowVideo from "../showVideos/ShowVideo"
 
 import { Button, Card, Tooltip, OverlayTrigger } from "react-bootstrap"
 import { FaPlay, FaCheck, FaCheckSquare } from "react-icons/fa"
-import { ImCross } from 'react-icons/im'
-import { GrExpand } from 'react-icons/gr'
+import { ImCross } from "react-icons/im"
+import { GrExpand } from "react-icons/gr"
+import "./indexVideos.css"
 
 export default function IndexVideos({ video, playlistId, playlistVids, user, setPlaylistVids }) {
 
     const [watchedStatus, setWatchedStatus] = useState(video.watched)
     const [showVideoModal, setShowVideoModal] = useState(false)
 
-    // helper method to update a video's watched status
+    // helper method to update a video"s watched status
     // const editVideo = (e) => {
     //     console.log(e.target.value)
     //     updateVideo(user, e.target.value, watchedStatus)
@@ -60,11 +61,11 @@ export default function IndexVideos({ video, playlistId, playlistVids, user, set
     )
 
     const watchedHover = (props) => (watchedStatus) ? (
-        <Tooltip id='button-tooltip' {...props}>
+        <Tooltip id="button-tooltip" {...props}>
             Watched
         </Tooltip>
     ) : (
-        <Tooltip id='button-tooltip' {...props}>
+        <Tooltip id="button-tooltip" {...props}>
             Mark as Watched
         </Tooltip>
     )
@@ -79,28 +80,28 @@ export default function IndexVideos({ video, playlistId, playlistVids, user, set
         <>
             {user ?
                 <>
-                    <Card id="img__wrap" className="bg-dark text-white" style={{ width: '13rem' }}>
+                    <Card id="img__wrap" className="bg-dark text-white" style={{ width: "13rem" }}>
                         <Card.Img src={video.image} alt={video.title} />
                         <Card.ImgOverlay>
-                            <div id='removeVidBtn'>
+                            <div id="removeVidBtn">
                                 <OverlayTrigger
                                     placement="left"
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={removeHover}
                                 >
                                     <form onSubmit={deleteVideo}>
-                                        <Button type="submit" id='img__description' variant='danger' value={video._id}><ImCross /></Button>
+                                        <button type="submit" id="img__description" className="btn" value={video._id}><ImCross /></button>
                                     </form>
                                 </OverlayTrigger>,
                             </div>
-                            <div id='showOptions'>
+                            <div id="showOptions">
                                 <OverlayTrigger
                                     placement="top"
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={watchedHover}
                                 >
                                     <form onSubmit={watchedClicked}>
-                                        <Button type="submit" variant='success' value={video._id} id='img__description'>{markedWatchedIcon}</Button>
+                                        <button type="submit" className="btn" value={video._id} id="img__description">{markedWatchedIcon}</button>
                                     </form>
                                 </OverlayTrigger>
                                 <OverlayTrigger
@@ -108,10 +109,10 @@ export default function IndexVideos({ video, playlistId, playlistVids, user, set
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={playHover}
                                 >
-                                    <a href={`https://www.netflix.com/title/${video.netflixid}`} target='_blank' rel='noopener noreferrer'>
-                                        <Button id='img__description' variant='success'>
+                                    <a href={`https://www.netflix.com/title/${video.netflixid}`} target="_blank" rel="noopener noreferrer">
+                                        <button id="img__description" className="btn">
                                             <FaPlay />
-                                        </Button>
+                                        </button>
                                     </a>
                                 </OverlayTrigger>
                                 <OverlayTrigger
@@ -119,7 +120,7 @@ export default function IndexVideos({ video, playlistId, playlistVids, user, set
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={moreHover}
                                 >
-                                    <Button variant='success' id='img__description' onClick={() => setShowVideoModal(true)}><GrExpand /></Button>
+                                    <button className="btn" id="img__description" onClick={() => setShowVideoModal(true)}><GrExpand /></button>
                                 </OverlayTrigger>
 
                             </div>

@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap"
 
 import { destroyPlaylist, getOnePlaylist, updatePlaylist } from "../../api/playlist"
 import IndexVideos from "./indexVideos/IndexVideos"
+import "./showPlaylist.css"
 // import PlaylistHeader from "./header/PlaylistHeader"
 // import EditTitleForm from "./header/EditTitleForm"
 
@@ -102,7 +103,7 @@ export default function ShowPlaylist({ user, playlists }) {
         <header className="header-container" id="show-playlist-header">
             <div className="header-row row-one-header">
                 <h4>PLAYLIST</h4>
-                <Button id="edit-playlist-btn" className="float-end" size="sm" onClick={displayEdit}>Edit Playlist</Button>
+                <button id="edit-playlist-btn" className="btn" onClick={displayEdit}>Edit Playlist</button>
             </div>
             <div className="header-row row-two-header">
                 <h1>{playlist.title}</h1>
@@ -118,13 +119,13 @@ export default function ShowPlaylist({ user, playlists }) {
         <header className="header-container" id="show-playlist-header">
             <div className="header-row row-one-header">
                 <h4>PLAYLIST</h4>
-                <Button id="edit-playlist-btn" className="float-end" size="sm" onClick={displayEdit}>Cancel</Button>
+                <button id="edit-playlist-btn" className="btn" onClick={displayEdit}>Cancel</button>
             </div>
             <div className="header-row row-two-header">
                 <Form id="editPlaylist">
                     <Form.Control id="edit-playlist-input" value={playlistTitle} onChange={handleTitleChange} />
-                    <Button size="sm" id="save-playlist-btn" onClick={editPlaylist}>Save</Button>
-                    <Button size="sm" id="delete-playlist-btn" onClick={deletePlaylist}>Delete Playlist</Button>
+                    <button className="btn" id="save-playlist-btn" onClick={editPlaylist}>Save</button>
+                    <button className="btn" id="delete-playlist-btn" onClick={deletePlaylist}>Delete Playlist</button>
                 </Form>
             </div>
         </header>

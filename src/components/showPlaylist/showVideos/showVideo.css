@@ -4,7 +4,7 @@
 
 .display-show-vid-modal {
     display: block;
-    position: absolute;
+    position: fixed;
     width: 60%;
     left: 20%;
     /* height: 2px; */
@@ -46,6 +46,10 @@
 }
 
 #watched-status-btn:hover {
+    color: var(--main-bg-color);
+}
+
+.btn path:hover {
     color: var(--main-bg-color);
 }
 

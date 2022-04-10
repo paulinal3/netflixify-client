@@ -1,0 +1,21 @@
+#removeVidBtn path {
+    color: var(--main-bg-color);
+}
+
+#removeVidBtn button {
+    background-color: rgb(204, 76, 54);
+    width: 50px;
+}
+
+#removeVidBtn button:after {
+    background-color: red;
+}
+
+#showOptions path {
+    color: var(--main-bg-color);
+}
+
+#showOptions button {
+    background-color: rgb(55, 187, 187);
+    width: 50px;
+}

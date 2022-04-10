@@ -14,7 +14,6 @@ const style = {
 
 export default function IndexSearchRes(props) {
 
-    const [modalShow, setModalShow] = useState(false)
     const [showVideoModal, setShowVideoModal] = useState(false)
 
     const playHover = (props) => (
@@ -76,8 +75,6 @@ export default function IndexSearchRes(props) {
             <ShowSearchRes
                 showVideoModal={showVideoModal}
                 setShowVideoModal={setShowVideoModal}
-                show={modalShow}
-                onHide={() => setModalShow(false)}
                 result={props.res}
             />
         </div>

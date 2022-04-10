@@ -27,7 +27,7 @@ export default function ShowVideo({ showVideoModal, playlistVid, watchedClicked,
                         </form>
                         <a href={`https://www.netflix.com/title/${playlistVid.netflixid}`} target='_blank' rel='noopener noreferrer'>
                             <button className="btn" id="play-btn">
-                                <FaPlay /> Play
+                                <FaPlay className="play-icon" /> Play
                             </button>
                         </a>
                     </div>

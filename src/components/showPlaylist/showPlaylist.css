@@ -1,0 +1,89 @@
+#show-playlist-header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    gap: 10px;
+}
+
+#show-playlist-header .header-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px;
+}
+
+#show-playlist-header .row-one-header {
+    align-items: flex-end;
+}
+
+#show-playlist-header h4 {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+#save-playlist-btn {
+    background-color: var(--main-bg-color);
+    color: #bbc8d3;
+    width: 75px;
+    border: solid 3px rgb(59, 66, 76);
+}
+
+#edit-playlist-btn {
+    background-color: var(--main-bg-color);
+    color: #bbc8d3;
+    width: 125px;
+    border: solid 3px rgb(59, 66, 76);
+}
+
+#edit-playlist-input {
+    max-width: 45%;
+}
+
+#edit-playlist-btn:hover, #save-playlist-btn:hover {
+    color: var(--main-bg-color);
+}
+
+#delete-playlist-btn {
+    background-color: var(--main-bg-color);
+    color: #bbc8d3;
+    width: 175px;
+    border: solid 3px rgb(59, 66, 76);
+}
+
+#delete-playlist-btn:hover {
+    color: var(--main-bg-color);
+}
+
+#delete-playlist-btn:after {
+    background-color: var(--burlywood);
+} 
+
+#show-playlist-header h1 {
+    font-size: 35px;
+    padding-left: 10px;
+    font-family: 'Fredericka the Great', cursive;
+    margin-bottom: 0;
+}
+
+#playlist-dropdown-container #playlists-dropdown {
+    background-color: #213749;
+    color: #bbc8d3;
+}
+
+@media screen and (min-width: 768px) {
+    #edit-playlist-input {
+        max-width: 50%;
+    }
+
+    #show-playlist-header h4 {
+        font-size: 25px;
+    }
+
+    #show-playlist-header h1 {
+        font-size: 45px;
+    }
+
+    #playlist-dropdown-container {
+        display: flex;
+        align-items: center;
+    }
+}
